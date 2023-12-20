@@ -18,6 +18,8 @@
 		F93E078E2B335AF800DF8A48 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E078D2B335AF800DF8A48 /* TMDBUITests.swift */; };
 		F93E07902B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E078F2B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift */; };
 		F93E079E2B335BD500DF8A48 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F93E079D2B335BD500DF8A48 /* Alamofire */; };
+		F93E07A12B335CF200DF8A48 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07A02B335CF200DF8A48 /* APIClient.swift */; };
+		F93E07A32B335D0300DF8A48 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07A22B335D0300DF8A48 /* APIRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		F93E07892B335AF800DF8A48 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93E078D2B335AF800DF8A48 /* TMDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITests.swift; sourceTree = "<group>"; };
 		F93E078F2B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F93E07A02B335CF200DF8A48 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F93E07A22B335D0300DF8A48 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				F93E07692B335AF700DF8A48 /* AppDelegate.swift */,
 				F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */,
 				F93E076D2B335AF700DF8A48 /* ViewController.swift */,
+				F93E079F2B335CCD00DF8A48 /* NetworkLayer */,
 				F93E076F2B335AF700DF8A48 /* Main.storyboard */,
 				F93E07752B335AF800DF8A48 /* Assets.xcassets */,
 				F93E07772B335AF800DF8A48 /* LaunchScreen.storyboard */,
@@ -130,6 +135,15 @@
 				F93E078F2B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift */,
 			);
 			path = TMDBUITests;
+			sourceTree = "<group>";
+		};
+		F93E079F2B335CCD00DF8A48 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F93E07A02B335CF200DF8A48 /* APIClient.swift */,
+				F93E07A22B335D0300DF8A48 /* APIRouter.swift */,
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +284,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F93E07742B335AF700DF8A48 /* TMDB.xcdatamodeld in Sources */,
+				F93E07A32B335D0300DF8A48 /* APIRouter.swift in Sources */,
 				F93E076E2B335AF700DF8A48 /* ViewController.swift in Sources */,
 				F93E076A2B335AF700DF8A48 /* AppDelegate.swift in Sources */,
+				F93E07A12B335CF200DF8A48 /* APIClient.swift in Sources */,
 				F93E076C2B335AF700DF8A48 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
