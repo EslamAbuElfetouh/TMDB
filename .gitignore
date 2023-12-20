@@ -1,0 +1,13 @@
+# Xcode
+xcuserdata/
+*.xcworkspace
+
+# Core Data
+*.xcdatamodel
+*.xcdatamodeld
+*.xcmappingmodel
+*.xcversiond
+
+# Swift Package Manager
+.build/
+
