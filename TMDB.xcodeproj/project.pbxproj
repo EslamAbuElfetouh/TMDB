@@ -20,7 +20,7 @@
 		F93E079E2B335BD500DF8A48 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F93E079D2B335BD500DF8A48 /* Alamofire */; };
 		F93E07A12B335CF200DF8A48 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07A02B335CF200DF8A48 /* APIClient.swift */; };
 		F93E07A32B335D0300DF8A48 /* APIRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07A22B335D0300DF8A48 /* APIRouterProtocol.swift */; };
-		F93E07A72B336DC000DF8A48 /* APIRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07A62B336DC000DF8A48 /* APIRequestParameters.swift */; };
+		F93E07A72B336DC000DF8A48 /* APIRequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07A62B336DC000DF8A48 /* APIRequestConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		F93E078F2B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F93E07A02B335CF200DF8A48 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		F93E07A22B335D0300DF8A48 /* APIRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterProtocol.swift; sourceTree = "<group>"; };
-		F93E07A62B336DC000DF8A48 /* APIRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestParameters.swift; sourceTree = "<group>"; };
+		F93E07A62B336DC000DF8A48 /* APIRequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 			children = (
 				F93E07A02B335CF200DF8A48 /* APIClient.swift */,
 				F93E07A22B335D0300DF8A48 /* APIRouterProtocol.swift */,
-				F93E07A62B336DC000DF8A48 /* APIRequestParameters.swift */,
+				F93E07A62B336DC000DF8A48 /* APIRequestConfiguration.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 				F93E076A2B335AF700DF8A48 /* AppDelegate.swift in Sources */,
 				F93E07A12B335CF200DF8A48 /* APIClient.swift in Sources */,
 				F93E076C2B335AF700DF8A48 /* SceneDelegate.swift in Sources */,
-				F93E07A72B336DC000DF8A48 /* APIRequestParameters.swift in Sources */,
+				F93E07A72B336DC000DF8A48 /* APIRequestConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ typealias APIResult<Entity: Codable> = Result<Entity, Error>
 
 // Protocol defining the API client's behavior
 protocol APIClientProtocol {
-    func performRequest<Entity: Codable>(with parameters: APIRequestParameters,
+    func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
                                          completion: @escaping (APIResult<Entity>) -> Void)
 }
 // Singleton class implementing the API client
@@ -22,18 +22,18 @@ final class APIClient: APIClientProtocol {
 
     private init() {}
     
-    func performRequest<Entity: Codable>(with parameters: APIRequestParameters,
+    func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
                                          completion: @escaping (APIResult<Entity>) -> Void) {
-        let url = buildURL(with: parameters)
+        let url = buildURL(with: configuration)
 
-        let requestMethod = determineRequestMethod(from: parameters.method)
-        let requestParameters = buildRequestParameters(from: parameters.method)
+        let requestMethod = determineRequestMethod(from: configuration.method)
+        let requestParameters = buildRequestParameters(from: configuration.method)
 
         makeRequest(url: url, method: requestMethod, parameters: requestParameters, completion: completion)
     }
 
-    private func buildURL(with parameters: APIRequestParameters) -> String {
-        return parameters.apiVersion.baseUrl + parameters.router.path
+    private func buildURL(with configuration: APIRequestConfiguration) -> String {
+        return configuration.apiVersion.baseUrl + configuration.router.path
     }
 
     private func determineRequestMethod(from method: APIClient.RequestMethod) -> HTTPMethod {
