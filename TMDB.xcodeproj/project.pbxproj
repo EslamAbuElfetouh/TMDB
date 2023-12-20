@@ -17,6 +17,7 @@
 		F93E07842B335AF800DF8A48 /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07832B335AF800DF8A48 /* TMDBTests.swift */; };
 		F93E078E2B335AF800DF8A48 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E078D2B335AF800DF8A48 /* TMDBUITests.swift */; };
 		F93E07902B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E078F2B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift */; };
+		F93E079E2B335BD500DF8A48 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F93E079D2B335BD500DF8A48 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93E079E2B335BD500DF8A48 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,9 @@
 			dependencies = (
 			);
 			name = TMDB;
+			packageProductDependencies = (
+				F93E079D2B335BD500DF8A48 /* Alamofire */,
+			);
 			productName = TMDB;
 			productReference = F93E07662B335AF700DF8A48 /* TMDB.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = F93E075D2B335AF700DF8A48;
+			packageReferences = (
+				F93E079C2B335BD500DF8A48 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = F93E07672B335AF700DF8A48 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -611,6 +619,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F93E079C2B335BD500DF8A48 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F93E079D2B335BD500DF8A48 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F93E079C2B335BD500DF8A48 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F93E07722B335AF700DF8A48 /* TMDB.xcdatamodeld */ = {
