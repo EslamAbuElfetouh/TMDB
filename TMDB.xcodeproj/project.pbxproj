@@ -17,6 +17,7 @@
 		F93E07842B335AF800DF8A48 /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07832B335AF800DF8A48 /* TMDBTests.swift */; };
 		F93E078E2B335AF800DF8A48 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E078D2B335AF800DF8A48 /* TMDBUITests.swift */; };
 		F93E07902B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E078F2B335AF800DF8A48 /* TMDBUITestsLaunchTests.swift */; };
+		F9D4161A2B347CE700317088 /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F9D416192B347CE700317088 /* NetworkLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F908057D2B3481C6007E5D6B /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkLayer; sourceTree = "<group>"; };
 		F93E07662B335AF700DF8A48 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93E07692B335AF700DF8A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D4161A2B347CE700317088 /* NetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F908057C2B3481BC007E5D6B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F908057D2B3481C6007E5D6B /* NetworkLayer */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		F93E075D2B335AF700DF8A48 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +96,7 @@
 				F93E07822B335AF800DF8A48 /* TMDBTests */,
 				F93E078C2B335AF800DF8A48 /* TMDBUITests */,
 				F93E07672B335AF700DF8A48 /* Products */,
+				F9D416162B347BDB00317088 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +116,7 @@
 				F93E07692B335AF700DF8A48 /* AppDelegate.swift */,
 				F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */,
 				F93E076D2B335AF700DF8A48 /* ViewController.swift */,
+				F908057C2B3481BC007E5D6B /* Base */,
 				F93E076F2B335AF700DF8A48 /* Main.storyboard */,
 				F93E07752B335AF800DF8A48 /* Assets.xcassets */,
 				F93E07772B335AF800DF8A48 /* LaunchScreen.storyboard */,
@@ -130,6 +143,13 @@
 			path = TMDBUITests;
 			sourceTree = "<group>";
 		};
+		F9D416162B347BDB00317088 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +166,9 @@
 			dependencies = (
 			);
 			name = TMDB;
+			packageProductDependencies = (
+				F9D416192B347CE700317088 /* NetworkLayer */,
+			);
 			productName = TMDB;
 			productReference = F93E07662B335AF700DF8A48 /* TMDB.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +241,8 @@
 				Base,
 			);
 			mainGroup = F93E075D2B335AF700DF8A48;
+			packageReferences = (
+			);
 			productRefGroup = F93E07672B335AF700DF8A48 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -611,6 +636,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9D416192B347CE700317088 /* NetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkLayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F93E07722B335AF700DF8A48 /* TMDB.xcdatamodeld */ = {
