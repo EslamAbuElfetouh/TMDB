@@ -6,11 +6,11 @@
 //
 
 import Foundation
-
+import Alamofire
 // Encapsulate API request parameters
 struct APIRequestConfiguration {
     let router: APIRouterProtocol
-    let apiVersion: APIClient.APIVersion
+    let apiVersion: APIClient.APIVersion = .v3
     let method: APIClient.RequestMethod
+    let header: HTTPHeaders = [:]
 }
-

@@ -16,26 +16,40 @@ protocol APIClientProtocol {
                                          completion: @escaping (APIResult<Entity>) -> Void)
 }
 // Singleton class implementing the API client
-final class APIClient: APIClientProtocol {
+final public class APIClient: APIClientProtocol {
+    // Singleton instance
     static let shared = APIClient()
     private static let baseURL = "https://api.themoviedb.org/"
-
-    private init() {}
+    private var appConfig: AppConfigProtocol?
+    // Private initializer to enforce singleton pattern
+    private init() { }
     
+    // MARK: Configure AppConfig
+    public func config(appConfig: AppConfigProtocol) {
+        self.appConfig = appConfig
+    }
+}
+// Build and Perform request
+extension APIClient {
     func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
                                          completion: @escaping (APIResult<Entity>) -> Void) {
         let url = buildURL(with: configuration)
-
+        
         let requestMethod = determineRequestMethod(from: configuration.method)
+        let requestHeader = buildRequestHeader(with: configuration.header)
         let requestParameters = buildRequestParameters(from: configuration.method)
-
-        makeRequest(url: url, method: requestMethod, parameters: requestParameters, completion: completion)
+        
+        makeRequest( with: .init(url: url,
+                                 method: requestMethod,
+                                 headers: requestHeader,
+                                 parameters: requestParameters),
+                     completion: completion)
     }
-
+    
     private func buildURL(with configuration: APIRequestConfiguration) -> String {
         return configuration.apiVersion.baseUrl + configuration.router.path
     }
-
+    
     private func determineRequestMethod(from method: APIClient.RequestMethod) -> HTTPMethod {
         switch method {
         case .post:
@@ -44,21 +58,27 @@ final class APIClient: APIClientProtocol {
             return .get
         }
     }
-
+    
+    private func buildRequestHeader(with header: HTTPHeaders) -> HTTPHeaders {
+        var header: HTTPHeaders = header
+        header["Authorization"] = appConfig?.getToken()
+        return header
+    }
+    
     private func buildRequestParameters(from method: APIClient.RequestMethod) -> [String: Any]? {
         switch method {
         case .post(let parameters):
-            return parameters
-        case .get:
-            return nil
+            return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(parameters)) as? [String: Any]
+        case .get(let parameters):
+            guard let parameters = parameters else { return nil }
+            return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(parameters)) as? [String: Any]
         }
     }
-
-    private func makeRequest<Entity: Codable>(url: String,
-                                              method: HTTPMethod,
-                                              parameters: [String: Any]?,
+    
+    private func makeRequest<Entity: Codable>(with builder: RequestBuilder,
                                               completion: @escaping (APIResult<Entity>) -> Void) {
-        AF.request(url, method: method, parameters: parameters)
+        
+        AF.request(builder.url, method: builder.method, parameters: builder.parameters,  headers: builder.headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: Entity.self) { response in
                 DispatchQueue.main.async {
@@ -71,11 +91,10 @@ final class APIClient: APIClientProtocol {
                 }
             }
     }
-
 }
 
 // Enums related to the API client
-extension APIClient {
+public extension APIClient {
     // MARK: API versions
     /**
      This enum makes it easier in the future to include new API versions, and even specefiy a new baseUrl to any API version.
@@ -89,7 +108,16 @@ extension APIClient {
     }
     // MARK: HTTP request methods
     enum RequestMethod {
-        case get
-        case post(parameters: [String: Any])
+        case get(parameters: Encodable? = nil)
+        case post(parameters: Encodable)
+    }
+}
+// Models related to API client
+private extension APIClient {
+    struct RequestBuilder {
+        let url: String
+        let method: HTTPMethod
+        var headers: HTTPHeaders
+        let parameters: [String: Any]?
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9228F282B33B79800EDA469 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9228F272B33B79800EDA469 /* AppConfig.swift */; };
 		F93E076A2B335AF700DF8A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07692B335AF700DF8A48 /* AppDelegate.swift */; };
 		F93E076C2B335AF700DF8A48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */; };
 		F93E076E2B335AF700DF8A48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E076D2B335AF700DF8A48 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F9228F272B33B79800EDA469 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F93E07662B335AF700DF8A48 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93E07692B335AF700DF8A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				F93E07A22B335D0300DF8A48 /* APIRouterProtocol.swift */,
 				F93E07A62B336DC000DF8A48 /* APIRequestConfiguration.swift */,
 				F93E07AA2B3373F700DF8A48 /* APILoaderProtocol.swift */,
+				F9228F272B33B79800EDA469 /* AppConfig.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9228F282B33B79800EDA469 /* AppConfig.swift in Sources */,
 				F93E07742B335AF700DF8A48 /* TMDB.xcdatamodeld in Sources */,
 				F93E07A32B335D0300DF8A48 /* APIRouterProtocol.swift in Sources */,
 				F93E076E2B335AF700DF8A48 /* ViewController.swift in Sources */,
