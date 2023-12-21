@@ -12,42 +12,54 @@ public typealias APIResult<Entity: Codable> = Result<Entity, Error>
 
 // Protocol defining the API client's behavior
 protocol APIClientProtocol {
-    func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
+    func performRequest<Entity: Codable>(with configuration: APIRequestConfigurationProtocol,
                                          completion: @escaping (APIResult<Entity>) -> Void)
+    func updateToken(_ token: String)
 }
 // Singleton class implementing the API client
 final public class APIClient: APIClientProtocol {
     // Singleton instance
     public static let shared = APIClient()
-    private static let baseURL = "https://api.themoviedb.org/"
-    private var appConfig: AppConfigProtocol?
+    private var networkConfig: NetworkLayerConfigProtocol?
+    private var requestInterceptor: RequestInterceptor?
     // Private initializer to enforce singleton pattern
     private init() { }
     
-    // MARK: Configure AppConfig
-    public func config(appConfig: AppConfigProtocol) {
-        self.appConfig = appConfig
+    // MARK: Configure networkConfig
+    public func configClient(_ configuration: NetworkLayerConfigProtocol,
+                             requestInterceptor: RequestInterceptor? = nil) {
+        self.networkConfig = configuration
+        self.requestInterceptor = requestInterceptor ?? APIRequestInterceptor(token: configuration.getToken())
+    }
+    
+    public func updateToken(_ token: String) {
+        networkConfig?.updateToken(token)
     }
 }
 // Build and Perform request
 extension APIClient {
-    public func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
+    public func performRequest<Entity: Codable>(with configuration: APIRequestConfigurationProtocol,
                                                 completion: @escaping (APIResult<Entity>) -> Void) {
         let url = buildURL(with: configuration)
         
         let requestMethod = determineRequestMethod(from: configuration.method)
-        let requestHeader = buildRequestHeader(with: configuration.header)
         let requestParameters = buildRequestParameters(from: configuration.method)
         
         makeRequest( with: .init(url: url,
                                  method: requestMethod,
-                                 headers: requestHeader,
+                                 headers: configuration.header,
                                  parameters: requestParameters),
                      completion: completion)
     }
     
-    private func buildURL(with configuration: APIRequestConfiguration) -> String {
-        return configuration.apiVersion.baseUrl + configuration.router.path
+    private func buildURL(with configuration: APIRequestConfigurationProtocol) -> String {
+        guard let networkConfig else {
+            debugPrint("Please set NetworkLayerConfigProtocol value")
+            return ""
+        }
+        return networkConfig.getBaseUrl() +
+        configuration.apiVersion.rawValue +
+        configuration.router.path
     }
     
     private func determineRequestMethod(from method: APIClient.RequestMethod) -> HTTPMethod {
@@ -57,12 +69,6 @@ extension APIClient {
         case .get:
             return .get
         }
-    }
-    
-    private func buildRequestHeader(with header: HTTPHeaders) -> HTTPHeaders {
-        var header: HTTPHeaders = header
-        header["Authorization"] = appConfig?.getToken()
-        return header
     }
     
     private func buildRequestParameters(from method: APIClient.RequestMethod) -> [String: Any]? {
@@ -77,34 +83,31 @@ extension APIClient {
     
     private func makeRequest<Entity: Codable>(with builder: RequestBuilder,
                                               completion: @escaping (APIResult<Entity>) -> Void) {
-        
-        AF.request(builder.url, method: builder.method, parameters: builder.parameters,  headers: builder.headers)
-            .validate(statusCode: 200..<300)
-            .responseDecodable(of: Entity.self) { response in
-                DispatchQueue.main.async {
-                    switch response.result {
-                    case .success(let data):
-                        completion(.success(data))
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
+        AF.request(builder.url,
+                   method: builder.method,
+                   parameters: builder.parameters,
+                   headers: builder.headers,
+                   interceptor: requestInterceptor)
+        .validate(statusCode: 200..<300)
+        .responseDecodable(of: Entity.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
+        }
     }
 }
 
 // Enums related to the API client
 public extension APIClient {
     // MARK: API versions
-    /**
-     This enum makes it easier in the future to include new API versions, and even specefiy a new baseUrl to any API version.
-     */
+    /// This enum makes it easier in the future to include new API versions.
     enum APIVersion: String {
         case v3 = "3/"
-        
-        var baseUrl: String {
-            return APIClient.baseURL + rawValue
-        }
     }
     // MARK: HTTP request methods
     enum RequestMethod {

@@ -15,8 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhM2M3NDQyMjIyMTQ3ZmRjYTk2NDExZjM3YWVmZTQ0NSIsInN1YiI6IjU3YjBkOWQ3OTI1MTQxMzE4MzAwMDBkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vNyyH28o3wltb4D6AO0HHyVAbgClb1RkpapLq_ghmrg"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppConfig.shared.configure(token: token)
-        APIClient.shared.config(appConfig: AppConfig.shared)
+        let networkConfig = NetworkLayerConfig(baseUrl: "https://api.themoviedb.org/",
+                                               token: token)
+        APIClient.shared.configClient(networkConfig)
         return true
     }
     

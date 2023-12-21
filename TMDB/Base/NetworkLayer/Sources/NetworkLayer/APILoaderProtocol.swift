@@ -21,7 +21,7 @@ public extension APILoaderProtocol {
         - configuration: The API request configuration.
         - completionHandler: A closure to handle the Codable result of the API request.
      */
-    func loadItems(requestConfiguration configuration: APIRequestConfiguration,
+    func loadItems(requestConfiguration configuration: APIRequestConfigurationProtocol,
                    completionHandler: @escaping ResultHandler<Entity>) {
         APIClient.shared.performRequest(with: configuration) { (result: APIResult<Entity>) in
             switch result {
