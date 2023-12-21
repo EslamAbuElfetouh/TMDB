@@ -8,9 +8,14 @@
 import Foundation
 import Alamofire
 // Encapsulate API request parameters
-struct APIRequestConfiguration {
+public struct APIRequestConfiguration {
     let router: APIRouterProtocol
     let apiVersion: APIClient.APIVersion = .v3
     let method: APIClient.RequestMethod
     let header: HTTPHeaders = [:]
+    
+    public init(router: APIRouterProtocol, method: APIClient.RequestMethod) {
+        self.router = router
+        self.method = method
+    }
 }

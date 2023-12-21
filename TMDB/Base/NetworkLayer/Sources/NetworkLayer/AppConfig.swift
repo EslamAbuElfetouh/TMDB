@@ -15,7 +15,7 @@ public protocol AppConfigProtocol {
 
 final public class AppConfig: AppConfigProtocol {
     // Singleton instance
-    static let shared = AppConfig()
+    public static let shared = AppConfig()
     private var token = String()
     // Private initializer to enforce singleton pattern
     private init() {}

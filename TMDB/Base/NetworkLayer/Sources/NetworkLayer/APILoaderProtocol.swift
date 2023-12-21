@@ -7,14 +7,14 @@
 
 import Foundation
 
-typealias ResultHandler<Entity: Codable> = ((APIResult<Entity>) -> Void)
+public typealias ResultHandler<Entity: Codable> = ((APIResult<Entity>) -> Void)
 
 /// A protocol to load data from the API,  and promote code reusability and testability.
-protocol APILoaderProtocol {
+public protocol APILoaderProtocol {
     associatedtype Entity: Codable
 }
 
-extension APILoaderProtocol {
+public extension APILoaderProtocol {
     /**
      Loads items based on the provided API request configuration.
      - Parameters:

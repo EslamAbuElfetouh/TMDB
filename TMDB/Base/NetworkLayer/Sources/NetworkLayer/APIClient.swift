@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-typealias APIResult<Entity: Codable> = Result<Entity, Error>
+public typealias APIResult<Entity: Codable> = Result<Entity, Error>
 
 // Protocol defining the API client's behavior
 protocol APIClientProtocol {
@@ -18,7 +18,7 @@ protocol APIClientProtocol {
 // Singleton class implementing the API client
 final public class APIClient: APIClientProtocol {
     // Singleton instance
-    static let shared = APIClient()
+    public static let shared = APIClient()
     private static let baseURL = "https://api.themoviedb.org/"
     private var appConfig: AppConfigProtocol?
     // Private initializer to enforce singleton pattern
@@ -31,8 +31,8 @@ final public class APIClient: APIClientProtocol {
 }
 // Build and Perform request
 extension APIClient {
-    func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
-                                         completion: @escaping (APIResult<Entity>) -> Void) {
+    public func performRequest<Entity: Codable>(with configuration: APIRequestConfiguration,
+                                                completion: @escaping (APIResult<Entity>) -> Void) {
         let url = buildURL(with: configuration)
         
         let requestMethod = determineRequestMethod(from: configuration.method)
