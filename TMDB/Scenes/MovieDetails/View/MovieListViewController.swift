@@ -7,8 +7,11 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+final class MovieListViewController: UIViewController {
     // MARK: Outlets
+    @IBOutlet private weak var titleSectionStackView: UIStackView!
+    @IBOutlet private weak var favButton: UIButton!
+    @IBOutlet private weak var summaryView: UIView!
     
     // MARK: Propertiesss
     var presenter: MovieListPresenterProtocol?
@@ -16,6 +19,10 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+    }
+    // MARK: @IBActions
+    @IBAction func favButtonHandler(_ sender: UIButton) {
+        
     }
 }
 
