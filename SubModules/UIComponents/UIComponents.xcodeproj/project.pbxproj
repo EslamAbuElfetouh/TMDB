@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F94C338C2B35D0AA00B95894 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C338B2B35D0AA00B95894 /* PosterView.swift */; };
+		F94C338E2B35D0AE00B95894 /* PosterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F94C338D2B35D0AE00B95894 /* PosterView.xib */; };
 		F99DA7FE2B35966000C7944E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F99DA7FD2B35966000C7944E /* Kingfisher */; };
 		F99DA8022B35A44C00C7944E /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99DA8002B35A44C00C7944E /* MovieCell.swift */; };
 		F99DA8032B35A44C00C7944E /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F99DA8012B35A44C00C7944E /* MovieCell.xib */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F94C338B2B35D0AA00B95894 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
+		F94C338D2B35D0AE00B95894 /* PosterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterView.xib; sourceTree = "<group>"; };
 		F99DA7E72B35928200C7944E /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99DA8002B35A44C00C7944E /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		F99DA8012B35A44C00C7944E /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
@@ -46,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F94C338A2B35D09A00B95894 /* PosterView */ = {
+			isa = PBXGroup;
+			children = (
+				F94C338B2B35D0AA00B95894 /* PosterView.swift */,
+				F94C338D2B35D0AE00B95894 /* PosterView.xib */,
+			);
+			path = PosterView;
+			sourceTree = "<group>";
+		};
 		F99DA7DD2B35928200C7944E = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,7 @@
 		F9A880CE2B35A837001ED4C5 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				F94C338A2B35D09A00B95894 /* PosterView */,
 				F9A880D32B35A855001ED4C5 /* MovieInfoView */,
 			);
 			path = ReusableViews;
@@ -202,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94C338E2B35D0AE00B95894 /* PosterView.xib in Resources */,
 				F99DA8032B35A44C00C7944E /* MovieCell.xib in Resources */,
 				F9A880D22B35A84F001ED4C5 /* MovieInfoView.xib in Resources */,
 			);
@@ -222,6 +237,7 @@
 				F9A880D52B35A872001ED4C5 /* MovieInfoViewItemProtocol.swift in Sources */,
 				F9A880DD2B35AC1C001ED4C5 /* UICollectionView+Extensions.swift in Sources */,
 				F9A880D92B35AA07001ED4C5 /* UIResponder+Extension.swift in Sources */,
+				F94C338C2B35D0AA00B95894 /* PosterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

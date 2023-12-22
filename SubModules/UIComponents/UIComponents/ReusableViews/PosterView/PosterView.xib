@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PosterView" customModule="UIComponents" customModuleProvider="target">
+            <connections>
+                <outlet property="overlayView" destination="g4p-Jq-jjX" id="YDV-hW-dmf"/>
+                <outlet property="posterImageView" destination="sRD-fO-UwT" id="pCT-XV-z6j"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="207"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uN5-BM-xZf">
+                    <rect key="frame" x="0.0" y="0.0" width="372" height="207"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sRD-fO-UwT">
+                            <rect key="frame" x="0.0" y="0.0" width="372" height="207"/>
+                        </imageView>
+                        <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4p-Jq-jjX">
+                            <rect key="frame" x="0.0" y="0.0" width="372" height="207"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="sRD-fO-UwT" secondAttribute="bottom" id="5qS-Xa-53E"/>
+                        <constraint firstAttribute="trailing" secondItem="sRD-fO-UwT" secondAttribute="trailing" id="8DV-Vv-O6C"/>
+                        <constraint firstItem="sRD-fO-UwT" firstAttribute="top" secondItem="uN5-BM-xZf" secondAttribute="top" id="8tD-Vf-abL"/>
+                        <constraint firstAttribute="bottom" secondItem="g4p-Jq-jjX" secondAttribute="bottom" id="LbB-bV-AyZ"/>
+                        <constraint firstAttribute="trailing" secondItem="g4p-Jq-jjX" secondAttribute="trailing" id="T1K-CG-2Xa"/>
+                        <constraint firstItem="sRD-fO-UwT" firstAttribute="leading" secondItem="uN5-BM-xZf" secondAttribute="leading" id="Ubz-pg-del"/>
+                        <constraint firstItem="g4p-Jq-jjX" firstAttribute="top" secondItem="uN5-BM-xZf" secondAttribute="top" id="sy4-ei-9Un"/>
+                        <constraint firstItem="g4p-Jq-jjX" firstAttribute="leading" secondItem="uN5-BM-xZf" secondAttribute="leading" id="z01-aI-cYB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="uN5-BM-xZf" secondAttribute="bottom" id="A2A-ks-zam"/>
+                <constraint firstAttribute="trailing" secondItem="uN5-BM-xZf" secondAttribute="trailing" id="GHd-iR-4gT"/>
+                <constraint firstItem="uN5-BM-xZf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bWq-S3-a7s"/>
+                <constraint firstItem="uN5-BM-xZf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gfA-2N-l4U"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="19.847328244274809" y="-207.3943661971831"/>
+        </view>
+    </objects>
+</document>
