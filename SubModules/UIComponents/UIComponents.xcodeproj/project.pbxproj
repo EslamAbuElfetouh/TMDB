@@ -64,6 +64,7 @@
 			children = (
 				F99DA7FF2B35A40800C7944E /* UICollectionViewCells */,
 				F99DA7F12B3594CC00C7944E /* Utilities */,
+				F99DA7F22B35951E00C7944E /* Extensions */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -71,7 +72,6 @@
 		F99DA7F12B3594CC00C7944E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F99DA7F22B35951E00C7944E /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
