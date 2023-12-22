@@ -10,4 +10,14 @@ import XCTest
 
 final class MovieListInteractorTests: XCTestCase {
 
+    // MARK: Factory Methods
+    /// Creates the system under test (SUT) for MovieListInteractor.
+    /// - Returns: MovieListInteractor instance with mock dependencies for testing.
+    func createSystemUnderTest() -> MovieListInteractor {
+        // TODO: Inject Loader when created.
+        MovieListInteractor()
+    }
+
+    // TODO: Testcases
+    
 }
