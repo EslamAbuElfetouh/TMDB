@@ -7,12 +7,10 @@
 
 import UIKit
 
-struct MovieListInput { }
-
 final class MovieListConfigurator {
     
     // MARK: Configuration
-    class func viewController(input: MovieListInput) -> MovieListViewController {
+    class func viewController() -> MovieListViewController {
         let view = MovieListViewController()
         let interactor = MovieListInteractor()
         let router = MovieListRouter(viewController: view)
