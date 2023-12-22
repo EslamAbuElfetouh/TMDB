@@ -28,7 +28,7 @@ public extension UICollectionView {
     /// ```
     /// 
     func registerNib<CellType: UICollectionViewCell>(_ cellType: CellType.Type) {
-        register(CellType.nib, forCellWithReuseIdentifier: CellType.identifier)
+        register(CellType.loadNib, forCellWithReuseIdentifier: CellType.identifier)
     }
     
     /// **Registers a reusable header or footer view.**
@@ -37,6 +37,6 @@ public extension UICollectionView {
     /// myCollectionView.registerNib(MyHeaderView.self)
     /// ```
     func registerNib<ViewType: UICollectionReusableView>(_ viewType: ViewType.Type) {
-        register(ViewType.nib, forSupplementaryViewOfKind: ViewType.identifier, withReuseIdentifier: ViewType.identifier)
+        register(ViewType.loadNib, forSupplementaryViewOfKind: ViewType.identifier, withReuseIdentifier: ViewType.identifier)
     }
 }
