@@ -26,6 +26,9 @@
 		F99DA8012B35A44C00C7944E /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		F99DA8052B35A47400C7944E /* MovieCellItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellItemProtocol.swift; sourceTree = "<group>"; };
 		F9A880CC2B35A6F0001ED4C5 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		F9A880CF2B35A848001ED4C5 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
+		F9A880D12B35A84F001ED4C5 /* MovieInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieInfoView.xib; sourceTree = "<group>"; };
+		F9A880D42B35A872001ED4C5 /* MovieInfoViewItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewItemProtocol.swift; sourceTree = "<group>"; };
 		F9A880D62B35A966001ED4C5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		F9A880D82B35AA07001ED4C5 /* UIResponder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Extension.swift"; sourceTree = "<group>"; };
 		F9A880DC2B35AC1C001ED4C5 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		F99DA7E92B35928200C7944E /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F9A880CE2B35A837001ED4C5 /* ReusableViews */,
 				F99DA7FF2B35A40800C7944E /* UICollectionViewCells */,
 				F99DA7F12B3594CC00C7944E /* Utilities */,
 				F99DA7F22B35951E00C7944E /* Extensions */,
@@ -103,6 +107,24 @@
 				F99DA8012B35A44C00C7944E /* MovieCell.xib */,
 			);
 			path = MovieCell;
+			sourceTree = "<group>";
+		};
+		F9A880CE2B35A837001ED4C5 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				F9A880D32B35A855001ED4C5 /* MovieInfoView */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		F9A880D32B35A855001ED4C5 /* MovieInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				F9A880D42B35A872001ED4C5 /* MovieInfoViewItemProtocol.swift */,
+				F9A880CF2B35A848001ED4C5 /* MovieInfoView.swift */,
+				F9A880D12B35A84F001ED4C5 /* MovieInfoView.xib */,
+			);
+			path = MovieInfoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F99DA8032B35A44C00C7944E /* MovieCell.xib in Resources */,
+				F9A880D22B35A84F001ED4C5 /* MovieInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,9 +215,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9A880CD2B35A6F0001ED4C5 /* UIImageView+Extensions.swift in Sources */,
+				F9A880D02B35A848001ED4C5 /* MovieInfoView.swift in Sources */,
 				F99DA8062B35A47400C7944E /* MovieCellItemProtocol.swift in Sources */,
 				F99DA8022B35A44C00C7944E /* MovieCell.swift in Sources */,
 				F9A880D72B35A966001ED4C5 /* UIView+Extensions.swift in Sources */,
+				F9A880D52B35A872001ED4C5 /* MovieInfoViewItemProtocol.swift in Sources */,
 				F9A880DD2B35AC1C001ED4C5 /* UICollectionView+Extensions.swift in Sources */,
 				F9A880D92B35AA07001ED4C5 /* UIResponder+Extension.swift in Sources */,
 			);
