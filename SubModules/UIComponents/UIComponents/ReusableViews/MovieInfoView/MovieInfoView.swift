@@ -8,7 +8,7 @@
 import UIKit
 
 public final class MovieInfoView: UIView {
-   
+   // MARK: Outlets
     @IBOutlet private weak var movieImageView: UIImageView!
     @IBOutlet private weak var movieTitleLabel: UILabel!
     @IBOutlet private weak var movieSubitleLabel: UILabel!
@@ -24,7 +24,7 @@ public final class MovieInfoView: UIView {
         super.init(coder: aDecoder)
         instantiateNib()
     }
-
+    // MARK: Configurations
     public func configView(with item: MovieInfoViewItemProtocol) {
         self.movieImageView.loadImage(with: item.imagePath)
         self.movieTitleLabel.text = item.title
