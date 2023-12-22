@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="favButton" destination="cNn-G2-EFq" id="Fvv-eV-Nte"/>
+                <outlet property="moviesCollectionView" destination="VUS-Xz-fQJ" id="xbH-Sq-bFa"/>
                 <outlet property="summaryView" destination="Cyz-6y-CBO" id="Rta-xG-i30"/>
                 <outlet property="titleSectionStackView" destination="BJp-el-8lK" id="WXa-cz-3bl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PCx-VJ-0p8"/>

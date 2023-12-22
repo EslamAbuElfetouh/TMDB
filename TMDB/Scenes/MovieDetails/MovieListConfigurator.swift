@@ -26,6 +26,9 @@ final class MovieListConfigurator {
 // Controller --> Presenter
 protocol MovieListPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func calculateCellSize(_ collectionViewWidth: CGFloat,
+                            horizontalMargin: CGFloat) -> CGSize
+    func navigateToMovieDetails(with index: Int)
 }
 
 // Presenter --> Controller
