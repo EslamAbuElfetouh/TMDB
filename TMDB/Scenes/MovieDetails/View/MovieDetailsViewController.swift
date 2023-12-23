@@ -20,6 +20,8 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        // configs
+        configPosterView()
     }
         // MARK: - Configurations
     private func configPosterView() {
