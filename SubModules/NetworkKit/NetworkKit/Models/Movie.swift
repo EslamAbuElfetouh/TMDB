@@ -8,15 +8,15 @@
 import Foundation
 
 public struct Movie: Codable {
-    let id: Int?
-    let title: String?
-    let overview: String?
-    let releaseDate: String?
-    let posterPath: String?
+    public let id: Int?
+    public let title: String?
+    public let overview: String?
+    public let releaseDate: String?
+    public let posterPath: String?
     let backdropPath: String?
     let genreIds: [Int]?
     let popularity: Double?
-    let voteAverage: Double?
+    public let voteAverage: Double?
     let voteCount: Int?
 
     public init(id: Int? = nil,
