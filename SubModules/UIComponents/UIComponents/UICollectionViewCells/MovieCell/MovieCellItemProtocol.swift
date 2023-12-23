@@ -10,5 +10,5 @@ import Foundation
 public protocol MovieCellItemProtocol {
     var imagePath: String { get }
     var title: String { get }
-    var subTitle: String { get }
+    var subtitle: String { get }
 }

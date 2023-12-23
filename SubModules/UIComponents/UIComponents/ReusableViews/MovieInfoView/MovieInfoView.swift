@@ -11,8 +11,45 @@ public final class MovieInfoView: UIView {
    // MARK: Outlets
     @IBOutlet private weak var movieImageView: UIImageView!
     @IBOutlet private weak var movieTitleLabel: UILabel!
-    @IBOutlet private weak var movieSubitleLabel: UILabel!
+    @IBOutlet private weak var movieSubtitleLabel: UILabel!
     @IBOutlet private weak var movieRatingLabel: UILabel!
+
+    // MARK: Additional Configurable Properties
+    public var titleFont: UIFont? {
+        didSet {
+            movieTitleLabel.font = titleFont
+        }
+    }
+
+    public var subtitleFont: UIFont? {
+        didSet {
+            movieSubtitleLabel.font = subtitleFont
+        }
+    }
+
+    public var ratingFont: UIFont? {
+        didSet {
+            movieRatingLabel.font = ratingFont
+        }
+    }
+
+    public var titleColor: UIColor? {
+        didSet {
+            movieTitleLabel.textColor = titleColor
+        }
+    }
+
+    public var subtitleColor: UIColor? {
+        didSet {
+            movieSubtitleLabel.textColor = subtitleColor
+        }
+    }
+
+    public var ratingColor: UIColor? {
+        didSet {
+            movieRatingLabel.textColor = ratingColor
+        }
+    }
 
     // MARK: - Initializers
     public override init(frame: CGRect) {
@@ -28,7 +65,7 @@ public final class MovieInfoView: UIView {
     public func configView(with item: MovieInfoViewItemProtocol) {
         self.movieImageView.loadImage(with: item.imagePath)
         self.movieTitleLabel.text = item.title
-        self.movieSubitleLabel.text = item.subTitle
+        self.movieSubtitleLabel.text = item.subtitle
         self.movieRatingLabel.text = item.averageRating
         
     }
