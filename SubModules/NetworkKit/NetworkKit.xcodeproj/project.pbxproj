@@ -18,6 +18,9 @@
 		F9F911102B3740D9001DD285 /* DiscoverMoviesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F9110F2B3740D9001DD285 /* DiscoverMoviesLoader.swift */; };
 		F9F911132B375399001DD285 /* DiscoverMovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F911122B375399001DD285 /* DiscoverMovieRequest.swift */; };
 		F9F911162B3757F2001DD285 /* DiscoverAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F911152B3757F2001DD285 /* DiscoverAPIRouter.swift */; };
+		F9F911182B376968001DD285 /* MoviesDetailsAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F911172B376968001DD285 /* MoviesDetailsAPIRouter.swift */; };
+		F9F9111A2B376A43001DD285 /* MovieDetailsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F911192B376A43001DD285 /* MovieDetailsLoader.swift */; };
+		F9F9111C2B376A7F001DD285 /* MovieDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F9111B2B376A7F001DD285 /* MovieDetailsRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		F9F9110F2B3740D9001DD285 /* DiscoverMoviesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMoviesLoader.swift; sourceTree = "<group>"; };
 		F9F911122B375399001DD285 /* DiscoverMovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovieRequest.swift; sourceTree = "<group>"; };
 		F9F911152B3757F2001DD285 /* DiscoverAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAPIRouter.swift; sourceTree = "<group>"; };
+		F9F911172B376968001DD285 /* MoviesDetailsAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailsAPIRouter.swift; sourceTree = "<group>"; };
+		F9F911192B376A43001DD285 /* MovieDetailsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsLoader.swift; sourceTree = "<group>"; };
+		F9F9111B2B376A7F001DD285 /* MovieDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				F9F9110F2B3740D9001DD285 /* DiscoverMoviesLoader.swift */,
+				F9F911192B376A43001DD285 /* MovieDetailsLoader.swift */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -141,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				F9F911122B375399001DD285 /* DiscoverMovieRequest.swift */,
+				F9F9111B2B376A7F001DD285 /* MovieDetailsRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				F9F911152B3757F2001DD285 /* DiscoverAPIRouter.swift */,
+				F9F911172B376968001DD285 /* MoviesDetailsAPIRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -267,8 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9F9110B2B372F70001DD285 /* MovieResponse.swift in Sources */,
+				F9F911182B376968001DD285 /* MoviesDetailsAPIRouter.swift in Sources */,
 				F9F910C92B371124001DD285 /* NetworkKit.docc in Sources */,
 				F9F9110D2B372F88001DD285 /* Movie.swift in Sources */,
+				F9F9111A2B376A43001DD285 /* MovieDetailsLoader.swift in Sources */,
+				F9F9111C2B376A7F001DD285 /* MovieDetailsRequest.swift in Sources */,
 				F9F911102B3740D9001DD285 /* DiscoverMoviesLoader.swift in Sources */,
 				F9F911162B3757F2001DD285 /* DiscoverAPIRouter.swift in Sources */,
 				F9F911132B375399001DD285 /* DiscoverMovieRequest.swift in Sources */,
