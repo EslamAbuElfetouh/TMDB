@@ -11,6 +11,7 @@
 		F9F910CF2B371124001DD285 /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F910C42B371124001DD285 /* NetworkKit.framework */; };
 		F9F910D42B371124001DD285 /* NetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F910D32B371124001DD285 /* NetworkKitTests.swift */; };
 		F9F910D52B371124001DD285 /* NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F9F910C72B371124001DD285 /* NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9F910E52B37121E001DD285 /* NetworkLayer in Resources */ = {isa = PBXBuildFile; fileRef = F9F910E42B37121E001DD285 /* NetworkLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		F9F910C82B371124001DD285 /* NetworkKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NetworkKit.docc; sourceTree = "<group>"; };
 		F9F910CE2B371124001DD285 /* NetworkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F910D32B371124001DD285 /* NetworkKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKitTests.swift; sourceTree = "<group>"; };
+		F9F910E42B37121E001DD285 /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkLayer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		F9F910C62B371124001DD285 /* NetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				F9F910E32B37120B001DD285 /* Packages */,
 				F9F910C72B371124001DD285 /* NetworkKit.h */,
 				F9F910C82B371124001DD285 /* NetworkKit.docc */,
 			);
@@ -83,6 +86,14 @@
 				F9F910D32B371124001DD285 /* NetworkKitTests.swift */,
 			);
 			path = NetworkKitTests;
+			sourceTree = "<group>";
+		};
+		F9F910E32B37120B001DD285 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F9F910E42B37121E001DD285 /* NetworkLayer */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F910E52B37121E001DD285 /* NetworkLayer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

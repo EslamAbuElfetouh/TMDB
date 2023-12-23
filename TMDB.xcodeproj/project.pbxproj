@@ -73,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		F9010DFA2B366B2B0034B29F /* TMDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDB.xcdatamodel; sourceTree = "<group>"; };
-		F908057D2B3481C6007E5D6B /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkLayer; sourceTree = "<group>"; };
 		F93E07662B335AF700DF8A48 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93E07692B335AF700DF8A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +137,6 @@
 		F908057C2B3481BC007E5D6B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				F908057D2B3481C6007E5D6B /* NetworkLayer */,
 			);
 			path = Base;
 			sourceTree = "<group>";
