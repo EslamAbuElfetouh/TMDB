@@ -15,10 +15,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
+                <outlet property="appNameStackView" destination="BJp-el-8lK" id="tl5-C4-XHe"/>
                 <outlet property="favButton" destination="cNn-G2-EFq" id="Fvv-eV-Nte"/>
                 <outlet property="moviesCollectionView" destination="VUS-Xz-fQJ" id="xbH-Sq-bFa"/>
                 <outlet property="summaryView" destination="Cyz-6y-CBO" id="Rta-xG-i30"/>
-                <outlet property="titleSectionStackView" destination="BJp-el-8lK" id="WXa-cz-3bl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PCx-VJ-0p8"/>
             </connections>
         </placeholder>
@@ -107,8 +107,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cyz-6y-CBO">
                                                     <rect key="frame" x="0.0" y="107.33333333333334" width="390" height="92.333333333333343"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take your seat, and let's browse now!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZm-sy-rNl">
-                                                            <rect key="frame" x="90.000000000000014" y="56.66666666666665" width="210.33333333333337" height="15.666666666666664"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take your seat, and let's go!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZm-sy-rNl">
+                                                            <rect key="frame" x="117.00000000000001" y="56.66666666666665" width="156.33333333333337" height="15.666666666666664"/>
                                                             <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="14"/>
                                                             <color key="textColor" red="0.99607855079999996" green="0.99607855079999996" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -137,10 +137,10 @@
                                 <constraint firstItem="vAk-nD-GXH" firstAttribute="leading" secondItem="WFU-S7-D5I" secondAttribute="leading" id="zW5-Mn-61C"/>
                             </constraints>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="apM-0r-Sr2" userLabel="Body">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="apM-0r-Sr2" userLabel="BodyViews">
                             <rect key="frame" x="0.0" y="338.66666666666674" width="390" height="505.33333333333326"/>
                             <subviews>
-                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWY-3d-uQf" userLabel="SortView">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWY-3d-uQf" userLabel="Sort action view">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="35"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>

@@ -10,7 +10,7 @@ import UIComponents
 
 final class MovieListViewController: UIViewController {
     // MARK: Outlets
-    @IBOutlet private weak var titleSectionStackView: UIStackView!
+    @IBOutlet private weak var appNameStackView: UIStackView!
     @IBOutlet private weak var favButton: UIButton!
     @IBOutlet private weak var summaryView: UIView!
     @IBOutlet private weak var moviesCollectionView: UICollectionView!
@@ -60,7 +60,7 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
     // MARK: - UICollectionViewDelegateFlowLayout - Config CollectionViewCell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let cellSize = presenter?.calculateCellSize(collectionView.bounds.width,
-                                                 horizontalMargin: self.horizontalMargin) else {
+                                                          horizontalMargin: self.horizontalMargin) else {
             return CGSize.zero
         }
         return cellSize
@@ -76,4 +76,35 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
         presenter?.navigateToMovieDetails(with: indexPath.item)
     }
     
+}
+// MARK: - Handle Scrolling - toggle Header Contents Visibility depending on user swiping direction
+extension MovieListViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let indexPathsForVisibleItems = moviesCollectionView.indexPathsForVisibleItems
+        let shouldHideHeader = (indexPathsForVisibleItems.first?.item ?? 0) > 4
+        
+        guard shouldHideHeader != summaryView.isHidden else { return }
+        toggleHeaderContentVisibility(shouldHide: shouldHideHeader)
+    }
+    
+    private func toggleHeaderContentVisibility(shouldHide hide: Bool) {
+        let animationDuration: CGFloat = 0.35
+        
+        UIView.animate(withDuration: animationDuration) {
+            self.summaryView.alpha = hide ? 0 : 1
+            self.appNameStackView.alpha = hide ? 0 : 1
+        }
+        UIView.animate(
+            withDuration: animationDuration,
+            delay: 0.15,
+            usingSpringWithDamping: 0.9,
+            initialSpringVelocity: 1,
+            options: [],
+            animations: {
+                self.summaryView.isHidden = hide
+                self.appNameStackView.isHidden = hide
+            },
+            completion: nil
+        )
+    }
 }
