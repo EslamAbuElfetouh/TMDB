@@ -42,18 +42,25 @@ final class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController: MovieListControllerProtocol {
+    func presentError(_ error: String) {
+        
+    }
+    
+    func reloadCollectionView() {
+        self.moviesCollectionView.reloadData()
+    }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: Return value from presenter
-        return 10
+        return self.presenter?.moviesItemsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieCell = collectionView.dequeueCell(for: indexPath)
         // TODO: Config Cell
-        cell.backgroundColor = .white
+        let cellItem = self.presenter?.getItem(at: indexPath.row)
+        cell.configCell(with: cellItem)
         return cell
     }
     

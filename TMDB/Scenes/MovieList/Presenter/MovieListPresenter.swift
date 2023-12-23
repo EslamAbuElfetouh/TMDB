@@ -14,6 +14,8 @@ final class MovieListPresenter: NSObject {
     private var router: MovieListRouterProtocol?
     
     private let movieCellHeightToWidthRatio: CGFloat = 1.47
+    
+    private var movies = [MovieListEntity]()
 
     // MARK: - Init
     init(view: MovieListControllerProtocol?,
@@ -26,8 +28,16 @@ final class MovieListPresenter: NSObject {
 }
 // MARK: Conform to MovieListPresenterProtocol
 extension MovieListPresenter: MovieListPresenterProtocol {
+    func getItem(at index: Int) -> MovieListEntity? {
+        self.movies[safe: index]
+    }
+    
+    var moviesItemsCount: Int {
+        self.movies.count
+    }
+    
     func viewDidLoad() {
-        
+        self.interactor?.fetchMoviesList()
     }
     
     func calculateCellSize(_ collectionViewWidth: CGFloat,
@@ -51,4 +61,12 @@ extension MovieListPresenter: MovieListPresenterProtocol {
 }
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {
+    func didFailToFetchMovies(with error: Error) {
+        
+    }
+    
+    func didFetchMovies(_ movies: [MovieListEntity]) {
+        self.movies.append(contentsOf: movies)
+        self.view?.reloadCollectionView()
+    }
 }

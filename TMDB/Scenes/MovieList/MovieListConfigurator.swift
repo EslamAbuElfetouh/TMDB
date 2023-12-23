@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import NetworkKit
 
 final class MovieListConfigurator {
     
     // MARK: Configuration
     class func viewController() -> MovieListViewController {
         let view = MovieListViewController()
-        let interactor = MovieListInteractor()
+        let loader = DiscoverMoviesLoader()
+        let interactor = MovieListInteractor(loader: loader)
         let router = MovieListRouter(viewController: view)
         let presenter = MovieListPresenter(view: view,
                                            interactor: interactor,
@@ -29,18 +31,25 @@ protocol MovieListPresenterProtocol: AnyObject {
     func calculateCellSize(_ collectionViewWidth: CGFloat,
                             horizontalMargin: CGFloat) -> CGSize
     func navigateToMovieDetails(with index: Int)
+    var moviesItemsCount: Int { get }
+    func getItem(at index: Int) -> MovieListEntity?
 }
 
 // Presenter --> Controller
 protocol MovieListControllerProtocol: AnyObject {
+    func reloadCollectionView()
+    func presentError(_ error: String)
 }
 
 // Presenter --> Interactor
 protocol MovieListPresenterInteractorProtocol: AnyObject {
+    func fetchMoviesList()
 }
 
 // Interactor --> Presenter
 protocol MovieListInteractorOutput: AnyObject {
+    func didFetchMovies(_ movies: [MovieListEntity])
+    func didFailToFetchMovies(with error: Error)
 }
 // Presenter --> Router
 protocol MovieListRouterProtocol: AnyObject {
