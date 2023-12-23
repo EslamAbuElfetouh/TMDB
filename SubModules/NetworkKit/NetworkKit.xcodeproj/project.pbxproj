@@ -13,6 +13,8 @@
 		F9F910D52B371124001DD285 /* NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F9F910C72B371124001DD285 /* NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9F910E52B37121E001DD285 /* NetworkLayer in Resources */ = {isa = PBXBuildFile; fileRef = F9F910E42B37121E001DD285 /* NetworkLayer */; };
 		F9F910EB2B3712AC001DD285 /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F9F910EA2B3712AC001DD285 /* NetworkLayer */; };
+		F9F9110B2B372F70001DD285 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F9110A2B372F70001DD285 /* MovieResponse.swift */; };
+		F9F9110D2B372F88001DD285 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F9110C2B372F88001DD285 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		F9F910CE2B371124001DD285 /* NetworkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F910D32B371124001DD285 /* NetworkKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKitTests.swift; sourceTree = "<group>"; };
 		F9F910E42B37121E001DD285 /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkLayer; sourceTree = "<group>"; };
+		F9F9110A2B372F70001DD285 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		F9F9110C2B372F88001DD285 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		F9F910C62B371124001DD285 /* NetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				F9F911092B372F4B001DD285 /* Models */,
 				F9F910E32B37120B001DD285 /* Packages */,
 				F9F910C72B371124001DD285 /* NetworkKit.h */,
 				F9F910C82B371124001DD285 /* NetworkKit.docc */,
@@ -104,6 +109,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9F911092B372F4B001DD285 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F9F9110A2B372F70001DD285 /* MovieResponse.swift */,
+				F9F9110C2B372F88001DD285 /* Movie.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F9110B2B372F70001DD285 /* MovieResponse.swift in Sources */,
 				F9F910C92B371124001DD285 /* NetworkKit.docc in Sources */,
+				F9F9110D2B372F88001DD285 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
