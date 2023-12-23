@@ -21,6 +21,14 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
     }
+        // MARK: - Configurations
+    private func configPosterView() {
+        self.posterView.applyGradientOverlay()
+    }
+    // MARK: @IBActions
+    @IBAction func backButtonHandler(_ sender: UIButton) {
+        self.presenter?.popViewController()
+    }
 }
 
 extension MovieDetailsViewController: MovieDetailsControllerProtocol {

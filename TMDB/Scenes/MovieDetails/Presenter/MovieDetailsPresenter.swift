@@ -27,6 +27,10 @@ extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
     func viewDidLoad() {
         
     }
+    
+    func popViewController() {
+        self.router?.popViewController()
+    }
 }
 // MARK: Conform to MovieDetailsInteractorOutputa
 extension MovieDetailsPresenter: MovieDetailsInteractorOutput {

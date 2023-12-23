@@ -30,6 +30,7 @@ final class MovieDetailsConfigurator {
 // Controller --> Presenter
 protocol MovieDetailsPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func popViewController()
 }
 
 // Presenter --> Controller
