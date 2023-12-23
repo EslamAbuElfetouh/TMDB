@@ -11,7 +11,7 @@
             <connections>
                 <outlet property="movieImageView" destination="aaR-D4-Yof" id="mzg-el-CGr"/>
                 <outlet property="movieRatingLabel" destination="EP8-uO-Xkk" id="nHA-VF-WZZ"/>
-                <outlet property="movieSubitleLabel" destination="0ub-KO-Eq1" id="CGQ-ks-5p6"/>
+                <outlet property="movieSubtitleLabel" destination="0ub-KO-Eq1" id="CGQ-ks-5p6"/>
                 <outlet property="movieTitleLabel" destination="2ap-LF-hsC" id="bT1-UE-aRs"/>
             </connections>
         </placeholder>
@@ -23,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzh-NY-OuF">
                     <rect key="frame" x="0.0" y="0.0" width="378" height="235"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aaR-D4-Yof">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aaR-D4-Yof">
                             <rect key="frame" x="15" y="25" width="144" height="185"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="aaR-D4-Yof" secondAttribute="height" multiplier="7:9" id="y7y-cE-0Yn"/>

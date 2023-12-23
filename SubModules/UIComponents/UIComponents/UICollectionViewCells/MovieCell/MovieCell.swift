@@ -16,6 +16,6 @@ public final class MovieCell: UICollectionViewCell {
     public func configCell(with item: MovieCellItemProtocol) {
         movieImageView.loadImage(with: item.imagePath)
         titleLabel.text = item.title
-        subtitleLabel.text = item.subTitle
+        subtitleLabel.text = item.subtitle
     }
 }
