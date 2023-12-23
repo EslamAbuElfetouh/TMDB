@@ -186,12 +186,12 @@
 		F94C33A42B35F30300B95894 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F94C33A52B35F30800B95894 /* MovieDetails */,
+				F94C33A52B35F30800B95894 /* MovieList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		F94C33A52B35F30800B95894 /* MovieDetails */ = {
+		F94C33A52B35F30800B95894 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
 				F94C33AA2B35F34100B95894 /* MovieListConfigurator.swift */,
@@ -201,7 +201,7 @@
 				F94C33B82B35FB4200B95894 /* Entity */,
 				F94C33B52B35FB2600B95894 /* Router */,
 			);
-			path = MovieDetails;
+			path = MovieList;
 			sourceTree = "<group>";
 		};
 		F94C33B42B35FB1F00B95894 /* Presenter */ = {
