@@ -12,6 +12,7 @@
 		F9F910D42B371124001DD285 /* NetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F910D32B371124001DD285 /* NetworkKitTests.swift */; };
 		F9F910D52B371124001DD285 /* NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F9F910C72B371124001DD285 /* NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9F910E52B37121E001DD285 /* NetworkLayer in Resources */ = {isa = PBXBuildFile; fileRef = F9F910E42B37121E001DD285 /* NetworkLayer */; };
+		F9F910EB2B3712AC001DD285 /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F9F910EA2B3712AC001DD285 /* NetworkLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F910EB2B3712AC001DD285 /* NetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +60,7 @@
 				F9F910C62B371124001DD285 /* NetworkKit */,
 				F9F910D22B371124001DD285 /* NetworkKitTests */,
 				F9F910C52B371124001DD285 /* Products */,
+				F9F910E92B3712AC001DD285 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +99,13 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		F9F910E92B3712AC001DD285 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -124,6 +134,9 @@
 			dependencies = (
 			);
 			name = NetworkKit;
+			packageProductDependencies = (
+				F9F910EA2B3712AC001DD285 /* NetworkLayer */,
+			);
 			productName = NetworkKit;
 			productReference = F9F910C42B371124001DD285 /* NetworkKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -479,6 +492,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F9F910EA2B3712AC001DD285 /* NetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkLayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9F910BB2B371124001DD285 /* Project object */;
 }
