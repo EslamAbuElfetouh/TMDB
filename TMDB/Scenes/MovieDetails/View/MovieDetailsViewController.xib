@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
+                <outlet property="movieInfoView" destination="zU3-C6-l6T" id="qWf-Uj-XpD"/>
                 <outlet property="posterView" destination="6AZ-fF-kdC" id="que-Vd-fdr"/>
                 <outlet property="summaryTextView" destination="a57-Hf-gkC" id="aKR-Fn-0Kc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1Ad-vg-fuA"/>
@@ -22,14 +23,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-8u-4Vv">
                     <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcE-qS-TnC">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="qcE-qS-TnC">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-TF-Z1u">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="325"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="434.66666666666669"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-7L-2ei" userLabel="HeaderView">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-7L-2ei" userLabel="PosterHeaderView">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="402.33333333333331"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AZ-fF-kdC" userLabel="PosterView" customClass="PosterView" customModule="UIComponents">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
@@ -38,25 +39,47 @@
                                                         <constraint firstAttribute="width" secondItem="6AZ-fF-kdC" secondAttribute="height" multiplier="1:0.75" id="NsY-XX-Epa"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-Sf-xIr">
+                                                    <rect key="frame" x="8" y="43" width="38" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="g34-6H-ZwH"/>
+                                                        <constraint firstAttribute="width" secondItem="EWt-Sf-xIr" secondAttribute="height" multiplier="38:35" id="ogD-na-E7g"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="Genral_back_Icon"/>
+                                                    <connections>
+                                                        <action selector="backButtonHandler:" destination="-1" eventType="touchUpInside" id="yWH-Tb-VgU"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zU3-C6-l6T" customClass="MovieInfoView" customModule="UIComponents">
+                                                    <rect key="frame" x="0.0" y="182.66666666666669" width="390" height="219.66666666666669"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="zU3-C6-l6T" secondAttribute="trailing" id="3g0-Mi-cDi"/>
+                                                <constraint firstItem="6AZ-fF-kdC" firstAttribute="centerY" secondItem="zU3-C6-l6T" secondAttribute="centerY" multiplier="0.5" id="6Iq-Nw-3xc"/>
                                                 <constraint firstAttribute="trailing" secondItem="6AZ-fF-kdC" secondAttribute="trailing" id="PbG-CE-IUB"/>
                                                 <constraint firstItem="6AZ-fF-kdC" firstAttribute="top" secondItem="8jB-7L-2ei" secondAttribute="top" id="RCY-8K-Ltn"/>
-                                                <constraint firstAttribute="bottom" secondItem="6AZ-fF-kdC" secondAttribute="bottom" id="Usa-L7-w7S"/>
+                                                <constraint firstItem="zU3-C6-l6T" firstAttribute="leading" secondItem="8jB-7L-2ei" secondAttribute="leading" id="eOz-uU-zhj"/>
+                                                <constraint firstAttribute="bottom" secondItem="zU3-C6-l6T" secondAttribute="bottom" id="fNl-Y9-oJE"/>
+                                                <constraint firstItem="EWt-Sf-xIr" firstAttribute="top" relation="lessThanOrEqual" secondItem="6AZ-fF-kdC" secondAttribute="top" constant="45" id="l8f-wj-co7"/>
                                                 <constraint firstItem="6AZ-fF-kdC" firstAttribute="leading" secondItem="8jB-7L-2ei" secondAttribute="leading" id="ldf-h4-EUZ"/>
+                                                <constraint firstItem="EWt-Sf-xIr" firstAttribute="leading" secondItem="8jB-7L-2ei" secondAttribute="leading" constant="8" id="uHu-7x-RXJ"/>
+                                                <constraint firstItem="zU3-C6-l6T" firstAttribute="height" secondItem="6AZ-fF-kdC" secondAttribute="height" multiplier="0.75" id="zH5-86-QSI"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKg-aj-VRB">
-                                            <rect key="frame" x="0.0" y="292.66666666666669" width="390" height="32.333333333333314"/>
+                                            <rect key="frame" x="0.0" y="402.33333333333331" width="390" height="32.333333333333314"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Hf-gkC">
+                                                <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Hf-gkC">
                                                     <rect key="frame" x="6" y="0.0" width="378" height="32.333333333333336"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content=" Text">
                                                             <attributes>
-                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="14" name="Arial-BoldMT"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="9" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                             </attributes>
@@ -97,14 +120,18 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="0.060223743320000002" green="0.055122569199999999" blue="0.065999664370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.058823529411764705" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="eBa-8u-4Vv" secondAttribute="bottom" id="5wP-HO-uNJ"/>
                 <constraint firstItem="eBa-8u-4Vv" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="7ZK-Z1-ueT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="EWt-Sf-xIr" secondAttribute="top" priority="666" constant="4" id="96M-hq-GaY"/>
                 <constraint firstItem="eBa-8u-4Vv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DMd-iQ-XZS"/>
                 <constraint firstItem="eBa-8u-4Vv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OjY-EH-1Zw"/>
             </constraints>
             <point key="canvasLocation" x="-355.38461538461536" y="-10.663507109004739"/>
         </view>
     </objects>
+    <resources>
+        <image name="Genral_back_Icon" width="28" height="28"/>
+    </resources>
 </document>
