@@ -18,7 +18,7 @@ public struct DiscoverMovieRequest: Encodable {
     public init(page: Int,
                 sortBy: DiscoverMovieRequest.SortBy? = nil,
                 certification: DiscoverMovieRequest.Certification? = nil,
-                includeAdult: Bool? = nil,
+                includeAdult: Bool? = false,
                 includeVideo: Bool? = nil,
                 year: Int? = nil) {
         self.page = page
