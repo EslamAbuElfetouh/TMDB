@@ -31,6 +31,8 @@ final class MockMovieListPresenter {
     var loadingIndicatorVisibleCallsCount = 0
     var pullToRefreshCallCount = 0
     var stopRefreshingIndicatorCallsCount = 0
+    /// A closure to be executed when certain operations, such as fetching Mock data, are completed.
+    var didFinish: (() -> Void)?
 }
 // MARK: - MovieListPresenterProtocol (Interactor)
 extension MockMovieListPresenter: MovieListInteractorOutput {
@@ -52,11 +54,13 @@ extension MockMovieListPresenter: MovieListInteractorOutput {
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
         loadingIndicatorVisibleCallsCount += 1
         loadingIndicatorIsVisibile = isVisible
+        didFinish?()
     }
 
     // Handles stopping the refreshing indicator
     func stopRefreshingIndicator() {
         stopRefreshingIndicatorCallsCount += 1
+        didFinish?()
     }
 }
 
