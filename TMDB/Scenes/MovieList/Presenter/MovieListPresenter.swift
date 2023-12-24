@@ -57,7 +57,14 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     func navigateToMovieDetails(with index: Int) {
         self.router?.navigateToMovieDetails()
     }
-
+    /// To notify the interactor to fetch more data
+    func userReachedEndOfScreen() {
+        interactor?.fetchMoviesList()
+    }
+    
+    func setLoadingIndicatorVisible(_ isVisible: Bool) {
+        self.view?.setLoadingIndicatorVisible(isVisible)
+    }
 }
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {

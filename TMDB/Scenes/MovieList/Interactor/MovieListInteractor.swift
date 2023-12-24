@@ -29,28 +29,25 @@ final class MovieListInteractor {
 extension MovieListInteractor: MovieListPresenterInteractorProtocol {
     // MARK: - Get Movies List
     func fetchMoviesList() {
-        guard !isFetching,
-              canLoadMore else { return }
+        guard shouldFetchMoviesList else { return }
+        
         isFetching = true
+        showLoadingIndicator(true)
+
         moviesLoader.loadMovies(with: .init(page: currentPage)) { [weak self] result in
-            guard let self else { return }
+            guard let self = self else { return }
             defer {
                 self.isFetching = false
+                self.showLoadingIndicator(false)
             }
-            switch result {
-            case .success(let movieResponse):
-                // Set CurrentPage
-                self.currentPage = (movieResponse.page ?? self.currentPage) + 1
-                // Map response Data
-                let moviesEntities = movieResponse.results?.compactMap {
-                    self.mapToEntity($0)
-                }
-                // Update Presenter with Data
-                self.presenter?.didFetchMovies(moviesEntities ?? [])
-            case .failure(let error):
-                self.presenter?.didFailToFetchMovies(with: error)
+            DispatchQueue.main.async {
+                self.handleFetchedResult(result)
             }
         }
+    }
+    
+    private func handleFetchMovieResult(result: MovieResponse) {
+        
     }
     
     private func mapToEntity(_ model: Movie) -> MovieListEntity {
@@ -59,4 +56,33 @@ extension MovieListInteractor: MovieListPresenterInteractorProtocol {
               posterPath: model.posterPath ?? "")
     }
 }
+// MARK: - Handle Fetch Movies Result
+extension MovieListInteractor {
+    private var shouldFetchMoviesList: Bool {
+        !isFetching && canLoadMore
+    }
 
+    private func showLoadingIndicator(_ isVisible: Bool) {
+        presenter?.setLoadingIndicatorVisible(isVisible)
+    }
+
+    private func handleFetchedResult(_ result: Result<MovieResponse, Error>) {
+        switch result {
+        case .success(let movieResponse):
+            handleSuccessfulFetch(movieResponse)
+        case .failure(let error):
+            handleFailedFetch(error)
+        }
+    }
+
+    private func handleSuccessfulFetch(_ movieResponse: MovieResponse) {
+        currentPage = (movieResponse.page ?? currentPage) + 1
+        let moviesEntities = movieResponse.results?.compactMap { mapToEntity($0) }
+        presenter?.didFetchMovies(moviesEntities ?? [])
+    }
+
+    private func handleFailedFetch(_ error: Error) {
+        presenter?.didFailToFetchMovies(with: error)
+    }
+
+}

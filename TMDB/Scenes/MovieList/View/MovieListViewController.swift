@@ -14,10 +14,13 @@ final class MovieListViewController: UIViewController {
     @IBOutlet private weak var favButton: UIButton!
     @IBOutlet private weak var summaryView: UIView!
     @IBOutlet private weak var moviesCollectionView: UICollectionView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: Propertiesss
     var presenter: MovieListPresenterProtocol?
     private let horizontalMargin: CGFloat = 8
+    private let paginationBufferSize = 6
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,10 @@ final class MovieListViewController: UIViewController {
         // register Cell
         moviesCollectionView.registerNib(MovieCell.self)
         // set collection margins
-        moviesCollectionView.contentInset = .init(top: 0, left: horizontalMargin, bottom: 0, right: horizontalMargin)
+        moviesCollectionView.contentInset = .init(top: 0,
+                                                  left: horizontalMargin,
+                                                  bottom: 0,
+                                                  right: horizontalMargin)
     }
     
     // MARK: @IBActions
@@ -40,14 +46,23 @@ final class MovieListViewController: UIViewController {
         
     }
 }
-
+// MARK: - Conform to MovieListControllerProtocol - Presneter -> Controller Action
 extension MovieListViewController: MovieListControllerProtocol {
-    func presentError(_ error: String) {
-        
+    func presentError(with message: String) {
+        self.showAlert(message: message)
     }
     
     func reloadCollectionView() {
         self.moviesCollectionView.reloadData()
+    }
+    
+    // show/hide the loading indicator
+    func setLoadingIndicatorVisible(_ isVisible: Bool) {
+        if isVisible {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
     }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -82,18 +97,33 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.navigateToMovieDetails(with: indexPath.item)
     }
+    // MARK: - Handle pagination
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let presenter else { return }
+        // Calculate the paginationTriggerIndex based on the number of visible items you want
+        let paginationTriggerIndex = presenter.moviesItemsCount - paginationBufferSize
+        
+        // Check if the current indexPath is within the paginationTriggerIndex
+        guard indexPath.item >= paginationTriggerIndex else { return }
+        presenter.userReachedEndOfScreen()
+    }
     
 }
 // MARK: - Handle Scrolling - toggle Header Contents Visibility depending on user swiping direction
 extension MovieListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // handle header view animation upon scrolling
+        handleHeaderViewContentAnimation(scrollView)
+    }
+    
+    private func handleHeaderViewContentAnimation(_ scrollView: UIScrollView) {
         let indexPathsForVisibleItems = moviesCollectionView.indexPathsForVisibleItems
         let shouldHideHeader = (indexPathsForVisibleItems.first?.item ?? 0) > 4
         
         guard shouldHideHeader != summaryView.isHidden else { return }
         toggleHeaderContentVisibility(shouldHide: shouldHideHeader)
     }
-    
+    // MARK: HeaderView animation setup
     private func toggleHeaderContentVisibility(shouldHide hide: Bool) {
         let animationDuration: CGFloat = 0.35
         

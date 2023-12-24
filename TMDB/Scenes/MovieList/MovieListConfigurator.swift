@@ -33,12 +33,14 @@ protocol MovieListPresenterProtocol: AnyObject {
     func navigateToMovieDetails(with index: Int)
     var moviesItemsCount: Int { get }
     func getItem(at index: Int) -> MovieListEntity?
+    func userReachedEndOfScreen()
 }
 
 // Presenter --> Controller
 protocol MovieListControllerProtocol: AnyObject {
     func reloadCollectionView()
-    func presentError(_ error: String)
+    func presentError(with message: String)
+    func setLoadingIndicatorVisible(_ isVisible: Bool)
 }
 
 // Presenter --> Interactor
@@ -50,6 +52,7 @@ protocol MovieListPresenterInteractorProtocol: AnyObject {
 protocol MovieListInteractorOutput: AnyObject {
     func didFetchMovies(_ movies: [MovieListEntity])
     func didFailToFetchMovies(with error: Error)
+    func setLoadingIndicatorVisible(_ isVisible: Bool)
 }
 // Presenter --> Router
 protocol MovieListRouterProtocol: AnyObject {
