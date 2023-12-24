@@ -9,14 +9,17 @@ import Foundation
 import UIComponents
 
 final class MovieListEntity {
+    let id: Int
     let title: String
     let releaseDate: String
     private let posterPath: String
         
     // MARK: Init
-    init(title: String,
+    init(id: Int,
+         title: String,
          releaseDate: String,
          posterPath: String) {
+        self.id = id
         self.title = title
         self.releaseDate = releaseDate
         self.posterPath = posterPath
@@ -31,4 +34,7 @@ extension MovieListEntity: MovieCellItemProtocol {
     var subtitle: String {
         releaseDate
     }
+}
+// MARK: Conform to MovieDetailsBuilderInput to pass data to MovieDetails 
+extension MovieListEntity: MovieDetailsBuilderInput {
 }

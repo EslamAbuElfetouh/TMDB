@@ -12,14 +12,16 @@ final class MovieDetailsPresenter: NSObject {
     private var view: MovieDetailsControllerProtocol?
     private var interactor: MovieDetailsPresenterInteractorProtocol?
     private var router: MovieDetailsRouterProtocol?
-
+    private var movieDetailsInput: MovieDetailsBuilderInput
     // MARK: - Init
     init(view: MovieDetailsControllerProtocol?,
          interactor: MovieDetailsPresenterInteractorProtocol?,
-         router: MovieDetailsRouterProtocol?) {
+         router: MovieDetailsRouterProtocol?,
+         movieDetailsInput: MovieDetailsBuilderInput) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.movieDetailsInput = movieDetailsInput
     }
 }
 // MARK: Conform to MovieDetailsPresenterProtocol

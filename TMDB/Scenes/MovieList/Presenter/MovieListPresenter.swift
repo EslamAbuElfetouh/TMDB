@@ -55,7 +55,8 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     }
     
     func navigateToMovieDetails(with index: Int) {
-        self.router?.navigateToMovieDetails()
+        guard let selectedMovie = self.movies[safe: index] else { return }
+        self.router?.navigateToMovieDetails(for: selectedMovie)
     }
     /// To notify the interactor to fetch more data
     func userReachedEndOfScreen() {

@@ -60,5 +60,5 @@ protocol MovieListInteractorOutput: AnyObject {
 }
 // Presenter --> Router
 protocol MovieListRouterProtocol: AnyObject {
-    func navigateToMovieDetails()
+    func navigateToMovieDetails(for movie: MovieDetailsBuilderInput)
 }

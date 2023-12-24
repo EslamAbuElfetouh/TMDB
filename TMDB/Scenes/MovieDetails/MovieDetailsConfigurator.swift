@@ -7,8 +7,11 @@
 
 import UIKit
 
-struct MovieDetailsInput {
-    
+protocol MovieDetailsBuilderInput {
+    var id: Int { get }
+}
+struct MovieDetailsInput: MovieDetailsBuilderInput {
+    let id: Int
 }
 
 final class MovieDetailsConfigurator {
@@ -20,7 +23,8 @@ final class MovieDetailsConfigurator {
         let router = MovieDetailsRouter(viewController: view)
         let presenter = MovieDetailsPresenter(view: view,
                                               interactor: interactor,
-                                              router: router)
+                                              router: router,
+                                              movieDetailsInput: input)
         view.presenter = presenter
         interactor.presenter = presenter
         return view
