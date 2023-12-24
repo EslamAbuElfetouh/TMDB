@@ -74,14 +74,19 @@ final class MovieListInteractorTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 4.0)
         // Then
-        XCTAssertEqual(loaderMock.loadMoviesCallsCount, 1, "Expected loadMovies to be called once")
-        XCTAssertEqual(presenterMock.didFailToFetchMoviesCallsCount, 1, "Expected didFailToFetchMovies to be called once")
+        XCTAssertEqual(loaderMock.loadMoviesCallsCount, 1,
+                       "Expected loadMovies to be called once")
+        XCTAssertEqual(presenterMock.didFailToFetchMoviesCallsCount, 1,
+                       "Expected didFailToFetchMovies to be called once")
         XCTAssertEqual(presenterMock.errorMessage?.localizedDescription,
                        error.localizedDescription,
                        "Expected correct error to be passed to the presenter")
-        XCTAssertEqual(presenterMock.loadingIndicatorVisibleCallsCount, 2, "Expected setLoadingIndicatorVisible to be called twice")
-        XCTAssertFalse(presenterMock.loadingIndicatorIsVisibile ?? false, "Loading indicator should be hidden")
-        XCTAssertEqual(presenterMock.stopRefreshingIndicatorCallsCount, 0, "stopRefreshingIndicator should not be called")
+        XCTAssertEqual(presenterMock.loadingIndicatorVisibleCallsCount, 2,
+                       "Expected setLoadingIndicatorVisible to be called twice")
+        XCTAssertFalse(presenterMock.loadingIndicatorIsVisibile ?? false,
+                       "Loading indicator should be hidden")
+        XCTAssertEqual(presenterMock.stopRefreshingIndicatorCallsCount, 0,
+                       "stopRefreshingIndicator should not be called")
     }
     
     func test_refreshMoviesMoviesList_Success() {
@@ -103,12 +108,16 @@ final class MovieListInteractorTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 4.0)
         // Then
-        XCTAssertEqual(loaderMock.loadMoviesCallsCount, 1, "Expected loadMovies to be called once for refresh")
-        XCTAssertEqual(presenterMock.didFetchMoviesCallsCount, 1, "Expected didFetchMovies to be called once for refresh")
-        XCTAssertEqual(presenterMock.fetchedMovies.count, 1, "Expected one movie to be fetched on refresh")
+        XCTAssertEqual(loaderMock.loadMoviesCallsCount, 1,
+                       "Expected loadMovies to be called once for refresh")
+        XCTAssertEqual(presenterMock.didFetchMoviesCallsCount, 1,
+                       "Expected didFetchMovies to be called once for refresh")
+        XCTAssertEqual(presenterMock.fetchedMovies.count, 1,
+                       "Expected one movie to be fetched on refresh")
         XCTAssertEqual(presenterMock.loadingIndicatorVisibleCallsCount, .zero,
                        "Expected setLoadingIndicatorVisible to be not being called since Refresh Indiactor is the on running")
-        XCTAssertEqual(presenterMock.stopRefreshingIndicatorCallsCount, 1, "stopRefreshingIndicator should be called once")
+        XCTAssertEqual(presenterMock.stopRefreshingIndicatorCallsCount, 1,
+                       "stopRefreshingIndicator should be called once")
     }
     
 }
