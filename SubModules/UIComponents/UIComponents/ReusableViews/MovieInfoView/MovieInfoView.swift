@@ -63,7 +63,7 @@ public final class MovieInfoView: UIView {
     }
     // MARK: Configurations
     public func configView(with item: MovieInfoViewItemProtocol) {
-        self.movieImageView.loadImage(with: item.imagePath)
+        self.movieImageView.loadImage(with: item.posterPath)
         self.movieTitleLabel.text = item.title
         self.movieSubtitleLabel.text = item.subtitle
         self.movieRatingLabel.text = item.averageRating

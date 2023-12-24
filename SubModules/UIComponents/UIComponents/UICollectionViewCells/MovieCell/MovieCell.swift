@@ -15,7 +15,7 @@ public final class MovieCell: UICollectionViewCell {
     // MARK: Configurations
     public func configCell(with item: MovieCellItemProtocol?) {
         guard let item else { return }
-        movieImageView.loadImage(with: item.imagePath)
+        movieImageView.loadImage(with: item.posterPath)
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
     }

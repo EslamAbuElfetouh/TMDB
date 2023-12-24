@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import NetworkKit
+import UIComponents
 
-struct MovieDetailsInput {
-    
+protocol MovieDetailsBuilderInput {
+    var id: Int { get }
+}
+struct MovieDetailsInput: MovieDetailsBuilderInput {
+    let id: Int
 }
 
 final class MovieDetailsConfigurator {
@@ -16,11 +21,13 @@ final class MovieDetailsConfigurator {
     // MARK: Configuration
     class func viewController(input: MovieDetailsInput) -> MovieDetailsViewController {
         let view = MovieDetailsViewController()
-        let interactor = MovieDetailsInteractor()
+        let loader: MovieDetailsLoaderProtocol = MovieDetailsLoader()
+        let interactor = MovieDetailsInteractor(movieDetailsLoader: loader)
         let router = MovieDetailsRouter(viewController: view)
         let presenter = MovieDetailsPresenter(view: view,
                                               interactor: interactor,
-                                              router: router)
+                                              router: router,
+                                              movieDetailsInput: input)
         view.presenter = presenter
         interactor.presenter = presenter
         return view
@@ -35,14 +42,21 @@ protocol MovieDetailsPresenterProtocol: AnyObject {
 
 // Presenter --> Controller
 protocol MovieDetailsControllerProtocol: AnyObject {
+    func configBackdropView(with item: PosterViewItemProtocol)
+    func configMovieInfoView(with item: MovieInfoViewItemProtocol)
+    func presentError(with message: String)
+    func configSummary(with text: String)
 }
 
 // Presenter --> Interactor
 protocol MovieDetailsPresenterInteractorProtocol: AnyObject {
+    func fetchMovieDetails(with id: Int)
 }
 
 // Interactor --> Presenter
 protocol MovieDetailsInteractorOutput: AnyObject {
+    func didFetchMovieDetails(_ movie: MovieDetailsEntity)
+    func didFailToFetchMovieDetails(with error: Error)
 }
 // Presenter --> Router
 protocol MovieDetailsRouterProtocol: AnyObject {

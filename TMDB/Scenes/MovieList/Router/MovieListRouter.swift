@@ -17,8 +17,8 @@ class MovieListRouter {
 }
 // MARK: Conforming to MovieListRouterProtocol
 extension MovieListRouter: MovieListRouterProtocol {
-    func navigateToMovieDetails() {
-        let vc = MovieDetailsConfigurator.viewController(input: MovieDetailsInput())
+    func navigateToMovieDetails(for movie: MovieDetailsBuilderInput) {
+        let vc = MovieDetailsConfigurator.viewController(input: .init(id: movie.id))
         self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

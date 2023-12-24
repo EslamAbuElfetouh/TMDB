@@ -12,6 +12,7 @@
 		F907E0DE2B379658004F280C /* ImagePathBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0DD2B379658004F280C /* ImagePathBuilder.swift */; };
 		F907E0E12B37A168004F280C /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0E02B37A168004F280C /* Array+Extensions.swift */; };
 		F907E0E52B37BD20004F280C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0E42B37BD20004F280C /* UIViewController+Extension.swift */; };
+		F907E0E92B3853D9004F280C /* Numeric+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0E82B3853D9004F280C /* Numeric+Extension.swift */; };
 		F93E076A2B335AF700DF8A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E07692B335AF700DF8A48 /* AppDelegate.swift */; };
 		F93E076C2B335AF700DF8A48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */; };
 		F93E07762B335AF800DF8A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F93E07752B335AF800DF8A48 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		F94C33C12B36019E00B95894 /* MockMovieListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C33C02B36019E00B95894 /* MockMovieListRouter.swift */; };
 		F94C33C32B36026C00B95894 /* MovieListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C33C22B36026C00B95894 /* MovieListPresenterTests.swift */; };
 		F94C33C82B36065F00B95894 /* MockMovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C33C72B36065F00B95894 /* MockMovieListPresenter.swift */; };
+		F94D28402B385FFF00355321 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D283F2B385FFF00355321 /* UITextView+Extension.swift */; };
 		F9B7CE062B3660F900193441 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7CDFF2B3660F900193441 /* MovieDetailsPresenter.swift */; };
 		F9B7CE072B3660F900193441 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7CE002B3660F900193441 /* MovieDetailsRouter.swift */; };
 		F9B7CE082B3660F900193441 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7CE012B3660F900193441 /* MovieDetailsViewController.swift */; };
@@ -82,6 +84,7 @@
 		F907E0DD2B379658004F280C /* ImagePathBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePathBuilder.swift; sourceTree = "<group>"; };
 		F907E0E02B37A168004F280C /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		F907E0E42B37BD20004F280C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		F907E0E82B3853D9004F280C /* Numeric+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Extension.swift"; sourceTree = "<group>"; };
 		F93E07662B335AF700DF8A48 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93E07692B335AF700DF8A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		F94C33C02B36019E00B95894 /* MockMovieListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieListRouter.swift; sourceTree = "<group>"; };
 		F94C33C22B36026C00B95894 /* MovieListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenterTests.swift; sourceTree = "<group>"; };
 		F94C33C72B36065F00B95894 /* MockMovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieListPresenter.swift; sourceTree = "<group>"; };
+		F94D283F2B385FFF00355321 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		F9B7CDFF2B3660F900193441 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 		F9B7CE002B3660F900193441 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
 		F9B7CE012B3660F900193441 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 			children = (
 				F907E0E02B37A168004F280C /* Array+Extensions.swift */,
 				F907E0E42B37BD20004F280C /* UIViewController+Extension.swift */,
+				F907E0E82B3853D9004F280C /* Numeric+Extension.swift */,
+				F94D283F2B385FFF00355321 /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,8 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				F9B7CE0D2B36613F00193441 /* View */,
-				F9B7CE102B36615800193441 /* Interactor */,
 				F9B7CE0F2B36615100193441 /* Presenter */,
+				F9B7CE102B36615800193441 /* Interactor */,
 				F9B7CE112B36615F00193441 /* Entity */,
 				F9B7CE0E2B36614B00193441 /* Router */,
 				F9B7CE032B3660F900193441 /* MovieDetailsConfigurator.swift */,
@@ -526,8 +532,10 @@
 				F907E0E52B37BD20004F280C /* UIViewController+Extension.swift in Sources */,
 				F907E0DC2B379393004F280C /* Constants.swift in Sources */,
 				F93E076C2B335AF700DF8A48 /* SceneDelegate.swift in Sources */,
+				F907E0E92B3853D9004F280C /* Numeric+Extension.swift in Sources */,
 				F9B7CE092B3660F900193441 /* MovieDetailsInteractor.swift in Sources */,
 				F9B7CE0A2B3660F900193441 /* MovieDetailsConfigurator.swift in Sources */,
+				F94D28402B385FFF00355321 /* UITextView+Extension.swift in Sources */,
 				F907E0DE2B379658004F280C /* ImagePathBuilder.swift in Sources */,
 				F9B7CE062B3660F900193441 /* MovieDetailsPresenter.swift in Sources */,
 				F94C33AD2B35F34100B95894 /* MovieListPresenter.swift in Sources */,

@@ -9,26 +9,32 @@ import Foundation
 import UIComponents
 
 final class MovieListEntity {
+    let id: Int
     let title: String
     let releaseDate: String
-    private let posterPath: String
+    private let posterPathSuffix: String
         
     // MARK: Init
-    init(title: String,
+    init(id: Int,
+         title: String,
          releaseDate: String,
-         posterPath: String) {
+         posterPathSuffix: String) {
+        self.id = id
         self.title = title
         self.releaseDate = releaseDate
-        self.posterPath = posterPath
+        self.posterPathSuffix = posterPathSuffix
     }
 }
 // MARK: Conform to MovieCellItemProtocol to Display Cell Details
 extension MovieListEntity: MovieCellItemProtocol {
-    var imagePath: String {
-        ImagePathBuilder.buildImagePath(posterPath: posterPath)
+    var posterPath: String {
+        ImagePathBuilder.buildImagePath(posterPath: posterPathSuffix)
     }
     
     var subtitle: String {
         releaseDate
     }
+}
+// MARK: Conform to MovieDetailsBuilderInput to pass data to MovieDetails 
+extension MovieListEntity: MovieDetailsBuilderInput {
 }
