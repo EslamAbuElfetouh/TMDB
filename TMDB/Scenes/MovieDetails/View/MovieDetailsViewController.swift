@@ -22,10 +22,17 @@ class MovieDetailsViewController: UIViewController {
         presenter?.viewDidLoad()
         // configs
         configPosterView()
+        configTextViewAppearance()
     }
         // MARK: - Configurations
     private func configPosterView() {
         self.backdropView.applyGradientOverlay()
+    }
+    
+    private func configTextViewAppearance() {
+        summaryTextView.configureText(lineSpacing: 12,
+                                      textColor: .white,
+                                      withTextStyle: .body)
     }
     // MARK: @IBActions
     @IBAction func backButtonHandler(_ sender: UIButton) {

@@ -39,6 +39,12 @@
                                                         <constraint firstAttribute="width" secondItem="6AZ-fF-kdC" secondAttribute="height" multiplier="1:0.75" id="NsY-XX-Epa"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Genral_back_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="NMb-81-fxN">
+                                                    <rect key="frame" x="14" y="47.333333333333336" width="26" height="26.333333333333336"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="NMb-81-fxN" secondAttribute="height" id="BPd-TH-7HZ"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWt-Sf-xIr">
                                                     <rect key="frame" x="8" y="43" width="38" height="35"/>
                                                     <constraints>
@@ -46,7 +52,7 @@
                                                         <constraint firstAttribute="width" secondItem="EWt-Sf-xIr" secondAttribute="height" multiplier="38:35" id="ogD-na-E7g"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="Genral_back_Icon"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
                                                     <connections>
                                                         <action selector="backButtonHandler:" destination="-1" eventType="touchUpInside" id="yWH-Tb-VgU"/>
                                                     </connections>
@@ -62,6 +68,9 @@
                                                 <constraint firstItem="6AZ-fF-kdC" firstAttribute="centerY" secondItem="zU3-C6-l6T" secondAttribute="centerY" multiplier="0.5" id="6Iq-Nw-3xc"/>
                                                 <constraint firstAttribute="trailing" secondItem="6AZ-fF-kdC" secondAttribute="trailing" id="PbG-CE-IUB"/>
                                                 <constraint firstItem="6AZ-fF-kdC" firstAttribute="top" secondItem="8jB-7L-2ei" secondAttribute="top" id="RCY-8K-Ltn"/>
+                                                <constraint firstItem="NMb-81-fxN" firstAttribute="centerY" secondItem="EWt-Sf-xIr" secondAttribute="centerY" id="RpN-Zi-Lcb"/>
+                                                <constraint firstItem="NMb-81-fxN" firstAttribute="height" secondItem="EWt-Sf-xIr" secondAttribute="height" multiplier="0.75" id="aTP-gI-rVY"/>
+                                                <constraint firstItem="NMb-81-fxN" firstAttribute="centerX" secondItem="EWt-Sf-xIr" secondAttribute="centerX" id="b7d-eG-2Gm"/>
                                                 <constraint firstItem="zU3-C6-l6T" firstAttribute="leading" secondItem="8jB-7L-2ei" secondAttribute="leading" id="eOz-uU-zhj"/>
                                                 <constraint firstAttribute="bottom" secondItem="zU3-C6-l6T" secondAttribute="bottom" id="fNl-Y9-oJE"/>
                                                 <constraint firstItem="EWt-Sf-xIr" firstAttribute="top" relation="lessThanOrEqual" secondItem="6AZ-fF-kdC" secondAttribute="top" constant="45" id="l8f-wj-co7"/>
