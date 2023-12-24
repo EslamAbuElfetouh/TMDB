@@ -13,10 +13,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = scene as? UIWindowScene else { return }
+        guard let windowScene = scene as? UIWindowScene,
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil  else { return }
         // Create the MovieListViewController
-        let viewController = MovieListConfigurator.viewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let viewController = MovieListConfigurator.viewController()        
+        configureWindow(with: viewController, in: windowScene)
+    }
+
+    func configureWindow(with rootViewController: UIViewController, in windowScene: UIWindowScene) {
+        let navigationController = UINavigationController(rootViewController: rootViewController)
         // Set Navigation as hidden
         navigationController.navigationBar.isHidden = true
         // Create the UIWindow and set the MovieListViewController as the root view controller
