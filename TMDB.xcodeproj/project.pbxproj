@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F9010DFB2B366B2B0034B29F /* TMDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9010DF92B366B2B0034B29F /* TMDB.xcdatamodeld */; };
 		F907E0DC2B379393004F280C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0DB2B379393004F280C /* Constants.swift */; };
 		F907E0DE2B379658004F280C /* ImagePathBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0DD2B379658004F280C /* ImagePathBuilder.swift */; };
 		F907E0E12B37A168004F280C /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907E0E02B37A168004F280C /* Array+Extensions.swift */; };
@@ -82,7 +81,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F9010DFA2B366B2B0034B29F /* TMDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDB.xcdatamodel; sourceTree = "<group>"; };
 		F907E0DB2B379393004F280C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F907E0DD2B379658004F280C /* ImagePathBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePathBuilder.swift; sourceTree = "<group>"; };
 		F907E0E02B37A168004F280C /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -173,13 +171,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F908057C2B3481BC007E5D6B /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		F93E075D2B335AF700DF8A48 = {
 			isa = PBXGroup;
 			children = (
@@ -207,13 +198,11 @@
 				F93E07692B335AF700DF8A48 /* AppDelegate.swift */,
 				F93E076B2B335AF700DF8A48 /* SceneDelegate.swift */,
 				F94C33A42B35F30300B95894 /* Scenes */,
-				F908057C2B3481BC007E5D6B /* Base */,
 				F907E0DA2B37937A004F280C /* Utilities */,
 				F907E0DF2B37A15A004F280C /* Extensions */,
 				F93E07752B335AF800DF8A48 /* Assets.xcassets */,
 				F93E07772B335AF800DF8A48 /* LaunchScreen.storyboard */,
 				F93E077A2B335AF800DF8A48 /* Info.plist */,
-				F9010DF92B366B2B0034B29F /* TMDB.xcdatamodeld */,
 			);
 			path = TMDB;
 			sourceTree = "<group>";
@@ -221,7 +210,7 @@
 		F93E07822B335AF800DF8A48 /* TMDBTests */ = {
 			isa = PBXGroup;
 			children = (
-				F94C33B92B3600E100B95894 /* UnitTssts */,
+				F94C33B92B3600E100B95894 /* UnitTests */,
 			);
 			path = TMDBTests;
 			sourceTree = "<group>";
@@ -307,12 +296,12 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		F94C33B92B3600E100B95894 /* UnitTssts */ = {
+		F94C33B92B3600E100B95894 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				F94C33BA2B3600EE00B95894 /* MovieList */,
 			);
-			path = UnitTssts;
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 		F94C33BA2B3600EE00B95894 /* MovieList */ = {
@@ -538,7 +527,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9010DFB2B366B2B0034B29F /* TMDB.xcdatamodeld in Sources */,
 				F907E0E12B37A168004F280C /* Array+Extensions.swift in Sources */,
 				F94C33AE2B35F34100B95894 /* MovieListRouter.swift in Sources */,
 				F9B7CE082B3660F900193441 /* MovieDetailsViewController.swift in Sources */,
@@ -747,6 +735,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,6 +763,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -903,19 +893,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F9010DF92B366B2B0034B29F /* TMDB.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F9010DFA2B366B2B0034B29F /* TMDB.xcdatamodel */,
-			);
-			currentVersion = F9010DFA2B366B2B0034B29F /* TMDB.xcdatamodel */;
-			path = TMDB.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F93E075E2B335AF700DF8A48 /* Project object */;
 }
