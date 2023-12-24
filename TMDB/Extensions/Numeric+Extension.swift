@@ -12,3 +12,9 @@ extension Numeric {
         return String(describing: self)
     }
 }
+
+extension Double {
+    func formattedString(withDecimalPlaces places: Int = 1) -> String {
+        return String(format: "%.\(places)f", self)
+    }
+}
