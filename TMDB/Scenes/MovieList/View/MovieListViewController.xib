@@ -17,6 +17,7 @@
             <connections>
                 <outlet property="appNameStackView" destination="BJp-el-8lK" id="tl5-C4-XHe"/>
                 <outlet property="favButton" destination="cNn-G2-EFq" id="Fvv-eV-Nte"/>
+                <outlet property="loadingIndicator" destination="XsR-pu-gv1" id="SHs-fi-gld"/>
                 <outlet property="moviesCollectionView" destination="VUS-Xz-fQJ" id="xbH-Sq-bFa"/>
                 <outlet property="summaryView" destination="Cyz-6y-CBO" id="Rta-xG-i30"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PCx-VJ-0p8"/>
@@ -140,13 +141,6 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="apM-0r-Sr2" userLabel="BodyViews">
                             <rect key="frame" x="0.0" y="338.66666666666674" width="390" height="505.33333333333326"/>
                             <subviews>
-                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWY-3d-uQf" userLabel="Sort action view">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="35"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="35" id="OuS-WY-Bb1"/>
-                                    </constraints>
-                                </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VUS-Xz-fQJ">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="505.33333333333331"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,6 +154,10 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="XsR-pu-gv1">
+                            <rect key="frame" x="0.0" y="824" width="390" height="20"/>
+                            <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -167,10 +165,13 @@
                         <constraint firstItem="WFU-S7-D5I" firstAttribute="leading" secondItem="gvv-XZ-x6M" secondAttribute="leading" id="BdK-Xx-j6T"/>
                         <constraint firstItem="WFU-S7-D5I" firstAttribute="top" secondItem="tIu-Sz-JHi" secondAttribute="bottom" id="FTo-Lt-i64"/>
                         <constraint firstItem="apM-0r-Sr2" firstAttribute="top" secondItem="WFU-S7-D5I" secondAttribute="bottom" id="LRl-G1-H65"/>
+                        <constraint firstItem="XsR-pu-gv1" firstAttribute="bottom" secondItem="VUS-Xz-fQJ" secondAttribute="bottom" id="M9M-sE-rSZ"/>
                         <constraint firstAttribute="trailing" secondItem="WFU-S7-D5I" secondAttribute="trailing" id="ZkF-su-7l7"/>
                         <constraint firstAttribute="trailing" secondItem="tIu-Sz-JHi" secondAttribute="trailing" id="aKY-Js-Cri"/>
+                        <constraint firstItem="XsR-pu-gv1" firstAttribute="trailing" secondItem="VUS-Xz-fQJ" secondAttribute="trailing" id="aco-QK-MMc"/>
                         <constraint firstAttribute="bottom" secondItem="apM-0r-Sr2" secondAttribute="bottom" id="b10-cT-4ly"/>
                         <constraint firstItem="tIu-Sz-JHi" firstAttribute="top" secondItem="gvv-XZ-x6M" secondAttribute="top" id="cgZ-Zt-2IV"/>
+                        <constraint firstItem="XsR-pu-gv1" firstAttribute="leading" secondItem="VUS-Xz-fQJ" secondAttribute="leading" id="e81-jB-C9t"/>
                         <constraint firstItem="tIu-Sz-JHi" firstAttribute="leading" secondItem="gvv-XZ-x6M" secondAttribute="leading" id="euI-4a-PUB"/>
                         <constraint firstAttribute="trailing" secondItem="apM-0r-Sr2" secondAttribute="trailing" id="wBL-od-pgN"/>
                     </constraints>

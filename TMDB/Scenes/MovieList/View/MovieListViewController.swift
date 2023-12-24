@@ -14,15 +14,25 @@ final class MovieListViewController: UIViewController {
     @IBOutlet private weak var favButton: UIButton!
     @IBOutlet private weak var summaryView: UIView!
     @IBOutlet private weak var moviesCollectionView: UICollectionView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
-    // MARK: Propertiesss
+    // MARK: Properties
     var presenter: MovieListPresenterProtocol?
     private let horizontalMargin: CGFloat = 8
+    // Pagination Properties
+    private let paginationBufferSize = 6
+    // Pull to refresh Properties
+    private var refreshControl = UIRefreshControl()
+
+    //
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        // config collectionView
         configCollectionView()
+        // config refresh control
+        configRefreshControl()
     }
     // MARK: Configurations
     private func configCollectionView() {
@@ -32,28 +42,61 @@ final class MovieListViewController: UIViewController {
         // register Cell
         moviesCollectionView.registerNib(MovieCell.self)
         // set collection margins
-        moviesCollectionView.contentInset = .init(top: 0, left: horizontalMargin, bottom: 0, right: horizontalMargin)
+        moviesCollectionView.contentInset = .init(top: 0,
+                                                  left: horizontalMargin,
+                                                  bottom: 0,
+                                                  right: horizontalMargin)
+        // Add refresh control to collection view
+        moviesCollectionView.refreshControl = refreshControl
+    }
+    
+    private func configRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.tintColor = .systemRed
     }
     
     // MARK: @IBActions
     @IBAction func favButtonHandler(_ sender: UIButton) {
-        
+        // TODO: Handle navigation
+    }
+}
+// MARK: - Pull to refresh action
+extension MovieListViewController {
+    @objc private func refreshData() {
+        presenter?.refreshMovies()
     }
 }
 
+// MARK: - Conform to MovieListControllerProtocol - Presneter -> Controller Action
 extension MovieListViewController: MovieListControllerProtocol {
+    func stopRefreshingIndicator() {
+        self.refreshControl.endRefreshing()
+    }
+    
+    func presentError(with message: String) {
+        self.showAlert(message: message)
+    }
+    
+    func reloadCollectionView() {
+        self.moviesCollectionView.reloadData()
+    }
+    
+    // show/hide the loading indicator
+    func setLoadingIndicatorVisible(_ isVisible: Bool) {
+        isVisible ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
+    }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: Return value from presenter
-        return 10
+        return self.presenter?.moviesItemsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieCell = collectionView.dequeueCell(for: indexPath)
         // TODO: Config Cell
-        cell.backgroundColor = .white
+        let cellItem = self.presenter?.getItem(at: indexPath.row)
+        cell.configCell(with: cellItem)
         return cell
     }
     
@@ -75,18 +118,33 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.navigateToMovieDetails(with: indexPath.item)
     }
+    // MARK: - Handle pagination
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let presenter else { return }
+        // Calculate the paginationTriggerIndex based on the number of visible items you want
+        let paginationTriggerIndex = presenter.moviesItemsCount - paginationBufferSize
+        
+        // Check if the current indexPath is within the paginationTriggerIndex
+        guard indexPath.item >= paginationTriggerIndex else { return }
+        presenter.userReachedEndOfScreen()
+    }
     
 }
 // MARK: - Handle Scrolling - toggle Header Contents Visibility depending on user swiping direction
 extension MovieListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // handle header view animation upon scrolling
+        handleHeaderViewContentAnimation(scrollView)
+    }
+    
+    private func handleHeaderViewContentAnimation(_ scrollView: UIScrollView) {
         let indexPathsForVisibleItems = moviesCollectionView.indexPathsForVisibleItems
         let shouldHideHeader = (indexPathsForVisibleItems.first?.item ?? 0) > 4
         
         guard shouldHideHeader != summaryView.isHidden else { return }
         toggleHeaderContentVisibility(shouldHide: shouldHideHeader)
     }
-    
+    // MARK: HeaderView animation setup
     private func toggleHeaderContentVisibility(shouldHide hide: Bool) {
         let animationDuration: CGFloat = 0.35
         

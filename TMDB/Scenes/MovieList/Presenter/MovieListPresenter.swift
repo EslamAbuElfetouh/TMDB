@@ -14,6 +14,8 @@ final class MovieListPresenter: NSObject {
     private var router: MovieListRouterProtocol?
     
     private let movieCellHeightToWidthRatio: CGFloat = 1.47
+    
+    private var movies = [MovieListEntity]()
 
     // MARK: - Init
     init(view: MovieListControllerProtocol?,
@@ -26,8 +28,16 @@ final class MovieListPresenter: NSObject {
 }
 // MARK: Conform to MovieListPresenterProtocol
 extension MovieListPresenter: MovieListPresenterProtocol {
+    func getItem(at index: Int) -> MovieListEntity? {
+        self.movies[safe: index]
+    }
+    
+    var moviesItemsCount: Int {
+        self.movies.count
+    }
+    
     func viewDidLoad() {
-        
+        self.interactor?.fetchMoviesList()
     }
     
     func calculateCellSize(_ collectionViewWidth: CGFloat,
@@ -47,8 +57,32 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     func navigateToMovieDetails(with index: Int) {
         self.router?.navigateToMovieDetails()
     }
-
+    /// To notify the interactor to fetch more data
+    func userReachedEndOfScreen() {
+        interactor?.fetchMoviesList()
+    }
+    
+    func setLoadingIndicatorVisible(_ isVisible: Bool) {
+        self.view?.setLoadingIndicatorVisible(isVisible)
+    }
+    
+    func refreshMovies() {
+        self.interactor?.refreshMovies()
+    }
 }
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {
+    func didFetchMovies(_ movies: [MovieListEntity], isFirstPage: Bool) {
+        isFirstPage ? self.movies = movies : self.movies.append(contentsOf: movies)
+        self.view?.reloadCollectionView()
+    }
+    
+    func stopRefreshingIndicator() {
+        self.view?.stopRefreshingIndicator()
+    }
+    
+    func didFailToFetchMovies(with error: Error) {
+        self.view?.presentError(with: error.localizedDescription)
+    }
+    
 }
