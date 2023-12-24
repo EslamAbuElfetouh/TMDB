@@ -7,6 +7,7 @@
 
 import Foundation
 import NetworkKit
+@testable import TMDB
 
 class TestDataBuilder {
     static func createMovieResponse() -> MovieResponse {
@@ -16,4 +17,13 @@ class TestDataBuilder {
     static func createSampleMovie() -> Movie {
         return Movie(title: "Movie 1", releaseDate: "2023-01-01", posterPath: "/path")
     }
+    
+    static func createMoviesListEntities() -> [MovieListEntity] {
+        [
+            MovieListEntity(title: "Movie 1", releaseDate: "2023-01-01", posterPath: "/path"),
+            MovieListEntity(title: "Movie 2", releaseDate: "2023-01-02", posterPath: "/path"),
+            MovieListEntity(title: "Movie 3", releaseDate: "2023-01-03", posterPath: "/path")
+        ]
+    }
+    
 }
