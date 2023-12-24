@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol PosterViewItemProtocol {
-    var imagePath: String { get }
+    var backdropPath: String { get }
 }
 
 public class PosterView: UIView {
@@ -53,7 +53,7 @@ public class PosterView: UIView {
     
     // MARK: Configurations
     public func configView(with item: PosterViewItemProtocol) {
-        self.posterImageView.loadImage(with: item.imagePath)
+        self.posterImageView.loadImage(with: item.backdropPath)
     }
     
     // MARK: Gradient Overlay

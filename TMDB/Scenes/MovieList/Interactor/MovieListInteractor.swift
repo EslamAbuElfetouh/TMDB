@@ -53,7 +53,7 @@ extension MovieListInteractor: MovieListPresenterInteractorProtocol {
         .init(id: model.id ?? .zero,
               title: model.title ?? "",
               releaseDate: model.releaseDate ?? "",
-              posterPath: model.posterPath ?? "")
+              posterPathSuffix: model.posterPath ?? "")
     }
     
     func refreshMovies() {

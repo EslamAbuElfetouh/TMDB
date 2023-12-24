@@ -31,6 +31,7 @@ extension MovieDetailsInteractor: MovieDetailsPresenterInteractorProtocol {
         switch result {
         case .success(let movieResponse):
             handleSuccessfulFetch(movieResponse)
+            print("Received movie response: \(movieResponse)")
         case .failure(let error):
             handleFailedFetch(error)
         }
