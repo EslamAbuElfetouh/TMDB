@@ -1,6 +1,6 @@
 # Xcode
 xcuserdata/
-*.xcworkspace
+xcshareddata/
 
 # Core Data
 *.xcdatamodel
