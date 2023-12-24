@@ -11,9 +11,14 @@ import Foundation
 class MockMovieListInteractor: MovieListPresenterInteractorProtocol {
     // MARK: Properties
     var fetchMoviesCallsCount = 0
-
-    func fetchMovies() {
+    var refreshMoviesCallCount = 0
+    // MARK: Methods
+    func fetchMoviesList() {
         fetchMoviesCallsCount += 1
+    }
+    
+    func refreshMovies() {
+        refreshMoviesCallCount += 1
     }
 }
 
