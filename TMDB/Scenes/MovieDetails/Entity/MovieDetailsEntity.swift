@@ -44,7 +44,7 @@ extension MovieDetailsEntity: MovieDetailsViewComponentsProtocols {
     }
 
     var averageRating: String {
-        ratings.stringValue
+        ratings.formattedString()
     }
     
     var posterPath: String {

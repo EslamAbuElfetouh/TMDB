@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
+                <outlet property="backdropView" destination="6AZ-fF-kdC" id="5DZ-nZ-ybW"/>
                 <outlet property="movieInfoView" destination="zU3-C6-l6T" id="qWf-Uj-XpD"/>
-                <outlet property="posterView" destination="6AZ-fF-kdC" id="que-Vd-fdr"/>
                 <outlet property="summaryTextView" destination="a57-Hf-gkC" id="aKR-Fn-0Kc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1Ad-vg-fuA"/>
             </connections>

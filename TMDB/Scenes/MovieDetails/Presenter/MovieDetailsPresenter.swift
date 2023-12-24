@@ -30,10 +30,20 @@ extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
         interactor?.fetchMovieDetails(with: movieDetailsInput.id)
     }
     
+    func didFetchMovieDetails(_ movie: MovieDetailsEntity) {
+        // Config needed UI Components
+        self.view?.configBackdropView(with: movie)
+        self.view?.configMovieInfoView(with: movie)
+        self.view?.configSummary(with: movie.overview)
+    }
+    
     func popViewController() {
         self.router?.popViewController()
     }
 }
 // MARK: Conform to MovieDetailsInteractorOutputa
 extension MovieDetailsPresenter: MovieDetailsInteractorOutput {
+    func didFailToFetchMovieDetails(with error: Error) {
+        self.view?.presentError(with: error.localizedDescription)
+    }
 }

@@ -322,8 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				F9B7CE0D2B36613F00193441 /* View */,
-				F9B7CE102B36615800193441 /* Interactor */,
 				F9B7CE0F2B36615100193441 /* Presenter */,
+				F9B7CE102B36615800193441 /* Interactor */,
 				F9B7CE112B36615F00193441 /* Entity */,
 				F9B7CE0E2B36614B00193441 /* Router */,
 				F9B7CE032B3660F900193441 /* MovieDetailsConfigurator.swift */,

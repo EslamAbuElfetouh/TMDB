@@ -7,6 +7,7 @@
 
 import UIKit
 import NetworkKit
+import UIComponents
 
 protocol MovieDetailsBuilderInput {
     var id: Int { get }
@@ -41,6 +42,10 @@ protocol MovieDetailsPresenterProtocol: AnyObject {
 
 // Presenter --> Controller
 protocol MovieDetailsControllerProtocol: AnyObject {
+    func configBackdropView(with item: PosterViewItemProtocol)
+    func configMovieInfoView(with item: MovieInfoViewItemProtocol)
+    func presentError(with message: String)
+    func configSummary(with text: String)
 }
 
 // Presenter --> Interactor
@@ -50,6 +55,8 @@ protocol MovieDetailsPresenterInteractorProtocol: AnyObject {
 
 // Interactor --> Presenter
 protocol MovieDetailsInteractorOutput: AnyObject {
+    func didFetchMovieDetails(_ movie: MovieDetailsEntity)
+    func didFailToFetchMovieDetails(with error: Error)
 }
 // Presenter --> Router
 protocol MovieDetailsRouterProtocol: AnyObject {

@@ -31,18 +31,29 @@ extension MovieDetailsInteractor: MovieDetailsPresenterInteractorProtocol {
         switch result {
         case .success(let movieResponse):
             handleSuccessfulFetch(movieResponse)
-            print("Received movie response: \(movieResponse)")
         case .failure(let error):
             handleFailedFetch(error)
         }
     }
     
     private func handleSuccessfulFetch(_ movieResponse: Movie) {
-
+        let movieEntity = mapToEntity(movieResponse)
+        self.presenter?.didFetchMovieDetails(movieEntity)
     }
-
+    
     private func handleFailedFetch(_ error: Error) {
-
+        
     }
+    
+    // Helpers
+    private func mapToEntity(_ movie: Movie) -> MovieDetailsEntity {
+        .init(id: movie.id ?? .zero,
+              title: movie.title ?? "",
+              releaseDate: movie.releaseDate ?? "",
+              overview: movie.overview ?? "",
+              posterPathSuffix: movie.posterPath ?? "",
+              backdropPathSuffix: movie.backdropPath ?? "",
+              ratings: movie.voteAverage ?? .zero)
+    }
+    
 }
-

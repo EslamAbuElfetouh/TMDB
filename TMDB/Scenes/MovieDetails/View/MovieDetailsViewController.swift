@@ -10,7 +10,7 @@ import UIComponents
 
 class MovieDetailsViewController: UIViewController {
     // MARK: Outlets
-    @IBOutlet private weak var posterView: PosterView!
+    @IBOutlet private weak var backdropView: PosterView!
     @IBOutlet private weak var movieInfoView: MovieInfoView!
     @IBOutlet private weak var summaryTextView: UITextView!
 
@@ -25,7 +25,7 @@ class MovieDetailsViewController: UIViewController {
     }
         // MARK: - Configurations
     private func configPosterView() {
-        self.posterView.applyGradientOverlay()
+        self.backdropView.applyGradientOverlay()
     }
     // MARK: @IBActions
     @IBAction func backButtonHandler(_ sender: UIButton) {
@@ -34,5 +34,21 @@ class MovieDetailsViewController: UIViewController {
 }
 
 extension MovieDetailsViewController: MovieDetailsControllerProtocol {
+    
+    func configBackdropView(with item: PosterViewItemProtocol) {
+        backdropView.configView(with: item)
+    }
+    
+    func configMovieInfoView(with item: MovieInfoViewItemProtocol) {
+        movieInfoView.configView(with: item)
+    }
+    
+    func configSummary(with text: String) {
+        summaryTextView.text = text
+    }
+    func presentError(with message: String) {
+        self.showAlert(message: message) {
+            self.presenter?.popViewController()
+        }
+    }
 }
-
