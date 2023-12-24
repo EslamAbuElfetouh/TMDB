@@ -210,7 +210,7 @@
 		F93E07822B335AF800DF8A48 /* TMDBTests */ = {
 			isa = PBXGroup;
 			children = (
-				F94C33B92B3600E100B95894 /* UnitTssts */,
+				F94C33B92B3600E100B95894 /* UnitTests */,
 			);
 			path = TMDBTests;
 			sourceTree = "<group>";
@@ -296,12 +296,12 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		F94C33B92B3600E100B95894 /* UnitTssts */ = {
+		F94C33B92B3600E100B95894 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				F94C33BA2B3600EE00B95894 /* MovieList */,
 			);
-			path = UnitTssts;
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 		F94C33BA2B3600EE00B95894 /* MovieList */ = {
