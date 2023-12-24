@@ -27,7 +27,7 @@ final class MovieDetailsPresenter: NSObject {
 // MARK: Conform to MovieDetailsPresenterProtocol
 extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
     func viewDidLoad() {
-        
+        interactor?.fetchMovieDetails(with: movieDetailsInput.id)
     }
     
     func popViewController() {

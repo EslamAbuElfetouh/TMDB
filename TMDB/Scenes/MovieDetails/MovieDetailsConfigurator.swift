@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NetworkKit
 
 protocol MovieDetailsBuilderInput {
     var id: Int { get }
@@ -19,7 +20,8 @@ final class MovieDetailsConfigurator {
     // MARK: Configuration
     class func viewController(input: MovieDetailsInput) -> MovieDetailsViewController {
         let view = MovieDetailsViewController()
-        let interactor = MovieDetailsInteractor()
+        let loader: MovieDetailsLoaderProtocol = MovieDetailsLoader()
+        let interactor = MovieDetailsInteractor(movieDetailsLoader: loader)
         let router = MovieDetailsRouter(viewController: view)
         let presenter = MovieDetailsPresenter(view: view,
                                               interactor: interactor,
@@ -43,6 +45,7 @@ protocol MovieDetailsControllerProtocol: AnyObject {
 
 // Presenter --> Interactor
 protocol MovieDetailsPresenterInteractorProtocol: AnyObject {
+    func fetchMovieDetails(with id: Int)
 }
 
 // Interactor --> Presenter
