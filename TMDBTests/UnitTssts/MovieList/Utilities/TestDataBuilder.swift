@@ -20,10 +20,19 @@ class TestDataBuilder {
     
     static func createMoviesListEntities() -> [MovieListEntity] {
         [
-            MovieListEntity(title: "Movie 1", releaseDate: "2023-01-01", posterPath: "/path"),
-            MovieListEntity(title: "Movie 2", releaseDate: "2023-01-02", posterPath: "/path"),
-            MovieListEntity(title: "Movie 3", releaseDate: "2023-01-03", posterPath: "/path")
-        ]
+            MovieListEntity(id: 1,
+                            title: "Movie 1",
+                            releaseDate: "2023-01-01",
+                            posterPathSuffix: "/path"),
+            MovieListEntity(id: 2,
+                            title: "Movie 2",
+                            releaseDate: "2023-01-02",
+                            posterPathSuffix: "/path"),
+            MovieListEntity(id: 3,
+                            title: "Movie 3",
+                            releaseDate: "2023-01-03",
+                            posterPathSuffix: "/path")
+       ]
     }
     
 }
