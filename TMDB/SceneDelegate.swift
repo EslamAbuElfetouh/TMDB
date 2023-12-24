@@ -13,8 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        let isUnitTestRun = ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
         guard let windowScene = scene as? UIWindowScene,
-              ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil  else { return }
+              !isUnitTestRun else { return }
         // Create the MovieListViewController
         let viewController = MovieListConfigurator.viewController()
         configureWindow(with: viewController, in: windowScene)
