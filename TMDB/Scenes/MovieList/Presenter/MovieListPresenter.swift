@@ -65,15 +65,24 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
         self.view?.setLoadingIndicatorVisible(isVisible)
     }
+    
+    func refreshMovies() {
+        self.interactor?.refreshMovies()
+    }
 }
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {
-    func didFailToFetchMovies(with error: Error) {
-        
-    }
-    
-    func didFetchMovies(_ movies: [MovieListEntity]) {
-        self.movies.append(contentsOf: movies)
+    func didFetchMovies(_ movies: [MovieListEntity], isFirstPage: Bool) {
+        isFirstPage ? self.movies = movies : self.movies.append(contentsOf: movies)
         self.view?.reloadCollectionView()
     }
+    
+    func stopRefreshingIndicator() {
+        self.view?.stopRefreshingIndicator()
+    }
+    
+    func didFailToFetchMovies(with error: Error) {
+        self.view?.presentError(with: error.localizedDescription)
+    }
+    
 }

@@ -16,16 +16,23 @@ final class MovieListViewController: UIViewController {
     @IBOutlet private weak var moviesCollectionView: UICollectionView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
-    // MARK: Propertiesss
+    // MARK: Properties
     var presenter: MovieListPresenterProtocol?
     private let horizontalMargin: CGFloat = 8
+    // Pagination Properties
     private let paginationBufferSize = 6
-    
+    // Pull to refresh Properties
+    private var refreshControl = UIRefreshControl()
+
+    //
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        // config collectionView
         configCollectionView()
+        // config refresh control
+        configRefreshControl()
     }
     // MARK: Configurations
     private func configCollectionView() {
@@ -39,15 +46,33 @@ final class MovieListViewController: UIViewController {
                                                   left: horizontalMargin,
                                                   bottom: 0,
                                                   right: horizontalMargin)
+        // Add refresh control to collection view
+        moviesCollectionView.refreshControl = refreshControl
+    }
+    
+    private func configRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.tintColor = .systemRed
     }
     
     // MARK: @IBActions
     @IBAction func favButtonHandler(_ sender: UIButton) {
-        
+        // TODO: Handle navigation
     }
 }
+// MARK: - Pull to refresh action
+extension MovieListViewController {
+    @objc private func refreshData() {
+        presenter?.refreshMovies()
+    }
+}
+
 // MARK: - Conform to MovieListControllerProtocol - Presneter -> Controller Action
 extension MovieListViewController: MovieListControllerProtocol {
+    func stopRefreshingIndicator() {
+        self.refreshControl.endRefreshing()
+    }
+    
     func presentError(with message: String) {
         self.showAlert(message: message)
     }
@@ -58,11 +83,7 @@ extension MovieListViewController: MovieListControllerProtocol {
     
     // show/hide the loading indicator
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
-        if isVisible {
-            loadingIndicator.startAnimating()
-        } else {
-            loadingIndicator.stopAnimating()
-        }
+        isVisible ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
     }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
