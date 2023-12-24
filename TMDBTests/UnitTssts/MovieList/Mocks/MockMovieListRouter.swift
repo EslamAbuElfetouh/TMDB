@@ -12,7 +12,7 @@ final class MockMovieListRouter: MovieListRouterProtocol {
     // MARK: Properties
     var navigateToMoviesCallsCount = 0
     
-    func navigateToMovieDetails() {
+    func navigateToMovieDetails(for movie: MovieDetailsBuilderInput) {
         navigateToMoviesCallsCount += 1
     }
 }
