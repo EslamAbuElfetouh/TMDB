@@ -35,6 +35,7 @@ protocol MovieListPresenterProtocol: AnyObject {
     func getItem(at index: Int) -> MovieListEntity?
     func userReachedEndOfScreen()
     func refreshMovies()
+    func didTapFavButton()
 }
 
 // Presenter --> Controller
@@ -43,6 +44,7 @@ protocol MovieListControllerProtocol: AnyObject {
     func presentError(with message: String)
     func setLoadingIndicatorVisible(_ isVisible: Bool)
     func stopRefreshingIndicator()
+    func showBottomSheetAlert(title: String, message: String, actions: [UIAlertAction])
 }
 
 // Presenter --> Interactor
@@ -61,4 +63,5 @@ protocol MovieListInteractorOutput: AnyObject {
 // Presenter --> Router
 protocol MovieListRouterProtocol: AnyObject {
     func navigateToMovieDetails(for movie: MovieDetailsBuilderInput)
+    func navigateToFavoriteScreen(withStaticData isStatic: Bool)
 }

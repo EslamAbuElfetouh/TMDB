@@ -65,6 +65,10 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     func refreshMovies() {
         self.interactor?.refreshMovies()
     }
+    
+    func didTapFavButton() {
+        self.showFavScreenNavigationOptions()
+    }
 }
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {
@@ -80,5 +84,23 @@ extension MovieListPresenter: MovieListInteractorOutput {
     func didFailToFetchMovies(with error: Error) {
         self.view?.presentError(with: error.localizedDescription)
     }
-    
+}
+// MARK: - Helper - Handle Favorite button action
+extension MovieListPresenter {
+    // Show Bottom Sheet Alert for the user to select either static or remote movie list.
+    private func showFavScreenNavigationOptions() {
+        let actions: [UIAlertAction] = [
+            UIAlertAction(title: "Static Movie List", style: .default) { [weak self] _ in 
+                // Handle the selection of static movie list
+                self?.router?.navigateToFavoriteScreen(withStaticData: true)
+            },
+            UIAlertAction(title: "Remote Movie List", style: .default) { [weak self] _ in
+                // Handle the selection of remote movie list
+                self?.router?.navigateToFavoriteScreen(withStaticData: false)
+            },
+            UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ]
+
+        view?.showBottomSheetAlert(title: "Choose an Option", message: "What would you like to do?", actions: actions)
+    }
 }

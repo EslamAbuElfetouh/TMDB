@@ -57,7 +57,7 @@ final class MovieListViewController: UIViewController {
     
     // MARK: @IBActions
     @IBAction func favButtonHandler(_ sender: UIButton) {
-        // TODO: Handle navigation
+        self.presenter?.didTapFavButton()
     }
 }
 // MARK: - Pull to refresh action
@@ -85,6 +85,7 @@ extension MovieListViewController: MovieListControllerProtocol {
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
         isVisible ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
     }
+    
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDataSource
