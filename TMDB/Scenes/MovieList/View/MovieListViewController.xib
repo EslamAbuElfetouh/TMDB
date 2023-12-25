@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="appNameStackView" destination="BJp-el-8lK" id="tl5-C4-XHe"/>
+                <outlet property="emptyListPlaceHolderlabel" destination="kbm-Bz-Dxy" id="sjV-EU-DTb"/>
                 <outlet property="favButton" destination="cNn-G2-EFq" id="Fvv-eV-Nte"/>
                 <outlet property="loadingIndicator" destination="XsR-pu-gv1" id="SHs-fi-gld"/>
                 <outlet property="moviesCollectionView" destination="VUS-Xz-fQJ" id="xbH-Sq-bFa"/>
@@ -168,14 +169,26 @@
                             <rect key="frame" x="0.0" y="1346" width="1024" height="20"/>
                             <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbm-Bz-Dxy" userLabel="PlaceHolderLabel">
+                            <rect key="frame" x="440.5" y="836.5" width="143.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="13"/>
+                            <color key="textColor" red="0.99607855079999996" green="0.99607855079999996" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="19"/>
+                            </variation>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="apM-0r-Sr2" firstAttribute="leading" secondItem="gvv-XZ-x6M" secondAttribute="leading" id="97b-8P-9Ed"/>
                         <constraint firstItem="WFU-S7-D5I" firstAttribute="leading" secondItem="gvv-XZ-x6M" secondAttribute="leading" id="BdK-Xx-j6T"/>
                         <constraint firstItem="WFU-S7-D5I" firstAttribute="top" secondItem="tIu-Sz-JHi" secondAttribute="bottom" id="FTo-Lt-i64"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kbm-Bz-Dxy" secondAttribute="trailing" constant="25" id="J6u-2B-xXp"/>
                         <constraint firstItem="apM-0r-Sr2" firstAttribute="top" secondItem="WFU-S7-D5I" secondAttribute="bottom" id="LRl-G1-H65"/>
                         <constraint firstItem="XsR-pu-gv1" firstAttribute="bottom" secondItem="VUS-Xz-fQJ" secondAttribute="bottom" id="M9M-sE-rSZ"/>
+                        <constraint firstItem="kbm-Bz-Dxy" firstAttribute="centerY" secondItem="VUS-Xz-fQJ" secondAttribute="centerY" id="TXU-Hc-MRV"/>
+                        <constraint firstItem="kbm-Bz-Dxy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gvv-XZ-x6M" secondAttribute="leading" constant="25" id="ZZN-RR-Bf3"/>
                         <constraint firstAttribute="trailing" secondItem="WFU-S7-D5I" secondAttribute="trailing" id="ZkF-su-7l7"/>
                         <constraint firstAttribute="trailing" secondItem="tIu-Sz-JHi" secondAttribute="trailing" id="aKY-Js-Cri"/>
                         <constraint firstItem="XsR-pu-gv1" firstAttribute="trailing" secondItem="VUS-Xz-fQJ" secondAttribute="trailing" id="aco-QK-MMc"/>
@@ -183,6 +196,9 @@
                         <constraint firstItem="tIu-Sz-JHi" firstAttribute="top" secondItem="gvv-XZ-x6M" secondAttribute="top" id="cgZ-Zt-2IV"/>
                         <constraint firstItem="XsR-pu-gv1" firstAttribute="leading" secondItem="VUS-Xz-fQJ" secondAttribute="leading" id="e81-jB-C9t"/>
                         <constraint firstItem="tIu-Sz-JHi" firstAttribute="leading" secondItem="gvv-XZ-x6M" secondAttribute="leading" id="euI-4a-PUB"/>
+                        <constraint firstItem="kbm-Bz-Dxy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WFU-S7-D5I" secondAttribute="bottom" constant="35" id="igo-1F-v8u"/>
+                        <constraint firstItem="kbm-Bz-Dxy" firstAttribute="centerX" secondItem="VUS-Xz-fQJ" secondAttribute="centerX" id="l2F-3f-6pg"/>
+                        <constraint firstItem="XsR-pu-gv1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kbm-Bz-Dxy" secondAttribute="bottom" constant="35" id="nhq-XC-mNk"/>
                         <constraint firstAttribute="trailing" secondItem="apM-0r-Sr2" secondAttribute="trailing" id="wBL-od-pgN"/>
                     </constraints>
                 </view>

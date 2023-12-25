@@ -15,7 +15,7 @@ final class MovieListViewController: UIViewController {
     @IBOutlet private weak var summaryView: UIView!
     @IBOutlet private weak var moviesCollectionView: UICollectionView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet private weak var emptyListPlaceHolderlabel: UILabel!
     // MARK: Properties
     var presenter: MovieListPresenterProtocol?
     private let horizontalMargin: CGFloat = 8
@@ -70,7 +70,9 @@ extension MovieListViewController {
 // MARK: - Conform to MovieListControllerProtocol - Presneter -> Controller Action
 extension MovieListViewController: MovieListControllerProtocol {
     func stopRefreshingIndicator() {
-        self.refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func presentError(with message: String) {
@@ -82,12 +84,28 @@ extension MovieListViewController: MovieListControllerProtocol {
     }
     
     // show/hide the loading indicator
-    func setLoadingIndicatorVisible(_ isVisible: Bool) {
-        isVisible ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
+    func animateLoadingIndicator() {
+        loadingIndicator.startAnimating()
+    }
+    
+    func stopLoadingIndicator() {
+        loadingIndicator.stopAnimating()
     }
     // Show ActionSheet to select loader data type(local, or remote)
     func showActionSheetAlert(with configuration: AlertConfiguration) {
         self.showActionSheetAlert(with: configuration, sourceView: favButton)
+    }
+    // Handle Placeholder
+    func showCollectionPlaceholderLabel() {
+        self.emptyListPlaceHolderlabel.isHidden = false
+    }
+    
+    func hideCollectionPlaceholderLabel() {
+        self.emptyListPlaceHolderlabel.isHidden = true
+    }
+    
+    func updateCollectionPlaceholderLabel(text: String) {
+        self.emptyListPlaceHolderlabel.text = text
     }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
