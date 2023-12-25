@@ -41,17 +41,12 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     }
     
     func calculateCellSize(_ collectionViewWidth: CGFloat,
-                            horizontalMargin: CGFloat) -> CGSize {
-        // Adjust these values based on your layout requirements
-        let itemsPerRow: CGFloat = 2
-        let spacingBetweenCells: CGFloat = horizontalMargin * 2
-        let leftAndRightMargins = horizontalMargin * 2
+                           horizontalMargin: CGFloat) -> CGSize {
+        return CellSizeCalculator.calculateCellSize(collectionViewWidth: collectionViewWidth,
+                                                    horizontalMargin: horizontalMargin,
+                                                    itemsPerRow: 2,
+                                                    cellHeightToWidthRatio: movieCellHeightToWidthRatio)
         
-        let totalMargins = leftAndRightMargins + spacingBetweenCells
-        
-        let availableWidth = collectionViewWidth - totalMargins
-        let cellWidth = availableWidth / itemsPerRow
-        return CGSize(width: cellWidth, height: cellWidth * movieCellHeightToWidthRatio)
     }
     
     func navigateToMovieDetails(with index: Int) {
