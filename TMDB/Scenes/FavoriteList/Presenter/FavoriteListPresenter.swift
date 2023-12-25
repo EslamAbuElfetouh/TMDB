@@ -27,6 +27,10 @@ extension FavoriteListPresenter: FavoriteListPresenterProtocol {
     func viewDidLoad() {
         
     }
+    
+    func popViewController() {
+        self.router?.popViewController()
+    }
 }
 // MARK: Conform to FavoriteListInteractorOutputa
 extension FavoriteListPresenter: FavoriteListInteractorOutput {
