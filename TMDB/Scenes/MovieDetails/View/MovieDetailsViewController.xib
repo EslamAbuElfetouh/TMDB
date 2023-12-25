@@ -32,7 +32,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-7L-2ei" userLabel="PosterHeaderView">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="402.33333333333331"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AZ-fF-kdC" userLabel="PosterView" customClass="PosterView" customModule="UIComponents">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AZ-fF-kdC" userLabel="PosterView" customClass="BackdropView" customModule="UIComponents">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>

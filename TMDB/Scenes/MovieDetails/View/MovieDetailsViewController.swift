@@ -10,7 +10,7 @@ import UIComponents
 
 class MovieDetailsViewController: UIViewController {
     // MARK: Outlets
-    @IBOutlet private weak var backdropView: PosterView!
+    @IBOutlet private weak var backdropView: BackdropView!
     @IBOutlet private weak var movieInfoView: MovieInfoView!
     @IBOutlet private weak var summaryTextView: UITextView!
 
