@@ -6,13 +6,18 @@
 - To Start using this you can just conform to the APILoaderProtocol, and just call `loadItems` method, or you can create your own implemenation using `APIClient.share` directly without using the loader.
 
 ## Usage
-- In AppDelegate config APIClient by injecting `NetworkLayerConfigProtocol`
+- In AppDelegate config APIClient by 
+### Adding Framework to Target:
+Add NetworkLayer package to Target's `Frameworks, Libraries, and Embedded Content` located in `Genral` tab.
 
+### Configure APIClient:
+##### - Importing NetworkLayer in AppDelegate
+
+##### - injecting `NetworkLayerConfigProtocol.
 ```swift
 let networkConfig = NetworkLayerConfig(baseUrl: YourBaseUrl,
-                                       token: YourToken)
+                                            token: YourToken)
 APIClient.shared.configClient(networkConfig)
-
 ```
 - Create your own loaderProtocol and loader that match your needs for the API request, and conform to `APILoaderProtocol`.
 
