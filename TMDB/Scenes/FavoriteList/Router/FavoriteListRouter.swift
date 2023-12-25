@@ -20,4 +20,9 @@ extension FavoriteListRouter: FavoriteListRouterProtocol {
     func popViewController() {
         self.viewController?.navigationController?.popViewController(animated: true)
     }
+    
+    func navigateToMovieDetails(for movie: MovieDetailsBuilderInput) {
+        let vc = MovieDetailsConfigurator.viewController(input: .init(id: movie.id))
+        self.viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

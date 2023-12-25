@@ -13,6 +13,9 @@ final class FavoriteListPresenter: NSObject {
     private var interactor: FavoriteListPresenterInteractorProtocol?
     private var router: FavoriteListRouterProtocol?
 
+    private let movieCellHeightToWidthRatio: CGFloat = 1.47
+    private var movies = [FavoriteListEntity]()
+    
     // MARK: - Init
     init(view: FavoriteListControllerProtocol?,
          interactor: FavoriteListPresenterInteractorProtocol?,
@@ -24,8 +27,31 @@ final class FavoriteListPresenter: NSObject {
 }
 // MARK: Conform to FavoriteListPresenterProtocol
 extension FavoriteListPresenter: FavoriteListPresenterProtocol {
-    func viewDidLoad() {
+    func calculateCellSize(_ collectionViewWidth: CGFloat,
+                           horizontalMargin: CGFloat) -> CGSize {
+        return CellSizeCalculator.calculateCellSize(collectionViewWidth: collectionViewWidth,
+                                                    horizontalMargin: horizontalMargin,
+                                                    itemsPerRow: 2,
+                                                    cellHeightToWidthRatio: movieCellHeightToWidthRatio)
         
+    }
+    
+    var moviesItemsCount: Int {
+       10 /// self.movies.count
+    }
+    
+    func viewDidLoad() {
+
+    }
+
+    
+    func getItem(at index: Int) -> MovieListEntity? {
+        self.movies[safe: index]
+    }
+    
+    func navigateToMovieDetails(with index: Int) {
+        guard let selectedMovie = self.movies[safe: index] else { return }
+        self.router?.navigateToMovieDetails(for: selectedMovie)
     }
     
     func popViewController() {

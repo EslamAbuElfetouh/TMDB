@@ -28,7 +28,7 @@ final class FavoriteListConfigurator {
 }
 // MARK: - Protocols
 // Controller --> Presenter
-protocol FavoriteListPresenterProtocol: AnyObject {
+protocol FavoriteListPresenterProtocol: MovieListPresentable {
     func viewDidLoad()
     func popViewController()
 }
@@ -47,4 +47,5 @@ protocol FavoriteListInteractorOutput: AnyObject {
 // Presenter --> Router
 protocol FavoriteListRouterProtocol: AnyObject {
     func popViewController()
+    func navigateToMovieDetails(for movie: MovieDetailsBuilderInput)
 }

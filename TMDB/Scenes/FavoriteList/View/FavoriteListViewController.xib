@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
-                <outlet property="movieCollectioView" destination="lbV-Rd-Cyt" id="LtQ-P5-lCB"/>
+                <outlet property="movieCollectioView" destination="lbV-Rd-Cyt" id="UXc-rH-UJQ"/>
                 <outlet property="view" destination="hZq-yd-6tc" id="5uP-v9-e4g"/>
             </connections>
         </placeholder>
