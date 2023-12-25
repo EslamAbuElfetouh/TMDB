@@ -49,3 +49,13 @@ TMDB
 └── TMDBUITests
     ├── ...
 ```
+## App in Action
+https://github.com/RyuuSenpai/TMDB/assets/13632150/d425c734-25f7-48bb-ade0-2b75a0a4ac77
+
+## App Screenshots
+![image](https://github.com/RyuuSenpai/TMDB/assets/13632150/a286abdb-fc18-4a51-ad71-fcfcd6a42013)
+![image](https://github.com/RyuuSenpai/TMDB/assets/13632150/738652ad-8bd1-4b89-ba58-c07db34c5f46)
+![image](https://github.com/RyuuSenpai/TMDB/assets/13632150/06ce8468-a5ea-4b12-bda1-f0f3f978e218)
+![image](https://github.com/RyuuSenpai/TMDB/assets/13632150/01f17593-2acd-43ad-ad96-1d0b025c2f80)
+![image](https://github.com/RyuuSenpai/TMDB/assets/13632150/a85a626c-feda-4dc3-8258-98a061be1acc)
+
