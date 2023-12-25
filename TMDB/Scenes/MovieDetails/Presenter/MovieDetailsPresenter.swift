@@ -46,4 +46,12 @@ extension MovieDetailsPresenter: MovieDetailsInteractorOutput {
     func didFailToFetchMovieDetails(with error: Error) {
         self.view?.presentError(with: error.localizedDescription)
     }
+    
+    func startLoading() {
+        self.view?.startLoading()
+    }
+    
+    func stopLoading() {
+        self.view?.stopLoading()
+    }
 }

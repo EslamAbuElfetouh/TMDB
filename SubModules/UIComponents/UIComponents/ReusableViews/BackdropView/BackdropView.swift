@@ -1,5 +1,5 @@
 //
-//  PosterView.swift
+//  BackdropView.swift
 //  UIComponents
 //
 //  Created by Eslam Abo El Fetouh on 22/12/2023.
@@ -11,16 +11,16 @@ public protocol PosterViewItemProtocol {
     var backdropPath: String { get }
 }
 
-public class PosterView: UIView {
+public class BackdropView: UIView {
     // MARK: Outlets
-    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var backdropImageView: UIImageView!
     @IBOutlet private weak var overlayView: UIView!
     // MARK: Properites
     private var gradientLayer: CAGradientLayer?
     // Content mode property
     var posterContentMode: UIView.ContentMode {
-        get { posterImageView.contentMode }
-        set { posterImageView.contentMode = newValue }
+        get { backdropImageView.contentMode }
+        set { backdropImageView.contentMode = newValue }
     }
     // Dimming level property
     var dimmingLevel: CGFloat {
@@ -53,7 +53,7 @@ public class PosterView: UIView {
     
     // MARK: Configurations
     public func configView(with item: PosterViewItemProtocol) {
-        self.posterImageView.loadImage(with: item.backdropPath)
+        self.backdropImageView.loadImage(with: item.backdropPath)
     }
     
     // MARK: Gradient Overlay

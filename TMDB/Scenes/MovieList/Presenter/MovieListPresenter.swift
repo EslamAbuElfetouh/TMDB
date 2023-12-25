@@ -16,7 +16,8 @@ final class MovieListPresenter: NSObject {
     private let movieCellHeightToWidthRatio: CGFloat = 1.47
     
     private var movies = [MovieListEntity]()
-
+    private let loadingDataText = "Loading data..."
+    private let errorPlaceHolderText = "No Data to Present"
     // MARK: - Init
     init(view: MovieListControllerProtocol?,
          interactor: MovieListPresenterInteractorProtocol?,
@@ -37,7 +38,10 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     }
     
     func viewDidLoad() {
-        self.interactor?.fetchMoviesList()
+        // Show PlaceHolder label during loading data
+        handleShowingEmptyListPlaceHolder(with: loadingDataText)
+        // Load Data
+        interactor?.fetchMoviesList()
     }
     
     func calculateCellSize(_ collectionViewWidth: CGFloat,
@@ -59,7 +63,18 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     }
     
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
-        self.view?.setLoadingIndicatorVisible(isVisible)
+        guard isVisible else {
+            self.view?.stopLoadingIndicator()
+            return
+        }
+        handleShowingEmptyListPlaceHolder(with: loadingDataText)
+        self.view?.animateLoadingIndicator()
+    }
+    
+    private func handleShowingEmptyListPlaceHolder(with text: String) {
+        guard self.movies.isEmpty else { return }
+        self.view?.updateCollectionPlaceholderLabel(text: text)
+        self.view?.showCollectionPlaceholderLabel()
     }
     
     func refreshMovies() {
@@ -73,8 +88,15 @@ extension MovieListPresenter: MovieListPresenterProtocol {
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {
     func didFetchMovies(_ movies: [MovieListEntity], isFirstPage: Bool) {
-        isFirstPage ? self.movies = movies : self.movies.append(contentsOf: movies)
-        self.view?.reloadCollectionView()
+        defer {
+            self.view?.hideCollectionPlaceholderLabel()
+            self.view?.reloadCollectionView()
+        }
+        guard isFirstPage else {
+            self.movies.append(contentsOf: movies)
+            return
+        }
+        self.movies = movies
     }
     
     func stopRefreshingIndicator() {
@@ -83,6 +105,7 @@ extension MovieListPresenter: MovieListInteractorOutput {
     
     func didFailToFetchMovies(with error: Error) {
         self.view?.presentError(with: error.localizedDescription)
+        self.handleShowingEmptyListPlaceHolder(with: errorPlaceHolderText)
     }
 }
 // MARK: - Helper - Handle Favorite button action

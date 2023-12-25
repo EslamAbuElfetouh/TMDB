@@ -41,7 +41,7 @@ protocol MovieDetailsPresenterProtocol: AnyObject {
 }
 
 // Presenter --> Controller
-protocol MovieDetailsControllerProtocol: AnyObject {
+protocol MovieDetailsControllerProtocol: LoaderIndicatorProtocol {
     func configBackdropView(with item: PosterViewItemProtocol)
     func configMovieInfoView(with item: MovieInfoViewItemProtocol)
     func presentError(with message: String)
@@ -54,7 +54,7 @@ protocol MovieDetailsPresenterInteractorProtocol: AnyObject {
 }
 
 // Interactor --> Presenter
-protocol MovieDetailsInteractorOutput: AnyObject {
+protocol MovieDetailsInteractorOutput: LoaderIndicatorProtocol {
     func didFetchMovieDetails(_ movie: MovieDetailsEntity)
     func didFailToFetchMovieDetails(with error: Error)
 }

@@ -34,16 +34,39 @@ class MockMovieListView: MovieListControllerProtocol {
         presentErrorCallsCount += 1
     }
     
+    func animateLoadingIndicator() {
+        setLoadingIndicatorVisible(true)
+    }
+    
+    func stopLoadingIndicator() {
+        setLoadingIndicatorVisible(false)
+    }
+    
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
         loadingIndicatorIsVisible = isVisible
         setLoadingIndicatorVisibleCallsCount += 1
     }
-    
+   
     func stopRefreshingIndicator() {
         stopRefreshingIndicatorCallsCount += 1
     }
     
     func showBottomSheetAlert(title: String, message: String, actions: [UIAlertAction]) {
+        // Do nothing
+    }
+    func showCollectionPlaceholderLabel() {
+        // Do nothing
+    }
+    
+    func hideCollectionPlaceholderLabel() {
+        // Do nothing
+    }
+    
+    func updateCollectionPlaceholderLabel(text: String) {
+        // Do nothing
+    }
+    
+    func showActionSheetAlert(with configuration: TMDB.AlertConfiguration) {
         // Do nothing
     }
 }
