@@ -29,7 +29,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-TF-Z1u">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="432.33333333333331"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="431.66666666666669"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-7L-2ei" userLabel="PosterHeaderView">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="402.33333333333331"/>
@@ -82,12 +82,12 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKg-aj-VRB">
-                                            <rect key="frame" x="0.0" y="402.33333333333331" width="390" height="30"/>
+                                            <rect key="frame" x="0.0" y="402.33333333333331" width="390" height="29.333333333333314"/>
                                             <subviews>
-                                                <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Hf-gkC">
-                                                    <rect key="frame" x="6" y="0.0" width="378" height="30"/>
+                                                <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="   " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Hf-gkC">
+                                                    <rect key="frame" x="6" y="0.0" width="378" height="29.333333333333332"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <attributedString key="attributedText"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
