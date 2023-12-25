@@ -23,7 +23,7 @@ extension MovieListRouter: MovieListRouterProtocol {
     }
     
     func navigateToFavoriteScreen(withStaticData isStatic: Bool) {
-        let vc = FavoriteListConfigurator.viewController(input: .init(useStaticValues: isStatic))
+        let vc = FavoriteListConfigurator.viewController(input: .init(usesStaticData: isStatic))
         self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

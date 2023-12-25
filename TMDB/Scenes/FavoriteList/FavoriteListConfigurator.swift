@@ -9,6 +9,7 @@ import UIKit
 
 struct FavoriteListInput {
     var useStaticValues: Bool
+    let usesStaticData: Bool
 }
 
 final class FavoriteListConfigurator {
