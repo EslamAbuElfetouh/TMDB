@@ -15,7 +15,7 @@ protocol FavoriteListLoaderProtocol {
     func loadMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
 }
 
-final class FavoriteListLoader {
+final class FavoriteListLoader: FavoriteListLoaderProtocol {
     private let LoaderOption: MovieLoaderOptionProtocol
     private let remoteLoader: DiscoverMoviesLoaderProtocol
     private let localDataLoader: MovieLocalDataLoaderProtocol
