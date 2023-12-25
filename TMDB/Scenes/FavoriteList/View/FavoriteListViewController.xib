@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
@@ -63,13 +68,26 @@
                                                 <constraint firstItem="OHG-i2-luU" firstAttribute="centerY" secondItem="f7h-Ai-XIT" secondAttribute="centerY" id="xM1-Zl-3jK"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPx-sq-I3W">
+                                            <rect key="frame" x="157.33333333333337" y="13" width="75.333333333333314" height="19"/>
+                                            <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <color key="textColor" red="0.99607855079999996" green="0.99607855079999996" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="26"/>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="f7h-Ai-XIT" firstAttribute="leading" secondItem="X5f-ht-JLG" secondAttribute="leading" constant="4" id="2gO-Tv-FUK"/>
                                         <constraint firstAttribute="bottom" secondItem="f7h-Ai-XIT" secondAttribute="bottom" constant="4" id="GB5-lm-SJ2"/>
+                                        <constraint firstItem="uPx-sq-I3W" firstAttribute="centerY" secondItem="X5f-ht-JLG" secondAttribute="centerY" id="LA5-Yh-KEs"/>
                                         <constraint firstItem="f7h-Ai-XIT" firstAttribute="top" secondItem="X5f-ht-JLG" secondAttribute="top" constant="4" id="uTa-aa-EGb"/>
-                                        <constraint firstAttribute="height" constant="45" id="w1s-kp-qRf"/>
+                                        <constraint firstAttribute="height" constant="45" id="w1s-kp-qRf">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="65"/>
+                                        </constraint>
+                                        <constraint firstItem="uPx-sq-I3W" firstAttribute="centerX" secondItem="X5f-ht-JLG" secondAttribute="centerX" id="z1F-rn-lgh"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -86,7 +104,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yP4-TX-IeB">
-                            <rect key="frame" x="176.66666666666666" y="449.66666666666669" width="37" height="37"/>
+                            <rect key="frame" x="176.66666666666663" y="449.66666666666669" width="37" height="37"/>
                             <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
                     </subviews>
