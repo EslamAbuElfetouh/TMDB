@@ -26,4 +26,16 @@ extension UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
+    
+    func showBottomSheetAlert(title: String = "Error",
+                              message: String,
+                              actions: [UIAlertAction]) {
+        let bottomSheetController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        for action in actions {
+            bottomSheetController.addAction(action)
+        }
+        
+        present(bottomSheetController, animated: true, completion: nil)
+    }
 }
