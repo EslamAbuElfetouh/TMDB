@@ -26,13 +26,15 @@ final class MovieListConfigurator {
 }
 // MARK: - Protocols
 // Controller --> Presenter
-protocol MovieListPresenterProtocol: AnyObject {
-    func viewDidLoad()
+protocol MovieListPresentable: AnyObject {
     func calculateCellSize(_ collectionViewWidth: CGFloat,
-                            horizontalMargin: CGFloat) -> CGSize
-    func navigateToMovieDetails(with index: Int)
+                           horizontalMargin: CGFloat) -> CGSize
     var moviesItemsCount: Int { get }
     func getItem(at index: Int) -> MovieListEntity?
+    func navigateToMovieDetails(with index: Int)
+}
+protocol MovieListPresenterProtocol: MovieListPresentable {
+    func viewDidLoad()
     func userReachedEndOfScreen()
     func refreshMovies()
     func didTapFavButton()
