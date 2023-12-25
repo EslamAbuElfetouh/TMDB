@@ -99,4 +99,8 @@ extension MockMovieListPresenter: MovieListPresenterProtocol {
     func refreshMovies() {
         pullToRefreshCallCount += 1
     }
+    
+    func didTapFavButton() {
+        // Do nothing
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 @testable import TMDB
 
 class MockMovieListView: MovieListControllerProtocol {
@@ -40,5 +41,9 @@ class MockMovieListView: MovieListControllerProtocol {
     
     func stopRefreshingIndicator() {
         stopRefreshingIndicatorCallsCount += 1
+    }
+    
+    func showBottomSheetAlert(title: String, message: String, actions: [UIAlertAction]) {
+        // Do nothing
     }
 }
