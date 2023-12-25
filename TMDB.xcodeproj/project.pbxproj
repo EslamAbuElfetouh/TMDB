@@ -45,6 +45,8 @@
 		F96804622B39F10100F52F68 /* FavoriteListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968045B2B39F10100F52F68 /* FavoriteListEntity.swift */; };
 		F96804632B39F10100F52F68 /* FavoriteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F968045C2B39F10100F52F68 /* FavoriteListViewController.xib */; };
 		F96804652B39F38A00F52F68 /* CellSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96804642B39F38A00F52F68 /* CellSizeCalculator.swift */; };
+		F968046F2B3A061900F52F68 /* FavoriteListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968046E2B3A061900F52F68 /* FavoriteListLoader.swift */; };
+		F96804712B3A06BE00F52F68 /* MovieStaticDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96804702B3A06BE00F52F68 /* MovieStaticDataLoader.swift */; };
 		F9B7CE062B3660F900193441 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7CDFF2B3660F900193441 /* MovieDetailsPresenter.swift */; };
 		F9B7CE072B3660F900193441 /* MovieDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7CE002B3660F900193441 /* MovieDetailsRouter.swift */; };
 		F9B7CE082B3660F900193441 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7CE012B3660F900193441 /* MovieDetailsViewController.swift */; };
@@ -130,6 +132,8 @@
 		F968045B2B39F10100F52F68 /* FavoriteListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListEntity.swift; sourceTree = "<group>"; };
 		F968045C2B39F10100F52F68 /* FavoriteListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteListViewController.xib; sourceTree = "<group>"; };
 		F96804642B39F38A00F52F68 /* CellSizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSizeCalculator.swift; sourceTree = "<group>"; };
+		F968046E2B3A061900F52F68 /* FavoriteListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListLoader.swift; sourceTree = "<group>"; };
+		F96804702B3A06BE00F52F68 /* MovieStaticDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStaticDataLoader.swift; sourceTree = "<group>"; };
 		F9B7CDFF2B3660F900193441 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 		F9B7CE002B3660F900193441 /* MovieDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRouter.swift; sourceTree = "<group>"; };
 		F9B7CE012B3660F900193441 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				F96804692B39F5E500F52F68 /* Interactor */,
 				F968046A2B39F5ED00F52F68 /* Entity */,
 				F96804682B39F5E100F52F68 /* Router */,
+				F968046D2B3A060700F52F68 /* Loader */,
 				F968045A2B39F10100F52F68 /* FavoriteListConfigurator.swift */,
 			);
 			path = FavoriteList;
@@ -397,6 +402,15 @@
 				F968045B2B39F10100F52F68 /* FavoriteListEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F968046D2B3A060700F52F68 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				F968046E2B3A061900F52F68 /* FavoriteListLoader.swift */,
+				F96804702B3A06BE00F52F68 /* MovieStaticDataLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		F9B7CDFE2B3660DF00193441 /* MovieDetails */ = {
@@ -600,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F96804712B3A06BE00F52F68 /* MovieStaticDataLoader.swift in Sources */,
 				F907E0E12B37A168004F280C /* Array+Extensions.swift in Sources */,
 				F96804652B39F38A00F52F68 /* CellSizeCalculator.swift in Sources */,
 				F94C33AE2B35F34100B95894 /* MovieListRouter.swift in Sources */,
@@ -614,6 +629,7 @@
 				F907E0DC2B379393004F280C /* Constants.swift in Sources */,
 				F93E076C2B335AF700DF8A48 /* SceneDelegate.swift in Sources */,
 				F907E0E92B3853D9004F280C /* Numeric+Extension.swift in Sources */,
+				F968046F2B3A061900F52F68 /* FavoriteListLoader.swift in Sources */,
 				F9B7CE092B3660F900193441 /* MovieDetailsInteractor.swift in Sources */,
 				F9B7CE0A2B3660F900193441 /* MovieDetailsConfigurator.swift in Sources */,
 				F96804602B39F10100F52F68 /* FavoriteListInteractor.swift in Sources */,

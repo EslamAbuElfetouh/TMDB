@@ -7,8 +7,7 @@
 
 import UIKit
 
-struct FavoriteListInput {
-    var useStaticValues: Bool
+struct FavoriteListInput: MovieLoaderOptionProtocol {
     let usesStaticData: Bool
 }
 
