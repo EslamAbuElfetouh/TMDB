@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="yP4-TX-IeB" id="Tmh-EI-gSQ"/>
                 <outlet property="movieCollectioView" destination="lbV-Rd-Cyt" id="UXc-rH-UJQ"/>
                 <outlet property="view" destination="hZq-yd-6tc" id="5uP-v9-e4g"/>
             </connections>
@@ -84,11 +85,17 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yP4-TX-IeB">
+                            <rect key="frame" x="176.66666666666666" y="449.66666666666669" width="37" height="37"/>
+                            <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="yP4-TX-IeB" firstAttribute="centerY" secondItem="lbV-Rd-Cyt" secondAttribute="centerY" id="5j5-SO-OKL"/>
                         <constraint firstItem="lbV-Rd-Cyt" firstAttribute="top" secondItem="4QS-Na-jtn" secondAttribute="bottom" id="6v3-0J-Um0"/>
                         <constraint firstAttribute="trailing" secondItem="4QS-Na-jtn" secondAttribute="trailing" id="8hl-uG-RMl"/>
+                        <constraint firstItem="yP4-TX-IeB" firstAttribute="centerX" secondItem="lbV-Rd-Cyt" secondAttribute="centerX" id="MKT-vc-wra"/>
                         <constraint firstItem="4QS-Na-jtn" firstAttribute="top" secondItem="0gO-B0-HT1" secondAttribute="top" id="Sbq-Gn-eLX"/>
                         <constraint firstAttribute="trailing" secondItem="lbV-Rd-Cyt" secondAttribute="trailing" id="el7-La-I6z"/>
                         <constraint firstAttribute="bottom" secondItem="lbV-Rd-Cyt" secondAttribute="bottom" id="lz6-i6-ja5"/>

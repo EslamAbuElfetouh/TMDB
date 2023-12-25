@@ -11,6 +11,7 @@ import UIComponents
 class FavoriteListViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet private weak var movieCollectioView: UICollectionView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     // MARK: Properties
     var presenter: FavoriteListPresenterProtocol?
     private let horizontalMargin: CGFloat = 8
@@ -81,10 +82,10 @@ extension FavoriteListViewController: FavoriteListControllerProtocol {
     }
     
     func startLoading() {
-        
+        activityIndicator.startAnimating()
     }
     
     func stopLoading() {
-        
+        activityIndicator.stopAnimating()
     }
 }
