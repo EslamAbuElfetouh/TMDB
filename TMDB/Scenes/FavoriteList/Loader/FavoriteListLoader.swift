@@ -16,20 +16,20 @@ protocol FavoriteListLoaderProtocol {
 }
 
 final class FavoriteListLoader: FavoriteListLoaderProtocol {
-    private let LoaderOption: MovieLoaderOptionProtocol
+    private let loaderOption: MovieLoaderOptionProtocol
     private let remoteLoader: DiscoverMoviesLoaderProtocol
     private let localDataLoader: MovieLocalDataLoaderProtocol
     
-    init(LoaderOption: MovieLoaderOptionProtocol,
+    init(loaderOption: MovieLoaderOptionProtocol,
          remoteLoader: DiscoverMoviesLoaderProtocol,
          localDataLoader: MovieLocalDataLoaderProtocol) {
-        self.LoaderOption = LoaderOption
+        self.loaderOption = loaderOption
         self.remoteLoader = remoteLoader
         self.localDataLoader = localDataLoader
     }
     
     func loadMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
-        guard LoaderOption.usesStaticData else {
+        guard loaderOption.usesStaticData else {
             loadUsingRemoteLoader(completionHandler: completionHandler)
             return
         }
