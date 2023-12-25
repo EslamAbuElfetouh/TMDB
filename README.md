@@ -28,7 +28,7 @@ The app utilizes The Movie Database (TMDB) APIs to fetch movie data and follows 
 *For more documentation about `NetworkKit.framework`, please check the framework documentation.*
 
 ## Project Dependencies Overview
-![Uploading Project Dependencies Overview.png…]()
+<img width="1163" alt="Project Dependencies Overview" src="https://github.com/RyuuSenpai/TMDB/assets/13632150/4553c1ee-45c6-482b-8969-91b33da94e0e">
 
 ## App Tree
 
