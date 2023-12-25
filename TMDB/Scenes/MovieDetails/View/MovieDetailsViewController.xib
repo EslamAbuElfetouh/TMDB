@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="backdropView" destination="6AZ-fF-kdC" id="5DZ-nZ-ybW"/>
+                <outlet property="loadingIndicator" destination="Gmb-di-swG" id="GN5-CX-wqJ"/>
                 <outlet property="movieInfoView" destination="zU3-C6-l6T" id="qWf-Uj-XpD"/>
                 <outlet property="summaryTextView" destination="a57-Hf-gkC" id="aKR-Fn-0Kc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1Ad-vg-fuA"/>
@@ -127,6 +129,10 @@
                         <constraint firstAttribute="bottom" secondItem="qcE-qS-TnC" secondAttribute="bottom" id="nos-h1-8uN"/>
                     </constraints>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-di-swG">
+                    <rect key="frame" x="176" y="403" width="37" height="37"/>
+                    <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.058823529411764705" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,6 +142,8 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="EWt-Sf-xIr" secondAttribute="top" priority="666" constant="4" id="96M-hq-GaY"/>
                 <constraint firstItem="eBa-8u-4Vv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DMd-iQ-XZS"/>
                 <constraint firstItem="eBa-8u-4Vv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OjY-EH-1Zw"/>
+                <constraint firstItem="Gmb-di-swG" firstAttribute="centerY" secondItem="eBa-8u-4Vv" secondAttribute="centerY" id="YKH-1z-mAb"/>
+                <constraint firstItem="Gmb-di-swG" firstAttribute="centerX" secondItem="eBa-8u-4Vv" secondAttribute="centerX" id="cDA-QG-JSF"/>
             </constraints>
             <point key="canvasLocation" x="-355.38461538461536" y="-10.663507109004739"/>
         </view>

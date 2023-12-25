@@ -19,10 +19,12 @@ class MovieDetailsInteractor {
 extension MovieDetailsInteractor: MovieDetailsPresenterInteractorProtocol {
     // MARK: API call - Fetch Movie Details
     func fetchMovieDetails(with id: Int) {
+        self.presenter?.startLoading()
         movieDetailsLoader.loadMovieDetails(with: id) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.handleFetchedResult(result)
+                self.presenter?.stopLoading()
             }
         }
     }

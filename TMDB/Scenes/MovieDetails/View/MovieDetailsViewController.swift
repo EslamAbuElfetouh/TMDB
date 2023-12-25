@@ -13,7 +13,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet private weak var backdropView: BackdropView!
     @IBOutlet private weak var movieInfoView: MovieInfoView!
     @IBOutlet private weak var summaryTextView: UITextView!
-
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     // MARK: Properties
     var presenter: MovieDetailsPresenterProtocol?
     // MARK: Lifecycle
@@ -53,9 +53,19 @@ extension MovieDetailsViewController: MovieDetailsControllerProtocol {
     func configSummary(with text: String) {
         summaryTextView.text = text
     }
+    
     func presentError(with message: String) {
         self.showAlert(message: message) {
             self.presenter?.popViewController()
         }
+    }
+    
+    // MARK: Handle loadingIndicator state
+    func startLoading() {
+        self.loadingIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        self.loadingIndicator.stopAnimating()
     }
 }
