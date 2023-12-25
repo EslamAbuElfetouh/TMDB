@@ -29,7 +29,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-TF-Z1u">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="434.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="432.33333333333331"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jB-7L-2ei" userLabel="PosterHeaderView">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="402.33333333333331"/>
@@ -82,20 +82,12 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKg-aj-VRB">
-                                            <rect key="frame" x="0.0" y="402.33333333333331" width="390" height="32.333333333333314"/>
+                                            <rect key="frame" x="0.0" y="402.33333333333331" width="390" height="30"/>
                                             <subviews>
                                                 <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Hf-gkC">
-                                                    <rect key="frame" x="6" y="0.0" width="378" height="32.333333333333336"/>
+                                                    <rect key="frame" x="6" y="0.0" width="378" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content=" Text">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="14" name="Arial-BoldMT"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="9" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -130,7 +122,7 @@
                     </constraints>
                 </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-di-swG">
-                    <rect key="frame" x="176" y="403" width="37" height="37"/>
+                    <rect key="frame" x="176.66666666666666" y="403.66666666666669" width="37" height="37"/>
                     <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
             </subviews>
