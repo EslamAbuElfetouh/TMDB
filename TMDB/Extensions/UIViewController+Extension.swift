@@ -9,7 +9,14 @@ import Foundation
 
 import UIKit
 
-extension UIViewController {
+protocol AlertPopupProtocol {
+    func showAlert(title: String,
+                   message: String,
+                   preferredStyle: UIAlertController.Style,
+                   alertActionTitle: String,
+                   completionHandler: (() -> Void)?)
+}
+extension UIViewController: AlertPopupProtocol {
     func showAlert(title: String = "Error",
                    message: String,
                    preferredStyle: UIAlertController.Style = .alert,
@@ -26,7 +33,8 @@ extension UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-    
+}
+extension UIViewController {
     func showBottomSheetAlert(title: String = "Error",
                               message: String,
                               actions: [UIAlertAction]) {

@@ -76,4 +76,15 @@ extension FavoriteListViewController: UICollectionViewDataSource, UICollectionVi
 }
 
 extension FavoriteListViewController: FavoriteListControllerProtocol {
+    func reloadCollectionView() {
+        movieCollectioView.reloadData()
+    }
+    
+    func startLoading() {
+        
+    }
+    
+    func stopLoading() {
+        
+    }
 }

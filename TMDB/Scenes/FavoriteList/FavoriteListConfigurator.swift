@@ -37,6 +37,10 @@ final class FavoriteListConfigurator {
     }
 }
 // MARK: - Protocols
+protocol LoaderIndicatorProtocol: AnyObject {
+    func startLoading()
+    func stopLoading()
+}
 // Controller --> Presenter
 protocol FavoriteListPresenterProtocol: MovieListPresentable {
     func viewDidLoad()
@@ -44,15 +48,19 @@ protocol FavoriteListPresenterProtocol: MovieListPresentable {
 }
 
 // Presenter --> Controller
-protocol FavoriteListControllerProtocol: AnyObject {
+protocol FavoriteListControllerProtocol: LoaderIndicatorProtocol, AlertPopupProtocol {
+    func reloadCollectionView()
 }
 
 // Presenter --> Interactor
 protocol FavoriteListPresenterInteractorProtocol: AnyObject {
+    func fetchMoviesList()
 }
 
 // Interactor --> Presenter
-protocol FavoriteListInteractorOutput: AnyObject {
+protocol FavoriteListInteractorOutput: LoaderIndicatorProtocol {
+    func didFetchMovies(_ movies: [FavoriteListEntity])
+    func showErrorAlert(with message: String)
 }
 // Presenter --> Router
 protocol FavoriteListRouterProtocol: AnyObject {

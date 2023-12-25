@@ -12,7 +12,7 @@ final class FavoriteListPresenter: NSObject {
     private var view: FavoriteListControllerProtocol?
     private var interactor: FavoriteListPresenterInteractorProtocol?
     private var router: FavoriteListRouterProtocol?
-
+    
     private let movieCellHeightToWidthRatio: CGFloat = 1.47
     private var movies = [FavoriteListEntity]()
     
@@ -33,17 +33,15 @@ extension FavoriteListPresenter: FavoriteListPresenterProtocol {
                                                     horizontalMargin: horizontalMargin,
                                                     itemsPerRow: 2,
                                                     cellHeightToWidthRatio: movieCellHeightToWidthRatio)
-        
     }
     
     var moviesItemsCount: Int {
-       10 /// self.movies.count
+        self.movies.count
     }
     
     func viewDidLoad() {
-
+        interactor?.fetchMoviesList()
     }
-
     
     func getItem(at index: Int) -> MovieListEntity? {
         self.movies[safe: index]
@@ -60,4 +58,24 @@ extension FavoriteListPresenter: FavoriteListPresenterProtocol {
 }
 // MARK: Conform to FavoriteListInteractorOutputa
 extension FavoriteListPresenter: FavoriteListInteractorOutput {
+    func didFetchMovies(_ movies: [FavoriteListEntity]) {
+        self.movies = movies
+        view?.reloadCollectionView()
+    }
+    
+    func showErrorAlert(with message: String) {
+        view?.showAlert(title: "Error",
+                        message: message,
+                        preferredStyle: .alert,
+                        alertActionTitle: "Ok",
+                        completionHandler: .none)
+    }
+    
+    func startLoading() {
+        view?.startLoading()
+    }
+    
+    func stopLoading() {
+        view?.stopLoading()
+    }
 }
