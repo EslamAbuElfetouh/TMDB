@@ -12,6 +12,7 @@ public final class MovieInfoView: UIView {
     @IBOutlet private weak var movieImageView: UIImageView!
     @IBOutlet private weak var movieTitleLabel: UILabel!
     @IBOutlet private weak var movieSubtitleLabel: UILabel!
+    @IBOutlet private weak var ratingSideIconImageView: UIImageView!
     @IBOutlet private weak var movieRatingLabel: UILabel!
 
     // MARK: Additional Configurable Properties
@@ -50,7 +51,13 @@ public final class MovieInfoView: UIView {
             movieRatingLabel.textColor = ratingColor
         }
     }
-
+    
+    public var ratingSideIconImage: UIImage? {
+        didSet {
+            ratingSideIconImageView.image = ratingSideIconImage
+        }
+    }
+    
     // MARK: - Initializers
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,6 +74,7 @@ public final class MovieInfoView: UIView {
         self.movieTitleLabel.text = item.title
         self.movieSubtitleLabel.text = item.subtitle
         self.movieRatingLabel.text = item.averageRating
-        
+        // Show Rating Image when setting data
+        self.ratingSideIconImageView.isHidden = false
     }
 }
