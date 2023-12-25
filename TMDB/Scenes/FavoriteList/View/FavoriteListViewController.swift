@@ -9,13 +9,17 @@ import UIKit
 
 class FavoriteListViewController: UIViewController {
     // MARK: Outlets
-    //    @IBOutlet private weak var testLabel: UILabel!
+    @IBOutlet private weak var movieCollectioView: UILabel!
     // MARK: Properties
     var presenter: FavoriteListPresenterProtocol?
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+    }
+    // MARK: @IBActions
+    @IBAction func backButtonHandler(_ sender: UIButton) {
+
     }
 }
 
