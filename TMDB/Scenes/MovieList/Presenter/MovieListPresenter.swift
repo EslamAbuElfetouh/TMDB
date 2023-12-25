@@ -89,8 +89,16 @@ extension MovieListPresenter: MovieListInteractorOutput {
 extension MovieListPresenter {
     // Show Bottom Sheet Alert for the user to select either static or remote movie list.
     private func showFavScreenNavigationOptions() {
-        let actions: [UIAlertAction] = [
-            UIAlertAction(title: "Static Movie List", style: .default) { [weak self] _ in 
+        let alertActions = createFavScreenActionSheetActions()
+        let configuration = AlertConfiguration(title: "Choose an Option",
+                                               message: "What would you like to do?",
+                                               actions: alertActions)
+        view?.showActionSheetAlert(with: configuration)
+    }
+    
+    private func createFavScreenActionSheetActions() -> [UIAlertAction] {
+        [
+            UIAlertAction(title: "Static Movie List", style: .default) { [weak self] _ in
                 // Handle the selection of static movie list
                 self?.router?.navigateToFavoriteScreen(withStaticData: true)
             },
@@ -100,7 +108,5 @@ extension MovieListPresenter {
             },
             UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         ]
-
-        view?.showBottomSheetAlert(title: "Choose an Option", message: "What would you like to do?", actions: actions)
     }
 }

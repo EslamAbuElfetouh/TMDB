@@ -6,8 +6,13 @@
 //
 
 import Foundation
-
 import UIKit
+
+struct AlertConfiguration {
+    let title: String
+    let message: String
+    let actions: [UIAlertAction]
+}
 
 protocol AlertPopupProtocol {
     func showAlert(title: String,
@@ -34,16 +39,20 @@ extension UIViewController: AlertPopupProtocol {
         present(alertController, animated: true, completion: nil)
     }
 }
+
 extension UIViewController {
-    func showBottomSheetAlert(title: String = "Error",
-                              message: String,
-                              actions: [UIAlertAction]) {
-        let bottomSheetController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+    func showActionSheetAlert(with configuration: AlertConfiguration,
+                              sourceView: UIView?) {
+        let alertController = UIAlertController(title: configuration.title,
+                                                message: configuration.message,
+                                                preferredStyle: .actionSheet)
         
-        for action in actions {
-            bottomSheetController.addAction(action)
+        for action in configuration.actions {
+            alertController.addAction(action)
         }
-        
-        present(bottomSheetController, animated: true, completion: nil)
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = sourceView
+        }
+        present(alertController, animated: true, completion: nil)
     }
 }

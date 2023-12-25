@@ -85,7 +85,10 @@ extension MovieListViewController: MovieListControllerProtocol {
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
         isVisible ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
     }
-    
+    // Show ActionSheet to select loader data type(local, or remote)
+    func showActionSheetAlert(with configuration: AlertConfiguration) {
+        self.showActionSheetAlert(with: configuration, sourceView: favButton)
+    }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDataSource

@@ -46,7 +46,7 @@ protocol MovieListControllerProtocol: AnyObject {
     func presentError(with message: String)
     func setLoadingIndicatorVisible(_ isVisible: Bool)
     func stopRefreshingIndicator()
-    func showBottomSheetAlert(title: String, message: String, actions: [UIAlertAction])
+    func showActionSheetAlert(with configuration: AlertConfiguration)
 }
 
 // Presenter --> Interactor
