@@ -10,8 +10,10 @@ import UIKit
 class FavoriteListInteractor {
 
     var presenter: FavoriteListInteractorOutput?
-
-    init() {
+    private let movieLoader: FavoriteListLoaderProtocol
+    
+    init(loader: FavoriteListLoaderProtocol) {
+        self.movieLoader = loader
     }
 }
 extension FavoriteListInteractor: FavoriteListPresenterInteractorProtocol {

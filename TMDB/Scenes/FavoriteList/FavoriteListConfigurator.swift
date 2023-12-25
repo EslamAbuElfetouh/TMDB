@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NetworkKit
 
 struct FavoriteListInput: MovieLoaderOptionProtocol {
     let usesStaticData: Bool
@@ -16,7 +17,8 @@ final class FavoriteListConfigurator {
     // MARK: Configuration
     class func viewController(input: FavoriteListInput) -> FavoriteListViewController {
         let view = FavoriteListViewController()
-        let interactor = FavoriteListInteractor()
+        let loader = createLoader(with: input)
+        let interactor = FavoriteListInteractor(loader: loader)
         let router = FavoriteListRouter(viewController: view)
         let presenter = FavoriteListPresenter(view: view,
                                               interactor: interactor,
@@ -24,6 +26,14 @@ final class FavoriteListConfigurator {
         view.presenter = presenter
         interactor.presenter = presenter
         return view
+    }
+    
+    private static func createLoader(with inputData: MovieLoaderOptionProtocol) -> FavoriteListLoaderProtocol {
+        let remoteLoader = DiscoverMoviesLoader()
+        let localLoader = MovieStaticDataLoader()
+        return FavoriteListLoader(loaderOption: inputData,
+                                  remoteLoader: remoteLoader,
+                                  localDataLoader: localLoader)
     }
 }
 // MARK: - Protocols
