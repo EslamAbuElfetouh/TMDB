@@ -6,14 +6,18 @@ The `NetworkKit.framework` is designed to simplify the usage of the underlying `
 
 ## Usage:
 To use NetworkKit.framework, follow these steps:
-### Configure APIClient:
-In AppDelegate config APIClient by injecting `NetworkLayerConfigProtocol`
 
+### Adding Framework to Target:
+Add Framework to Target's `Frameworks, Libraries, and Embedded Content` located in `Genral` tab.
+
+### Configure APIClient:
+##### - Importing NetworkLayer in AppDelegate
+
+##### - injecting `NetworkLayerConfigProtocol.
 ```swift
 let networkConfig = NetworkLayerConfig(baseUrl: YourBaseUrl,
-                                       token: YourToken)
+                                            token: YourToken)
 APIClient.shared.configClient(networkConfig)
-
 ```
 
 ### Create Routers.
