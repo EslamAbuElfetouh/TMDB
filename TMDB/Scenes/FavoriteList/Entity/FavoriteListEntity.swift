@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class FavoriteListEntity {
+final class FavoriteListEntity: MovieListEntity {
     
 }
