@@ -19,10 +19,9 @@ class FavoriteListViewController: UIViewController {
     }
     // MARK: @IBActions
     @IBAction func backButtonHandler(_ sender: UIButton) {
-
+        self.presenter?.popViewController()
     }
 }
 
 extension FavoriteListViewController: FavoriteListControllerProtocol {
 }
-

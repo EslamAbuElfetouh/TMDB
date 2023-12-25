@@ -30,6 +30,7 @@ final class FavoriteListConfigurator {
 // Controller --> Presenter
 protocol FavoriteListPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func popViewController()
 }
 
 // Presenter --> Controller
