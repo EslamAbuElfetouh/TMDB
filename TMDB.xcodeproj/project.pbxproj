@@ -264,8 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				F94C33B62B35FB2D00B95894 /* View */,
-				F94C33B72B35FB3200B95894 /* Interactor */,
 				F94C33B42B35FB1F00B95894 /* Presenter */,
+				F94C33B72B35FB3200B95894 /* Interactor */,
 				F94C33B82B35FB4200B95894 /* Entity */,
 				F94C33B52B35FB2600B95894 /* Router */,
 				F94C33AA2B35F34100B95894 /* MovieListConfigurator.swift */,
@@ -348,15 +348,55 @@
 		F96804552B39F0DF00F52F68 /* FavoriteList */ = {
 			isa = PBXGroup;
 			children = (
-				F96804562B39F10100F52F68 /* FavoriteListPresenter.swift */,
-				F96804572B39F10100F52F68 /* FavoriteListRouter.swift */,
-				F96804582B39F10100F52F68 /* FavoriteListViewController.swift */,
-				F96804592B39F10100F52F68 /* FavoriteListInteractor.swift */,
+				F96804662B39F5D200F52F68 /* View */,
+				F96804672B39F5D800F52F68 /* Presenter */,
+				F96804692B39F5E500F52F68 /* Interactor */,
+				F968046A2B39F5ED00F52F68 /* Entity */,
+				F96804682B39F5E100F52F68 /* Router */,
 				F968045A2B39F10100F52F68 /* FavoriteListConfigurator.swift */,
-				F968045B2B39F10100F52F68 /* FavoriteListEntity.swift */,
-				F968045C2B39F10100F52F68 /* FavoriteListViewController.xib */,
 			);
 			path = FavoriteList;
+			sourceTree = "<group>";
+		};
+		F96804662B39F5D200F52F68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F96804582B39F10100F52F68 /* FavoriteListViewController.swift */,
+				F968045C2B39F10100F52F68 /* FavoriteListViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F96804672B39F5D800F52F68 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F96804562B39F10100F52F68 /* FavoriteListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F96804682B39F5E100F52F68 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F96804572B39F10100F52F68 /* FavoriteListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F96804692B39F5E500F52F68 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F96804592B39F10100F52F68 /* FavoriteListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F968046A2B39F5ED00F52F68 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F968045B2B39F10100F52F68 /* FavoriteListEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		F9B7CDFE2B3660DF00193441 /* MovieDetails */ = {
