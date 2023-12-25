@@ -41,17 +41,12 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     }
     
     func calculateCellSize(_ collectionViewWidth: CGFloat,
-                            horizontalMargin: CGFloat) -> CGSize {
-        // Adjust these values based on your layout requirements
-        let itemsPerRow: CGFloat = 2
-        let spacingBetweenCells: CGFloat = horizontalMargin * 2
-        let leftAndRightMargins = horizontalMargin * 2
+                           horizontalMargin: CGFloat) -> CGSize {
+        return CellSizeCalculator.calculateCellSize(collectionViewWidth: collectionViewWidth,
+                                                    horizontalMargin: horizontalMargin,
+                                                    itemsPerRow: 2,
+                                                    cellHeightToWidthRatio: movieCellHeightToWidthRatio)
         
-        let totalMargins = leftAndRightMargins + spacingBetweenCells
-        
-        let availableWidth = collectionViewWidth - totalMargins
-        let cellWidth = availableWidth / itemsPerRow
-        return CGSize(width: cellWidth, height: cellWidth * movieCellHeightToWidthRatio)
     }
     
     func navigateToMovieDetails(with index: Int) {
@@ -70,6 +65,10 @@ extension MovieListPresenter: MovieListPresenterProtocol {
     func refreshMovies() {
         self.interactor?.refreshMovies()
     }
+    
+    func didTapFavButton() {
+        self.showFavScreenNavigationOptions()
+    }
 }
 // MARK: Conform to MovieListInteractorOutputa
 extension MovieListPresenter: MovieListInteractorOutput {
@@ -85,5 +84,29 @@ extension MovieListPresenter: MovieListInteractorOutput {
     func didFailToFetchMovies(with error: Error) {
         self.view?.presentError(with: error.localizedDescription)
     }
+}
+// MARK: - Helper - Handle Favorite button action
+extension MovieListPresenter {
+    // Show Bottom Sheet Alert for the user to select either static or remote movie list.
+    private func showFavScreenNavigationOptions() {
+        let alertActions = createFavScreenActionSheetActions()
+        let configuration = AlertConfiguration(title: "Choose an Option",
+                                               message: "What would you like to do?",
+                                               actions: alertActions)
+        view?.showActionSheetAlert(with: configuration)
+    }
     
+    private func createFavScreenActionSheetActions() -> [UIAlertAction] {
+        [
+            UIAlertAction(title: "Static Movie List", style: .default) { [weak self] _ in
+                // Handle the selection of static movie list
+                self?.router?.navigateToFavoriteScreen(withStaticData: true)
+            },
+            UIAlertAction(title: "Remote Movie List", style: .default) { [weak self] _ in
+                // Handle the selection of remote movie list
+                self?.router?.navigateToFavoriteScreen(withStaticData: false)
+            },
+            UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ]
+    }
 }

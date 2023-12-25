@@ -57,7 +57,7 @@ final class MovieListViewController: UIViewController {
     
     // MARK: @IBActions
     @IBAction func favButtonHandler(_ sender: UIButton) {
-        // TODO: Handle navigation
+        self.presenter?.didTapFavButton()
     }
 }
 // MARK: - Pull to refresh action
@@ -85,16 +85,19 @@ extension MovieListViewController: MovieListControllerProtocol {
     func setLoadingIndicatorVisible(_ isVisible: Bool) {
         isVisible ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
     }
+    // Show ActionSheet to select loader data type(local, or remote)
+    func showActionSheetAlert(with configuration: AlertConfiguration) {
+        self.showActionSheetAlert(with: configuration, sourceView: favButton)
+    }
 }
 extension MovieListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.presenter?.moviesItemsCount ?? 0
+        return presenter?.moviesItemsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieCell = collectionView.dequeueCell(for: indexPath)
-        // TODO: Config Cell
         let cellItem = self.presenter?.getItem(at: indexPath.row)
         cell.configCell(with: cellItem)
         return cell
@@ -102,15 +105,16 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
     
     // MARK: - UICollectionViewDelegateFlowLayout - Config CollectionViewCell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let cellSize = presenter?.calculateCellSize(collectionView.bounds.width,
-                                                          horizontalMargin: self.horizontalMargin) else {
+        guard let cellSize = presenter?.calculateCellSize(collectionView.bounds.width, 
+                                                          horizontalMargin: horizontalMargin) else {
             return CGSize.zero
         }
         return cellSize
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        // Set the minimum spacing between items in a row
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return .zero
     }
     
@@ -118,6 +122,7 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.navigateToMovieDetails(with: indexPath.item)
     }
+    
     // MARK: - Handle pagination
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let presenter else { return }
@@ -130,6 +135,7 @@ extension MovieListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
 }
+
 // MARK: - Handle Scrolling - toggle Header Contents Visibility depending on user swiping direction
 extension MovieListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

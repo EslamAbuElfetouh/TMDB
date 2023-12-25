@@ -26,15 +26,18 @@ final class MovieListConfigurator {
 }
 // MARK: - Protocols
 // Controller --> Presenter
-protocol MovieListPresenterProtocol: AnyObject {
-    func viewDidLoad()
+protocol MovieListPresentable: AnyObject {
     func calculateCellSize(_ collectionViewWidth: CGFloat,
-                            horizontalMargin: CGFloat) -> CGSize
-    func navigateToMovieDetails(with index: Int)
+                           horizontalMargin: CGFloat) -> CGSize
     var moviesItemsCount: Int { get }
     func getItem(at index: Int) -> MovieListEntity?
+    func navigateToMovieDetails(with index: Int)
+}
+protocol MovieListPresenterProtocol: MovieListPresentable {
+    func viewDidLoad()
     func userReachedEndOfScreen()
     func refreshMovies()
+    func didTapFavButton()
 }
 
 // Presenter --> Controller
@@ -43,6 +46,7 @@ protocol MovieListControllerProtocol: AnyObject {
     func presentError(with message: String)
     func setLoadingIndicatorVisible(_ isVisible: Bool)
     func stopRefreshingIndicator()
+    func showActionSheetAlert(with configuration: AlertConfiguration)
 }
 
 // Presenter --> Interactor
@@ -61,4 +65,5 @@ protocol MovieListInteractorOutput: AnyObject {
 // Presenter --> Router
 protocol MovieListRouterProtocol: AnyObject {
     func navigateToMovieDetails(for movie: MovieDetailsBuilderInput)
+    func navigateToFavoriteScreen(withStaticData isStatic: Bool)
 }

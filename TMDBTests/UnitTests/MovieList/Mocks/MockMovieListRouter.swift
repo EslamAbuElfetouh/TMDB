@@ -15,4 +15,8 @@ final class MockMovieListRouter: MovieListRouterProtocol {
     func navigateToMovieDetails(for movie: MovieDetailsBuilderInput) {
         navigateToMoviesCallsCount += 1
     }
+    
+    func navigateToFavoriteScreen(withStaticData isStatic: Bool) {
+        // Do nothing
+    }
 }

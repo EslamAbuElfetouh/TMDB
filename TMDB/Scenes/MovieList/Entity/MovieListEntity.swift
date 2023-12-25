@@ -8,7 +8,7 @@
 import Foundation
 import UIComponents
 
-final class MovieListEntity {
+class MovieListEntity {
     let id: Int
     let title: String
     let releaseDate: String

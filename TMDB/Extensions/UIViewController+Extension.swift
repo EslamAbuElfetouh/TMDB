@@ -6,10 +6,22 @@
 //
 
 import Foundation
-
 import UIKit
 
-extension UIViewController {
+struct AlertConfiguration {
+    let title: String
+    let message: String
+    let actions: [UIAlertAction]
+}
+
+protocol AlertPopupProtocol {
+    func showAlert(title: String,
+                   message: String,
+                   preferredStyle: UIAlertController.Style,
+                   alertActionTitle: String,
+                   completionHandler: (() -> Void)?)
+}
+extension UIViewController: AlertPopupProtocol {
     func showAlert(title: String = "Error",
                    message: String,
                    preferredStyle: UIAlertController.Style = .alert,
@@ -24,6 +36,23 @@ extension UIViewController {
         }
         
         alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    func showActionSheetAlert(with configuration: AlertConfiguration,
+                              sourceView: UIView?) {
+        let alertController = UIAlertController(title: configuration.title,
+                                                message: configuration.message,
+                                                preferredStyle: .actionSheet)
+        
+        for action in configuration.actions {
+            alertController.addAction(action)
+        }
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = sourceView
+        }
         present(alertController, animated: true, completion: nil)
     }
 }
