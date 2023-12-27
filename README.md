@@ -22,7 +22,7 @@ The app utilizes The Movie Database (TMDB) APIs to fetch movie data and follows 
 
 ### 1. UIComponents
    - **Responsibility:**
-     - Houses reusable UI components.
+     - Has the reusable UI components.
 
 ### 2. NetworkKit
    - **Responsibility:**
