@@ -16,7 +16,7 @@ The app utilizes The Movie Database (TMDB) APIs to fetch movie data and follows 
    - Provides detailed information about a selected movie.
 
 3. **Favourite Screen:**
-   - Currently it contains static data and mirrors the content of the home screen.
+   - Currently it has 2 option of displaying data, first option is to display static data, and the second is showing the first page of Discovery API movies.
 
 ## Submodules
 
