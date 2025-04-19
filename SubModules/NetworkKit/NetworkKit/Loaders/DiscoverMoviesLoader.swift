@@ -20,10 +20,14 @@ public final class DiscoverMoviesLoader: DiscoverMoviesLoaderProtocol, APILoader
     
     public init() { }
     // MARK: Call API Request
-    public func loadMovies(with parameters: DiscoverMovieRequest,
-                           completionHandler: @escaping (APIResult<Entity>) -> Void) {
-        let configuration = APIRequestConfiguration(router: DiscoverAPIRouter.movie,
-                                                    method: .get(parameters: parameters))
+    public func loadMovies(
+        with parameters: DiscoverMovieRequest,
+        completionHandler: @escaping (APIResult<Entity>) -> Void
+    ) {
+        let configuration = APIRequestConfiguration(
+            router: DiscoverAPIRouter.movie,
+            method: .get(parameters: parameters)
+        )
         loadItems(requestConfiguration: configuration, completionHandler: completionHandler)
     }
 }

@@ -8,23 +8,30 @@
 import UIKit
 
 final class MovieDetailsPresenter: NSObject {
-    // MARK: - Properites
+    // MARK: - Properties
+
     private var view: MovieDetailsControllerProtocol?
     private var interactor: MovieDetailsPresenterInteractorProtocol?
     private var router: MovieDetailsRouterProtocol?
     private var movieDetailsInput: MovieDetailsBuilderInput
+
     // MARK: - Init
-    init(view: MovieDetailsControllerProtocol?,
-         interactor: MovieDetailsPresenterInteractorProtocol?,
-         router: MovieDetailsRouterProtocol?,
-         movieDetailsInput: MovieDetailsBuilderInput) {
+
+    init(
+        view: MovieDetailsControllerProtocol?,
+        interactor: MovieDetailsPresenterInteractorProtocol?,
+        router: MovieDetailsRouterProtocol?,
+        movieDetailsInput: MovieDetailsBuilderInput
+    ) {
         self.view = view
         self.interactor = interactor
         self.router = router
         self.movieDetailsInput = movieDetailsInput
     }
 }
-// MARK: Conform to MovieDetailsPresenterProtocol
+
+// MARK: - Conform to MovieDetailsPresenterProtocol
+
 extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
     func viewDidLoad() {
         interactor?.fetchMovieDetails(with: movieDetailsInput.id)
@@ -41,7 +48,9 @@ extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
         self.router?.popViewController()
     }
 }
-// MARK: Conform to MovieDetailsInteractorOutputa
+
+// MARK: - Conform to MovieDetailsInteractorOutputa
+
 extension MovieDetailsPresenter: MovieDetailsInteractorOutput {
     func didFailToFetchMovieDetails(with error: Error) {
         self.view?.presentError(with: error.localizedDescription)

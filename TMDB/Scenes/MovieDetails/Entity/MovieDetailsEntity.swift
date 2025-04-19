@@ -11,22 +11,27 @@ import UIComponents
 typealias MovieDetailsViewComponentsProtocols = PosterViewItemProtocol & MovieInfoViewItemProtocol
 
 final class MovieDetailsEntity {
+    // MARK: - Properties
+
     let id: Int
     let title: String
     let releaseDate: String
     let overview: String
+    let ratings: Double
     private let posterPathSuffix: String
     private let backdropPathSuffix: String
-    let ratings: Double
-    
-    // MARK: Init
-    init(id: Int,
-         title: String,
-         releaseDate: String,
-         overview: String,
-         posterPathSuffix: String,
-         backdropPathSuffix: String,
-         ratings: Double) {
+
+    // MARK: - Init
+
+    init(
+        id: Int,
+        title: String,
+        releaseDate: String,
+        overview: String,
+        posterPathSuffix: String,
+        backdropPathSuffix: String,
+        ratings: Double
+    ) {
         self.id = id
         self.title = title
         self.releaseDate = releaseDate
@@ -36,9 +41,10 @@ final class MovieDetailsEntity {
         self.ratings = ratings
     }
 }
-// MARK: Conform to MovieDetailsViewComponentsProtocols
-extension MovieDetailsEntity: MovieDetailsViewComponentsProtocols {
 
+// MARK: - Conforming to MovieDetailsViewComponentsProtocols
+
+extension MovieDetailsEntity: MovieDetailsViewComponentsProtocols {
     var backdropPath: String {
         ImagePathBuilder.buildImagePath(posterPath: backdropPathSuffix)
     }

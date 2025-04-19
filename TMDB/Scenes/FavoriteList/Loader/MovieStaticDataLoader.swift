@@ -11,15 +11,18 @@ import NetworkKit
 protocol MovieLocalDataLoaderProtocol {
     func loadMovies() -> MovieResponse
 }
+
+/// A static movie loader can be used for demos and testing.
+/// Returns a hardcoded list of sample movies.
 final class MovieStaticDataLoader: MovieLocalDataLoaderProtocol {
-    
     func loadMovies() -> MovieResponse {
-        .init(page: 1, results: createMovies(), totalPages: 1, totalResults: 10)
+        MovieResponse(page: 1, results: createMovies(), totalPages: 1, totalResults: 10)
     }
     
     private func createMovies() -> [Movie] {
         [
-            .init(id: 554600,
+            Movie(
+                id: 554600,
                   title: "Uri: The Surgical Strike",
                   overview: "Following the roguish terrorist attacks at Uri Army Base camp in Kashmir, India takes the fight to the enemy, in its most successful covert operation till date with one and only one objective of avenging their fallen heroes.",
                   releaseDate: "2019-01-11",
@@ -27,7 +30,7 @@ final class MovieStaticDataLoader: MovieLocalDataLoaderProtocol {
                   backdropPath: "/S3EIcOUQYxgd3QzjOo2rZJ2MN8.jpg",
                   voteAverage: 7.2
                  ),
-            .init(
+            Movie(
                 id: 562,
                 title: "Die Hard",
                 overview: "NYPD cop John McClane's plan to reconcile with his estranged wife is thrown for a serious loop when, minutes after he arrives at her office, the entire building is overtaken by a group of terrorists. With little help from the LAPD, wisecracking McClane sets out to single-handedly rescue the hostages and bring the bad guys down.",
@@ -36,7 +39,7 @@ final class MovieStaticDataLoader: MovieLocalDataLoaderProtocol {
                 backdropPath: "/yw55hiqnDOwZiXpkraXu114rmGz.jpg",
                 voteAverage: 7.8
             ),
-            .init(
+            Movie(
                 id: 88096,
                 title: "Prep & Landing: Naughty vs. Nice",
                 overview: "Lanny and Wayne are at it again! With the Big 2-5 fast approaching, Wayne and Lanny must race to recover classified North Pole technology which has fallen into the hands of a computer-hacking Naughty Kid! Desperate to prevent Christmas from descending into chaos, Wayne seeks out the foremost Naughty Kid expert to aid in the mission: a bombastic member of the Coal Bucket Brigade who also happens to be his estranged brother, Noel.",

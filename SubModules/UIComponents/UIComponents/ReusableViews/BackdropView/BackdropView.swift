@@ -12,60 +12,74 @@ public protocol PosterViewItemProtocol {
 }
 
 public class BackdropView: UIView {
-    // MARK: Outlets
+    // MARK: - Outlets
+
     @IBOutlet private weak var backdropImageView: UIImageView!
     @IBOutlet private weak var overlayView: UIView!
-    // MARK: Properites
+
+    // MARK: Properties
+
     private var gradientLayer: CAGradientLayer?
+
     // Content mode property
     var posterContentMode: UIView.ContentMode {
         get { backdropImageView.contentMode }
         set { backdropImageView.contentMode = newValue }
     }
+
     // Dimming level property
     var dimmingLevel: CGFloat {
         get { overlayView.alpha }
         set { overlayView.alpha = min(0.85, max(0.0, newValue)) }
     }
-    
+
     // Overlay color property
     var overlayColor: UIColor {
         get { overlayView.backgroundColor ?? .black }
         set { overlayView.backgroundColor = newValue }
     }
-    
+
     // MARK: - Initializers
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         instantiateNib()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         instantiateNib()
     }
-    // MARK: Layout Subviews
+
+    // MARK: - Layout Subviews
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         // Update the gradient layer's frame to match the bounds of the view
         gradientLayer?.frame = bounds
     }
-    
-    // MARK: Configurations
+
+    // MARK: - Configurations
+
     public func configView(with item: PosterViewItemProtocol) {
         self.backdropImageView.loadImage(with: item.backdropPath)
     }
-    
-    // MARK: Gradient Overlay
+}
+
+// MARK: - Gradient Overlay
+
+extension BackdropView {
     public func applyGradientOverlay(
         colors: [UIColor] = [.lightGray, .black],
         locations: [NSNumber]? = nil,
         startPoint: CGPoint = CGPoint(x: 0.5, y: 0),
         endPoint: CGPoint = CGPoint(x: 0.5, y: 1)
     ) {
-        self.gradientLayer = self.overlayView.addGradientOverlay(colors: colors,
-                                                                 locations: locations,
-                                                                 startPoint: startPoint,
-                                                                 endPoint: endPoint)
+        self.gradientLayer = self.overlayView.addGradientOverlay(
+            colors: colors,
+            locations: locations,
+            startPoint: startPoint,
+            endPoint: endPoint
+        )
     }
 }

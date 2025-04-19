@@ -7,6 +7,4 @@
 
 import Foundation
 
-final class FavoriteListEntity: MovieListEntity {
-    
-}
+final class FavoriteListEntity: MovieListEntity {}

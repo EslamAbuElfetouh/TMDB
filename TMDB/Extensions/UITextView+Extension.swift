@@ -9,9 +9,11 @@ import Foundation
 import UIKit
 
 extension UITextView {
-    func configureText(lineSpacing: CGFloat,
-                       textColor: UIColor,
-                       withTextStyle style: UIFont.TextStyle = .body) {
+    func configureText(
+        lineSpacing: CGFloat,
+        textColor: UIColor,
+        withTextStyle style: UIFont.TextStyle = .body
+    ) {
         guard let text = self.text else { return }
 
         let paragraphStyle = NSMutableParagraphStyle()

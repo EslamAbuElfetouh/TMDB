@@ -9,25 +9,31 @@ import UIKit
 import NetworkKit
 
 final class MovieListInteractor {
-    
-    var presenter: MovieListInteractorOutput?
+    // MARK: Properties
+
     private let moviesLoader: DiscoverMoviesLoaderProtocol
+
     private var currentPage: Int = 1
     private var totalPages: Int = .max 
     private var isFetching: Bool = false
     private var didRequestRefreshList = false
+    var presenter: MovieListInteractorOutput?
+
     // Computed properties
     public var canLoadMore: Bool {
         currentPage <= totalPages
     }
     
-    // MARK: Init
+    // MARK: - Init
+
     init(loader: DiscoverMoviesLoaderProtocol) {
         self.moviesLoader = loader
     }
 }
-extension MovieListInteractor: MovieListPresenterInteractorProtocol {
-    // MARK: - Get Movies List
+
+// MARK: - Get Movies List
+
+extension MovieListInteractor {
     func fetchMoviesList() {
         guard shouldFetchMoviesList else { return }
         
@@ -48,12 +54,18 @@ extension MovieListInteractor: MovieListPresenterInteractorProtocol {
             }
         }
     }
-    
+}
+
+// MARK: - Conforming to `MovieListPresenterInteractorProtocol`
+
+extension MovieListInteractor: MovieListPresenterInteractorProtocol {
     private func mapToEntity(_ model: Movie) -> MovieListEntity {
-        .init(id: model.id ?? .zero,
-              title: model.title ?? "",
-              releaseDate: model.releaseDate ?? "",
-              posterPathSuffix: model.posterPath ?? "")
+        MovieListEntity(
+            id: model.id ?? .zero,
+            title: model.title ?? "",
+            releaseDate: model.releaseDate ?? "",
+            posterPathSuffix: model.posterPath ?? ""
+        )
     }
     
     func refreshMovies() {
@@ -62,7 +74,9 @@ extension MovieListInteractor: MovieListPresenterInteractorProtocol {
         self.fetchMoviesList()
     }
 }
+
 // MARK: - Handle Fetch Movies Result
+
 extension MovieListInteractor {
     private var shouldFetchMoviesList: Bool {
         !isFetching && canLoadMore

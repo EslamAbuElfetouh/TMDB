@@ -13,8 +13,8 @@ struct FavoriteListInput: MovieLoaderOptionProtocol {
 }
 
 final class FavoriteListConfigurator {
-    
-    // MARK: Configuration
+    // MARK: - Configuration
+
     class func viewController(input: FavoriteListInput) -> FavoriteListViewController {
         let view = FavoriteListViewController()
         let loader = createLoader(with: input)
@@ -36,11 +36,14 @@ final class FavoriteListConfigurator {
                                   localDataLoader: localLoader)
     }
 }
+
 // MARK: - Protocols
+
 protocol LoaderIndicatorProtocol: AnyObject {
     func startLoading()
     func stopLoading()
 }
+
 // Controller --> Presenter
 protocol FavoriteListPresenterProtocol: MovieListPresentable {
     func viewDidLoad()
@@ -62,6 +65,7 @@ protocol FavoriteListInteractorOutput: LoaderIndicatorProtocol {
     func didFetchMovies(_ movies: [FavoriteListEntity])
     func showErrorAlert(with message: String)
 }
+
 // Presenter --> Router
 protocol FavoriteListRouterProtocol: AnyObject {
     func popViewController()

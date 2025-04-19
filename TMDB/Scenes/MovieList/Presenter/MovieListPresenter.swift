@@ -8,26 +8,32 @@
 import UIKit
 
 final class MovieListPresenter: NSObject {
-    // MARK: - Properites
+    // MARK: - Properties
+
+    private let movieCellHeightToWidthRatio: CGFloat = 1.47
+    private let loadingDataText = "Loading data..."
+    private let errorPlaceHolderText = "No Data to Present"
+
     private var view: MovieListControllerProtocol?
     private var interactor: MovieListPresenterInteractorProtocol?
     private var router: MovieListRouterProtocol?
-    
-    private let movieCellHeightToWidthRatio: CGFloat = 1.47
-    
     private var movies = [MovieListEntity]()
-    private let loadingDataText = "Loading data..."
-    private let errorPlaceHolderText = "No Data to Present"
+
     // MARK: - Init
-    init(view: MovieListControllerProtocol?,
-         interactor: MovieListPresenterInteractorProtocol?,
-         router: MovieListRouterProtocol?) {
+
+    init(
+        view: MovieListControllerProtocol?,
+        interactor: MovieListPresenterInteractorProtocol?,
+        router: MovieListRouterProtocol?
+    ) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 }
-// MARK: Conform to MovieListPresenterProtocol
+
+// MARK: - Conform to MovieListPresenterProtocol
+
 extension MovieListPresenter: MovieListPresenterProtocol {
     func getItem(at index: Int) -> MovieListEntity? {
         self.movies[safe: index]
@@ -57,6 +63,7 @@ extension MovieListPresenter: MovieListPresenterProtocol {
         guard let selectedMovie = self.movies[safe: index] else { return }
         self.router?.navigateToMovieDetails(for: selectedMovie)
     }
+
     /// To notify the interactor to fetch more data
     func userReachedEndOfScreen() {
         interactor?.fetchMoviesList()
@@ -85,7 +92,9 @@ extension MovieListPresenter: MovieListPresenterProtocol {
         self.showFavScreenNavigationOptions()
     }
 }
-// MARK: Conform to MovieListInteractorOutputa
+
+// MARK: - Conform to MovieListInteractorOutput
+
 extension MovieListPresenter: MovieListInteractorOutput {
     func didFetchMovies(_ movies: [MovieListEntity], isFirstPage: Bool) {
         defer {
@@ -108,14 +117,18 @@ extension MovieListPresenter: MovieListInteractorOutput {
         self.handleShowingEmptyListPlaceHolder(with: errorPlaceHolderText)
     }
 }
+
 // MARK: - Helper - Handle Favorite button action
+
 extension MovieListPresenter {
     // Show Bottom Sheet Alert for the user to select either static or remote movie list.
     private func showFavScreenNavigationOptions() {
         let alertActions = createFavScreenActionSheetActions()
-        let configuration = AlertConfiguration(title: "Choose an Option",
-                                               message: "What would you like to do?",
-                                               actions: alertActions)
+        let configuration = AlertConfiguration(
+            title: "Choose an Option",
+            message: "What would you like to do?",
+            actions: alertActions
+        )
         view?.showActionSheetAlert(with: configuration)
     }
     

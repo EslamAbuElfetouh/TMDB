@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 // MARK: Setup and load Nibs related extensions
+
 extension UIView {
     /// **Load nib from bundle**
     /// ```
@@ -76,7 +77,9 @@ extension UIView {
         heightConstraint.isActive = true
     }
 }
-// MARK: UI Related Extensions
+
+// MARK: - UI Related Extensions
+
 extension UIView {
     func addGradientOverlay(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: CGPoint = CGPoint(x: 0.5, y: 0), endPoint: CGPoint = CGPoint(x: 0.5, y: 1)) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()

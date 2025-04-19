@@ -15,21 +15,30 @@ struct AlertConfiguration {
 }
 
 protocol AlertPopupProtocol {
-    func showAlert(title: String,
-                   message: String,
-                   preferredStyle: UIAlertController.Style,
-                   alertActionTitle: String,
-                   completionHandler: (() -> Void)?)
+    func showAlert(
+        title: String,
+        message: String,
+        preferredStyle: UIAlertController.Style,
+        alertActionTitle: String,
+        completionHandler: (() -> Void)?
+    )
 }
+
+// MARK: - UIViewController Extensions
+
 extension UIViewController: AlertPopupProtocol {
-    func showAlert(title: String = "Error",
-                   message: String,
-                   preferredStyle: UIAlertController.Style = .alert,
-                   alertActionTitle: String = "OK",
-                   completionHandler: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: preferredStyle)
+    func showAlert(
+        title: String = "Error",
+        message: String,
+        preferredStyle: UIAlertController.Style = .alert,
+        alertActionTitle: String = "OK",
+        completionHandler: (() -> Void)? = nil
+    ) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: preferredStyle
+        )
         
         let okAction = UIAlertAction(title: alertActionTitle, style: .default) { _ in
             completionHandler?()
@@ -40,12 +49,18 @@ extension UIViewController: AlertPopupProtocol {
     }
 }
 
+// MARK: - showActionSheetAlert
+
 extension UIViewController {
-    func showActionSheetAlert(with configuration: AlertConfiguration,
-                              sourceView: UIView?) {
-        let alertController = UIAlertController(title: configuration.title,
-                                                message: configuration.message,
-                                                preferredStyle: .actionSheet)
+    func showActionSheetAlert(
+        with configuration: AlertConfiguration,
+        sourceView: UIView?
+    ) {
+        let alertController = UIAlertController(
+            title: configuration.title,
+            message: configuration.message,
+            preferredStyle: .actionSheet
+        )
         
         for action in configuration.actions {
             alertController.addAction(action)

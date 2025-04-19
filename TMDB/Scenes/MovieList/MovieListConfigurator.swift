@@ -10,7 +10,8 @@ import NetworkKit
 
 final class MovieListConfigurator {
     
-    // MARK: Configuration
+    // MARK: - Configuration
+
     class func viewController() -> MovieListViewController {
         let view = MovieListViewController()
         let loader = DiscoverMoviesLoader()
@@ -24,7 +25,9 @@ final class MovieListConfigurator {
         return view
     }
 }
+
 // MARK: - Protocols
+
 // Controller --> Presenter
 protocol MovieListPresentable: AnyObject {
     func calculateCellSize(_ collectionViewWidth: CGFloat,
@@ -33,6 +36,7 @@ protocol MovieListPresentable: AnyObject {
     func getItem(at index: Int) -> MovieListEntity?
     func navigateToMovieDetails(with index: Int)
 }
+
 protocol MovieListPresenterProtocol: MovieListPresentable {
     func viewDidLoad()
     func userReachedEndOfScreen()

@@ -9,9 +9,10 @@ import Foundation
 @testable import TMDB
 
 final class MockMovieListRouter: MovieListRouterProtocol {
-    // MARK: Properties
+    // MARK: - Properties
+
     var navigateToMoviesCallsCount = 0
-    
+
     func navigateToMovieDetails(for movie: MovieDetailsBuilderInput) {
         navigateToMoviesCallsCount += 1
     }

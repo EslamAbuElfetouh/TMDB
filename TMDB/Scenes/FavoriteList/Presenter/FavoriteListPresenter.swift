@@ -8,31 +8,41 @@
 import UIKit
 
 final class FavoriteListPresenter: NSObject {
-    // MARK: - Properites
+    // MARK: - Properties
+
+    private let movieCellHeightToWidthRatio: CGFloat = 1.47
+
     private var view: FavoriteListControllerProtocol?
     private var interactor: FavoriteListPresenterInteractorProtocol?
     private var router: FavoriteListRouterProtocol?
-    
-    private let movieCellHeightToWidthRatio: CGFloat = 1.47
     private var movies = [FavoriteListEntity]()
     
     // MARK: - Init
-    init(view: FavoriteListControllerProtocol?,
-         interactor: FavoriteListPresenterInteractorProtocol?,
-         router: FavoriteListRouterProtocol?) {
+
+    init(
+        view: FavoriteListControllerProtocol?,
+        interactor: FavoriteListPresenterInteractorProtocol?,
+        router: FavoriteListRouterProtocol?
+    ) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 }
-// MARK: Conform to FavoriteListPresenterProtocol
+
+// MARK: Conforming to FavoriteListPresenterProtocol
+
 extension FavoriteListPresenter: FavoriteListPresenterProtocol {
-    func calculateCellSize(_ collectionViewWidth: CGFloat,
-                           horizontalMargin: CGFloat) -> CGSize {
-        return CellSizeCalculator.calculateCellSize(collectionViewWidth: collectionViewWidth,
-                                                    horizontalMargin: horizontalMargin,
-                                                    itemsPerRow: 2,
-                                                    cellHeightToWidthRatio: movieCellHeightToWidthRatio)
+    func calculateCellSize(
+        _ collectionViewWidth: CGFloat,
+        horizontalMargin: CGFloat
+    ) -> CGSize {
+        CellSizeCalculator.calculateCellSize(
+            collectionViewWidth: collectionViewWidth,
+            horizontalMargin: horizontalMargin,
+            itemsPerRow: 2,
+            cellHeightToWidthRatio: movieCellHeightToWidthRatio
+        )
     }
     
     var moviesItemsCount: Int {
@@ -56,7 +66,9 @@ extension FavoriteListPresenter: FavoriteListPresenterProtocol {
         self.router?.popViewController()
     }
 }
-// MARK: Conform to FavoriteListInteractorOutputa
+
+// MARK: - Conform to FavoriteListInteractorOutput
+
 extension FavoriteListPresenter: FavoriteListInteractorOutput {
     func didFetchMovies(_ movies: [FavoriteListEntity]) {
         self.movies = movies
@@ -64,11 +76,13 @@ extension FavoriteListPresenter: FavoriteListInteractorOutput {
     }
     
     func showErrorAlert(with message: String) {
-        view?.showAlert(title: "Error",
-                        message: message,
-                        preferredStyle: .alert,
-                        alertActionTitle: "Ok",
-                        completionHandler: .none)
+        view?.showAlert(
+            title: "Error",
+            message: message,
+            preferredStyle: .alert,
+            alertActionTitle: "Ok",
+            completionHandler: .none
+        )
     }
     
     func startLoading() {

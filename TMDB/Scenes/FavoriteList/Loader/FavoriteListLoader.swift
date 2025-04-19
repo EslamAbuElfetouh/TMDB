@@ -11,18 +11,23 @@ import NetworkKit
 protocol MovieLoaderOptionProtocol {
     var usesStaticData: Bool { get }
 }
+
 protocol FavoriteListLoaderProtocol {
     func loadMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void)
 }
+
+// MARK: - FavoriteListLoader
 
 final class FavoriteListLoader: FavoriteListLoaderProtocol {
     private let loaderOption: MovieLoaderOptionProtocol
     private let remoteLoader: DiscoverMoviesLoaderProtocol
     private let localDataLoader: MovieLocalDataLoaderProtocol
     
-    init(loaderOption: MovieLoaderOptionProtocol,
-         remoteLoader: DiscoverMoviesLoaderProtocol,
-         localDataLoader: MovieLocalDataLoaderProtocol) {
+    init(
+        loaderOption: MovieLoaderOptionProtocol,
+        remoteLoader: DiscoverMoviesLoaderProtocol,
+        localDataLoader: MovieLocalDataLoaderProtocol
+    ) {
         self.loaderOption = loaderOption
         self.remoteLoader = remoteLoader
         self.localDataLoader = localDataLoader
@@ -37,8 +42,10 @@ final class FavoriteListLoader: FavoriteListLoaderProtocol {
     }
     
     private func loadUsingRemoteLoader(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
-        remoteLoader.loadMovies(with: .init(page: 1),
-                                completionHandler: completionHandler)
+        remoteLoader.loadMovies(
+            with: DiscoverMovieRequest(page: 1),
+            completionHandler: completionHandler
+        )
     }
     
     private func loadUsingLocalLoader() -> MovieResponse {

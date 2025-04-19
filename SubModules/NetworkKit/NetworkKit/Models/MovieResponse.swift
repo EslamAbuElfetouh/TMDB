@@ -13,10 +13,12 @@ public struct MovieResponse: Codable {
     public let totalPages: Int?
     public let totalResults: Int?
     
-    public init(page: Int? = nil,
-                results: [Movie]? = nil,
-                totalPages: Int? = nil,
-                totalResults: Int? = nil) {
+    public init(
+        page: Int? = nil,
+        results: [Movie]? = nil,
+        totalPages: Int? = nil,
+        totalResults: Int? = nil
+    ) {
         self.page = page
         self.results = results
         self.totalPages = totalPages

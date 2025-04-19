@@ -7,17 +7,23 @@
 
 import UIKit
 import NetworkKit
+
 class MovieDetailsInteractor {
-    // MARK: Properites
-    var presenter: MovieDetailsInteractorOutput?
+    // MARK: - Properties
+
     private let movieDetailsLoader: MovieDetailsLoaderProtocol
-    // MARK: Init
+    var presenter: MovieDetailsInteractorOutput?
+
+    // MARK: - Init
+
     init(movieDetailsLoader loader: MovieDetailsLoaderProtocol) {
         self.movieDetailsLoader = loader
     }
 }
+
 extension MovieDetailsInteractor: MovieDetailsPresenterInteractorProtocol {
-    // MARK: API call - Fetch Movie Details
+    // MARK: - API call - Fetch Movie Details
+
     func fetchMovieDetails(with id: Int) {
         self.presenter?.startLoading()
         movieDetailsLoader.loadMovieDetails(with: id) { [weak self] result in
@@ -28,7 +34,9 @@ extension MovieDetailsInteractor: MovieDetailsPresenterInteractorProtocol {
             }
         }
     }
+
     // MARK: - Handle API response
+
     private func handleFetchedResult(_ result: Result<Movie, Error>) {
         switch result {
         case .success(let movieResponse):
@@ -44,18 +52,22 @@ extension MovieDetailsInteractor: MovieDetailsPresenterInteractorProtocol {
     }
     
     private func handleFailedFetch(_ error: Error) {
-        
+        #warning("TODO: Handle displaying error alert")
     }
-    
-    // Helpers
+}
+
+// MARK: - Helpers
+
+extension MovieDetailsInteractor {
     private func mapToEntity(_ movie: Movie) -> MovieDetailsEntity {
-        .init(id: movie.id ?? .zero,
-              title: movie.title ?? "",
-              releaseDate: movie.releaseDate ?? "",
-              overview: movie.overview ?? "",
-              posterPathSuffix: movie.posterPath ?? "",
-              backdropPathSuffix: movie.backdropPath ?? "",
-              ratings: movie.voteAverage ?? .zero)
+        .init(
+            id: movie.id ?? .zero,
+            title: movie.title ?? "",
+            releaseDate: movie.releaseDate ?? "",
+            overview: movie.overview ?? "",
+            posterPathSuffix: movie.posterPath ?? "",
+            backdropPathSuffix: movie.backdropPath ?? "",
+            ratings: movie.voteAverage ?? .zero
+        )
     }
-    
 }

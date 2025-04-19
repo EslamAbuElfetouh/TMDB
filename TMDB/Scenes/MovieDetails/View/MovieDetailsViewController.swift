@@ -9,14 +9,19 @@ import UIKit
 import UIComponents
 
 class MovieDetailsViewController: UIViewController {
-    // MARK: Outlets
+    // MARK: - Outlets
+
     @IBOutlet private weak var backdropView: BackdropView!
     @IBOutlet private weak var movieInfoView: MovieInfoView!
     @IBOutlet private weak var summaryTextView: UITextView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
-    // MARK: Properties
+
+    // MARK: - Properties
+
     var presenter: MovieDetailsPresenterProtocol?
-    // MARK: Lifecycle
+
+    // MARK: - View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
@@ -24,21 +29,29 @@ class MovieDetailsViewController: UIViewController {
         configPosterView()
         configTextViewAppearance()
     }
-        // MARK: - Configurations
+
+    // MARK: - Configurations
+
     private func configPosterView() {
         self.backdropView.applyGradientOverlay()
     }
-    
+
     private func configTextViewAppearance() {
         summaryTextView.configureText(lineSpacing: 12,
                                       textColor: .white,
                                       withTextStyle: .body)
     }
-    // MARK: @IBActions
-    @IBAction func backButtonHandler(_ sender: UIButton) {
+}
+
+// MARK: - IBActions
+
+extension MovieDetailsViewController {
+    @IBAction private func backButtonHandler(_ sender: UIButton) {
         self.presenter?.popViewController()
     }
 }
+
+// MARK: - Conforming to `MovieDetailsControllerProtocol`
 
 extension MovieDetailsViewController: MovieDetailsControllerProtocol {
     
@@ -60,7 +73,8 @@ extension MovieDetailsViewController: MovieDetailsControllerProtocol {
         }
     }
     
-    // MARK: Handle loadingIndicator state
+    // MARK: - Handle loadingIndicator state
+
     func startLoading() {
         self.loadingIndicator.startAnimating()
     }

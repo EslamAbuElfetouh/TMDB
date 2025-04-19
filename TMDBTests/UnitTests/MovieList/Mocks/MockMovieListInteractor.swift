@@ -9,10 +9,13 @@ import Foundation
 @testable import TMDB
 
 class MockMovieListInteractor: MovieListPresenterInteractorProtocol {
-    // MARK: Properties
+    // MARK: - Properties
+
     var fetchMoviesCallsCount = 0
     var refreshMoviesCallCount = 0
-    // MARK: Methods
+
+    // MARK: - Methods
+
     func fetchMoviesList() {
         fetchMoviesCallsCount += 1
     }

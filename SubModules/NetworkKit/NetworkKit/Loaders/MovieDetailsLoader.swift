@@ -19,7 +19,9 @@ public final class MovieDetailsLoader: MovieDetailsLoaderProtocol, APILoaderProt
     public typealias Entity = Movie
     
     public init() { }
-    // MARK: Call API Request
+
+    // MARK: - Call API Request
+
     public func loadMovieDetails(with id: Int, completionHandler: @escaping (APIResult<Entity>) -> Void) {
         let configuration = APIRequestConfiguration(router: MoviesDetailsAPIRouter.movie(id: id),
                                                     method: .get())

@@ -12,7 +12,8 @@ import Foundation
 typealias MockMovieListPresenterProtocol = MovieListInteractorOutput & MovieListPresenterProtocol
 
 final class MockMovieListPresenter {
-    // MARK: Properties
+    // MARK: - Properties
+
     // MovieListPresenterProtocol (View) Properties
     var viewDidLoadCallsCount = 0
     var navigateToMovieDetailsCallCount = 0
@@ -34,10 +35,10 @@ final class MockMovieListPresenter {
     /// A closure to be executed when certain operations, such as fetching Mock data, are completed.
     var didFinish: (() -> Void)?
 }
-// MARK: - MovieListPresenterProtocol (Interactor)
-extension MockMovieListPresenter: MovieListInteractorOutput {
-    // MARK: Interactor Output methods
 
+// MARK: - MovieListPresenterProtocol (Interactor) / Interactor Output methods
+
+extension MockMovieListPresenter: MovieListInteractorOutput {
     // Handles the case when movies are successfully fetched
     func didFetchMovies(_ movies: [TMDB.MovieListEntity], isFirstPage: Bool) {
         fetchedMovies = movies
@@ -64,10 +65,9 @@ extension MockMovieListPresenter: MovieListInteractorOutput {
     }
 }
 
-// MARK: - MovieListPresenterProtocol (View)
-extension MockMovieListPresenter: MovieListPresenterProtocol {
-    // MARK: View methods
+// MARK: - MovieListPresenterProtocol (View) / View methods
 
+extension MockMovieListPresenter: MovieListPresenterProtocol {
     // Verifies that the `viewDidLoad` method is called
     func viewDidLoad() {
         self.viewDidLoadCallsCount += 1

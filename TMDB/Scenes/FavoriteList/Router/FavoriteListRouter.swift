@@ -8,14 +8,19 @@
 import UIKit
 
 class FavoriteListRouter {
+    // MARK: - Properties
+
     weak var viewController: FavoriteListViewController?
 
     // MARK: - Init
+
     init(viewController: FavoriteListViewController) {
         self.viewController = viewController
     }
 }
+
 // MARK: Conforming to FavoriteListRouterProtocol
+
 extension FavoriteListRouter: FavoriteListRouterProtocol {
     func popViewController() {
         self.viewController?.navigationController?.popViewController(animated: true)

@@ -10,7 +10,8 @@ import NetworkKit
 @testable import TMDB
 
 final class MockDiscoverMoviesLoader: DiscoverMoviesLoaderProtocol {
-  // MARK: Properites
+  // MARK: Properties
+
     var loadMoviesCallsCount = 0
     var expectedResult: Result<MovieResponse, Error>?
     

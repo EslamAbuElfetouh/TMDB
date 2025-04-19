@@ -11,11 +11,14 @@ class MovieListRouter {
     weak var viewController: MovieListViewController?
 
     // MARK: - Init
+
     init(viewController: MovieListViewController) {
         self.viewController = viewController
     }
 }
-// MARK: Conforming to MovieListRouterProtocol
+
+// MARK: - Conforming to MovieListRouterProtocol
+
 extension MovieListRouter: MovieListRouterProtocol {
     func navigateToMovieDetails(for movie: MovieDetailsBuilderInput) {
         let vc = MovieDetailsConfigurator.viewController(input: .init(id: movie.id))

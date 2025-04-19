@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +15,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListViewController" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="yP4-TX-IeB" id="Tmh-EI-gSQ"/>
-                <outlet property="movieCollectioView" destination="lbV-Rd-Cyt" id="UXc-rH-UJQ"/>
+                <outlet property="movieCollectionView" destination="lbV-Rd-Cyt" id="UXc-rH-UJQ"/>
                 <outlet property="view" destination="hZq-yd-6tc" id="5uP-v9-e4g"/>
             </connections>
         </placeholder>
@@ -69,7 +68,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPx-sq-I3W">
-                                            <rect key="frame" x="157.33333333333337" y="13" width="75.333333333333314" height="19"/>
+                                            <rect key="frame" x="157.33333333333334" y="13" width="75.333333333333343" height="19"/>
                                             <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="17"/>
                                             <color key="textColor" red="0.99607855079999996" green="0.99607855079999996" blue="0.99607843159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -104,7 +103,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yP4-TX-IeB">
-                            <rect key="frame" x="176.66666666666663" y="449.66666666666669" width="37" height="37"/>
+                            <rect key="frame" x="176.66666666666666" y="449.66666666666669" width="37" height="37"/>
                             <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
                     </subviews>

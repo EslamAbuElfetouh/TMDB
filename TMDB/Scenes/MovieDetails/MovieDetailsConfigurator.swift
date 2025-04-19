@@ -12,28 +12,33 @@ import UIComponents
 protocol MovieDetailsBuilderInput {
     var id: Int { get }
 }
+
 struct MovieDetailsInput: MovieDetailsBuilderInput {
     let id: Int
 }
 
+// MARK: - Configuration
+
 final class MovieDetailsConfigurator {
-    
-    // MARK: Configuration
     class func viewController(input: MovieDetailsInput) -> MovieDetailsViewController {
         let view = MovieDetailsViewController()
         let loader: MovieDetailsLoaderProtocol = MovieDetailsLoader()
         let interactor = MovieDetailsInteractor(movieDetailsLoader: loader)
         let router = MovieDetailsRouter(viewController: view)
-        let presenter = MovieDetailsPresenter(view: view,
-                                              interactor: interactor,
-                                              router: router,
-                                              movieDetailsInput: input)
+        let presenter = MovieDetailsPresenter(
+            view: view,
+            interactor: interactor,
+            router: router,
+            movieDetailsInput: input
+        )
         view.presenter = presenter
         interactor.presenter = presenter
         return view
     }
 }
+
 // MARK: - Protocols
+
 // Controller --> Presenter
 protocol MovieDetailsPresenterProtocol: AnyObject {
     func viewDidLoad()
@@ -58,6 +63,7 @@ protocol MovieDetailsInteractorOutput: LoaderIndicatorProtocol {
     func didFetchMovieDetails(_ movie: MovieDetailsEntity)
     func didFailToFetchMovieDetails(with error: Error)
 }
+
 // Presenter --> Router
 protocol MovieDetailsRouterProtocol: AnyObject {
     func popViewController()

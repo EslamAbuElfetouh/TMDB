@@ -11,11 +11,14 @@ class MovieDetailsRouter {
     weak var viewController: MovieDetailsViewController?
 
     // MARK: - Init
+
     init(viewController: MovieDetailsViewController) {
         self.viewController = viewController
     }
 }
-// MARK: Conforming to MovieDetailsRouterProtocol
+
+// MARK: - Conforming to MovieDetailsRouterProtocol
+
 extension MovieDetailsRouter: MovieDetailsRouterProtocol {
     func popViewController() {
         self.viewController?.navigationController?.popViewController(animated: true)

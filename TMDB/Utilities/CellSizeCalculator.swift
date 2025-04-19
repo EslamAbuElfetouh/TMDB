@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 final class CellSizeCalculator {
-    static func calculateCellSize(collectionViewWidth: CGFloat,
-                                  horizontalMargin: CGFloat,
-                                  itemsPerRow: CGFloat,
-                                  cellHeightToWidthRatio: CGFloat) -> CGSize {
+    static func calculateCellSize(
+        collectionViewWidth: CGFloat,
+        horizontalMargin: CGFloat,
+        itemsPerRow: CGFloat,
+        cellHeightToWidthRatio: CGFloat
+    ) -> CGSize {
         let spacingBetweenCells: CGFloat = horizontalMargin * 2
         let leftAndRightMargins = horizontalMargin * 2
         

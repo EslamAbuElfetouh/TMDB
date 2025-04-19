@@ -9,14 +9,20 @@ import UIKit
 import NetworkKit
 
 class FavoriteListInteractor {
-    
+    // MARK: - Properties
+
     var presenter: FavoriteListInteractorOutput?
     private let movieLoader: FavoriteListLoaderProtocol
-    
+
+    // MARK: - Init
+
     init(loader: FavoriteListLoaderProtocol) {
         self.movieLoader = loader
     }
 }
+
+// MARK: - Conforming to FavoriteListPresenterInteractorProtocol
+
 extension FavoriteListInteractor: FavoriteListPresenterInteractorProtocol {
     func fetchMoviesList() {
         presenter?.startLoading()
@@ -26,7 +32,11 @@ extension FavoriteListInteractor: FavoriteListPresenterInteractorProtocol {
             }
         }
     }
-    
+}
+
+// MARK: - API Handling
+
+extension FavoriteListInteractor {
     private func handleFetchedResult(_ result: Result<MovieResponse, Error>) {
         defer {
             presenter?.stopLoading()
@@ -41,9 +51,11 @@ extension FavoriteListInteractor: FavoriteListPresenterInteractorProtocol {
     }
     
     private func mapToEntity(_ model: Movie) -> FavoriteListEntity {
-        .init(id: model.id ?? .zero,
-              title: model.title ?? "",
-              releaseDate: model.releaseDate ?? "",
-              posterPathSuffix: model.posterPath ?? "")
+        FavoriteListEntity(
+            id: model.id ?? .zero,
+            title: model.title ?? "",
+            releaseDate: model.releaseDate ?? "",
+            posterPathSuffix: model.posterPath ?? ""
+        )
     }
 }

@@ -14,13 +14,17 @@ public struct DiscoverMovieRequest: Encodable {
     let includeAdult: Bool?
     let includeVideo: Bool?
     let year: Int?
-    
-    public init(page: Int,
-                sortBy: DiscoverMovieRequest.SortBy? = nil,
-                certification: DiscoverMovieRequest.Certification? = nil,
-                includeAdult: Bool? = false,
-                includeVideo: Bool? = nil,
-                year: Int? = nil) {
+
+    // MARK: - init
+
+    public init(
+        page: Int,
+        sortBy: DiscoverMovieRequest.SortBy? = nil,
+        certification: DiscoverMovieRequest.Certification? = nil,
+        includeAdult: Bool? = false,
+        includeVideo: Bool? = nil,
+        year: Int? = nil
+    ) {
         self.page = page
         self.sortBy = sortBy
         self.certification = certification
@@ -28,6 +32,8 @@ public struct DiscoverMovieRequest: Encodable {
         self.includeVideo = includeVideo
         self.year = year
     }
+
+    // MARK: - CodingKeys
     
     // CodingKeys for customization
     enum CodingKeys: String, CodingKey {
@@ -39,6 +45,7 @@ public struct DiscoverMovieRequest: Encodable {
         case year
     }
 }
+
 // Enums for known constant values
 public extension DiscoverMovieRequest {
     enum SortBy: String, Encodable {

@@ -10,17 +10,19 @@ import UIKit
 @testable import TMDB
 
 class MockMovieListView: MovieListControllerProtocol {
-    // MARK: Properties
+    // MARK: - Properties
+
     var updateMoviesCallsCount = 0
     var reloadCollectionViewCallsCount = 0
     var presentErrorCallsCount = 0
     var setLoadingIndicatorVisibleCallsCount = 0
     var loadingIndicatorIsVisible: Bool?
     var stopRefreshingIndicatorCallsCount = 0
-    // Expected Properites values
+    // Expected properties values
     var errorMessage = String()
 
-    // MARK: Methods
+    // MARK: - Methods
+
     func updateMovies() {
         updateMoviesCallsCount += 1
     }

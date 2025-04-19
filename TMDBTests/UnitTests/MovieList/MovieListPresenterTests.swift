@@ -9,8 +9,8 @@ import XCTest
 @testable import TMDB
 
 final class MovieListPresenterTests: XCTestCase {
-    
-    // MARK: Factory Methods
+    // MARK: - Factory Methods
+
     /// Creates the system under test (SUT) for MovieListPresenter.
     /// - Returns: MovieListPresenter instance with mock dependencies for testing.
     func createSystemUnderTest(view: MovieListControllerProtocol,

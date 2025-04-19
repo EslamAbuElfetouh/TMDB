@@ -15,17 +15,22 @@ class MovieListEntity {
     private let posterPathSuffix: String
         
     // MARK: Init
-    init(id: Int,
-         title: String,
-         releaseDate: String,
-         posterPathSuffix: String) {
+
+    init(
+        id: Int,
+        title: String,
+        releaseDate: String,
+        posterPathSuffix: String
+    ) {
         self.id = id
         self.title = title
         self.releaseDate = releaseDate
         self.posterPathSuffix = posterPathSuffix
     }
 }
-// MARK: Conform to MovieCellItemProtocol to Display Cell Details
+
+// MARK: - Conform to MovieCellItemProtocol to Display Cell Details
+
 extension MovieListEntity: MovieCellItemProtocol {
     var posterPath: String {
         ImagePathBuilder.buildImagePath(posterPath: posterPathSuffix)
@@ -35,6 +40,7 @@ extension MovieListEntity: MovieCellItemProtocol {
         releaseDate
     }
 }
-// MARK: Conform to MovieDetailsBuilderInput to pass data to MovieDetails 
-extension MovieListEntity: MovieDetailsBuilderInput {
-}
+
+// MARK: - Conform to MovieDetailsBuilderInput to pass data to MovieDetails
+
+extension MovieListEntity: MovieDetailsBuilderInput {}

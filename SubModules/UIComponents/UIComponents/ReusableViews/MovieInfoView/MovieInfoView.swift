@@ -8,7 +8,8 @@
 import UIKit
 
 public final class MovieInfoView: UIView {
-   // MARK: Outlets
+   // MARK: - Outlets
+
     @IBOutlet private weak var movieImageView: UIImageView!
     @IBOutlet private weak var movieTitleLabel: UILabel!
     @IBOutlet private weak var movieSubtitleLabel: UILabel!
@@ -16,6 +17,7 @@ public final class MovieInfoView: UIView {
     @IBOutlet private weak var movieRatingLabel: UILabel!
 
     // MARK: Additional Configurable Properties
+
     public var titleFont: UIFont? {
         didSet {
             movieTitleLabel.font = titleFont
@@ -59,6 +61,7 @@ public final class MovieInfoView: UIView {
     }
     
     // MARK: - Initializers
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         instantiateNib()
@@ -68,7 +71,9 @@ public final class MovieInfoView: UIView {
         super.init(coder: aDecoder)
         instantiateNib()
     }
-    // MARK: Configurations
+
+    // MARK: - Configurations
+    
     public func configView(with item: MovieInfoViewItemProtocol) {
         self.movieImageView.loadImage(with: item.posterPath)
         self.movieTitleLabel.text = item.title
